@@ -23,6 +23,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/scss/application.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -60,5 +61,9 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+
+  router: {
+    mode: 'hash'
   }
 }

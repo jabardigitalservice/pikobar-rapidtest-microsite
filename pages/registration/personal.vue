@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-6">
     <p>
-      Silahkan isi kelengkapan data calon peserta test.
+      Silahkan isi kelengkapan data calon peserta test COVID-19.
     </p>
 
     <div class="mt-6">

@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-6">
     <p>
-      Masukkan Nomor Induk Kependudukan (NIK) calon peserta test COVID-19.
+      Masukkan Nomor Induk Kependudukan (NIK).
     </p>
 
     <div class="mt-6">
@@ -12,7 +12,7 @@
 
     <div class="mt-12">
       <nuxt-link to="/registration/personal" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
-        Lanjutkan
+        Lihat Status Pendaftaran
       </nuxt-link>
       <nuxt-link to="/terms-conditions" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
         Kembali
@@ -23,6 +23,8 @@
 
 <script>
 export default {
-  //
+  components: {
+    //
+  }
 }
 </script>

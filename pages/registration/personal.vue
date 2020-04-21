@@ -14,7 +14,7 @@
     <div class="mt-4">
       <label class="block text-sm font-medium leading-5 text-gray-700">Alamat Domisili</label>
       <div class="mt-1 relative rounded-md shadow-sm">
-        <textarea class="form-input block w-full"></textarea>
+        <textarea class="form-input block w-full" />
       </div>
     </div>
 
@@ -33,7 +33,6 @@
         Kembali
       </nuxt-link>
     </div>
-
   </div>
 </template>
 

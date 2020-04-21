@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-6">
     <h2 class="text-xl text-gray-900 text-center">
-      Data Tempat Tinggal Sekarang
+      Informasi Tempat Tinggal Sekarang
     </h2>
 
     <p class="mt-4 text-sm">

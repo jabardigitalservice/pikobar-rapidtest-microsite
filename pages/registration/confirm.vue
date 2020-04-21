@@ -5,7 +5,11 @@
     </h2>
 
     <p class="mt-4 text-sm">
-      Silahkan cek kembali kelengkapan data calon peserta test COVID-19. Klik <strong>Kirim</strong> untuk menyelesaikan proses pendaftaran Anda.
+      Silahkan periksa kembali kelengkapan data calon peserta test COVID-19.
+    </p>
+
+    <p class="mt-4 text-sm">
+      Klik tombol <strong>Kirim</strong> untuk menyelesaikan proses pendaftaran Anda.
     </p>
 
     <div class="mt-12">

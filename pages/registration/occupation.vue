@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-6">
     <h2 class="text-xl text-gray-900 text-center">
-      Data Pekerjaan
+      Informasi Pekerjaan
     </h2>
 
     <p class="mt-4 text-sm">
@@ -11,7 +11,32 @@
     <div class="mt-6">
       <label class="block text-sm font-medium leading-5 text-gray-700">Jenis Pekerjaan</label>
       <div class="mt-1 relative rounded-md shadow-sm">
-        <input type="text" class="form-input block w-full">
+        <select class="form-input block w-full">
+          <option value="">
+            Pilih Salah Satu...
+          </option>
+          <option value="7">
+            Petugas Pelayanan Publik (Kasir/Customer Service Bank, Petugas Keamanan, Loket Layanan Publik)
+          </option>
+          <option value="8">
+            Petugas Transportasi (Terminal, Airport, Stasiun, Ojol)
+          </option>
+          <option value="9">
+            Petugas Kebersihan
+          </option>
+          <option value="10">
+            Wartawan
+          </option>
+          <option value="11">
+            Pedagang Pasar
+          </option>
+          <option value="12">
+            Pemuka Agama
+          </option>
+          <option value="13">
+            Lainnya
+          </option>
+        </select>
       </div>
     </div>
 

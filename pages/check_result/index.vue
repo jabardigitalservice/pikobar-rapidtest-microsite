@@ -1,11 +1,11 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-extrabold text-gray-900">
+    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
       Lihat Hasil Test
     </h2>
 
     <div class="mt-4">
-      <label class="block text-sm font-medium leading-5 text-gray-700">NIK</label>
+      <label class="block text-sm font-medium leading-5 text-gray-700">Tanggal Lahir</label>
       <div class="mt-1 relative rounded-md shadow-sm">
         <input type="text" class="form-input block w-full">
       </div>

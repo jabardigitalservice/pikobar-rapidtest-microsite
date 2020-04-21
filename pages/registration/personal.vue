@@ -1,6 +1,10 @@
 <template>
   <div class="container mx-auto p-6">
-    <p>
+    <h2 class="text-2xl font-extrabold text-gray-900">
+      Formulir Pendaftaran
+    </h2>
+
+    <p class="mt-4">
       Silahkan isi kelengkapan data calon peserta test COVID-19.
     </p>
 

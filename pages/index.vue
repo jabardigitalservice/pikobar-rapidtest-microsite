@@ -15,9 +15,9 @@
         Lihat Status Pendaftaran
       </nuxt-link>
 
-      <a href="#" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
+      <nuxt-link to="/check_result" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
         Lihat Hasil Test
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>

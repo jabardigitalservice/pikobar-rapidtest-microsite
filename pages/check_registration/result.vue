@@ -1,18 +1,24 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
+    <h2 class="text-xl text-gray-900 text-center">
       Undangan Rapid Test COVID-19
     </h2>
 
     <div class="mt-4 text-center">
       <qrcode />
 
-      <h1 class="text-4xl mt-4">
+      <h1 class="text-xl mt-2">
         A236AXQ
       </h1>
 
-      <p class="mt-4"><strong>Waktu:</strong><br />Senin, 1 Mei 2020 08:00-10:00 WIB</p>
-      <p class="mt-4"><strong>Tempat:</strong><br />Gedung Sate, Bandung</p>
+      <p class="mt-4">
+        <strong>Waktu:</strong><br>
+        Senin, 1 Mei 2020 08:00-10:00 WIB
+      </p>
+      <p class="mt-4">
+        <strong>Tempat:</strong><br>
+        Gedung Sate, Bandung
+      </p>
     </div>
 
     <div class="mt-12">

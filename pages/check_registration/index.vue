@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
-      Lihat Status Pendaftaran
+    <h2 class="text-xl text-gray-900 text-center">
+      Cek Pendaftaran &amp; Hasil
     </h2>
 
     <div class="mt-4">

@@ -2,7 +2,7 @@
   <div class="container mx-auto p-6">
     <logo />
 
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
+    <h2 class="text-xl text-gray-900 text-center">
       Rapid Test COVID-19
     </h2>
 
@@ -12,7 +12,7 @@
       </nuxt-link>
 
       <nuxt-link to="/check_registration" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
-        Lihat Status Pendaftaran
+        Cek Pendaftaran &amp; Hasil
       </nuxt-link>
     </div>
   </div>

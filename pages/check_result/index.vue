@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
+    <h2 class="text-xl text-gray-900 text-center">
       Lihat Hasil Test
     </h2>
 

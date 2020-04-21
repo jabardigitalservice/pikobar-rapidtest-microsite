@@ -1,9 +1,9 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
+    <h2 class="text-xl text-gray-900 text-center">
       Syarat dan Ketentuan
     </h2>
-    <div class="mt-4">
+    <div class="mt-4 text-sm">
       <p>
         Pendaftaran Peserta Rapid Test COVID-19 bersifat terbatas dan diprioritaskan bagi orang yang paling rentan terjangkit wabah virus COVID-19.
       </p>

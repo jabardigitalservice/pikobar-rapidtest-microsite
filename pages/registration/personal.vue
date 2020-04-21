@@ -1,10 +1,10 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
+    <h2 class="text-xl text-gray-900 text-center">
       Data Tempat Tinggal Sekarang
     </h2>
 
-    <p class="mt-4">
+    <p class="mt-4 text-sm">
       Silahkan isi kelengkapan data tempat tinggal sekarang calon peserta test COVID-19.
     </p>
 

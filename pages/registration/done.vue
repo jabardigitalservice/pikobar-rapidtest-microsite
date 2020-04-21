@@ -1,14 +1,14 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center">
+    <h2 class="text-xl text-gray-900 text-center">
       Terima Kasih
     </h2>
 
-    <p class="mt-4">
+    <p class="mt-4 text-sm">
       Data Anda telah tersimpan dalam sistem. Selanjutnya Dinas Kesehatan Kabupaten/Kota dan Dinas Kesehatan Provinsi Jawa Barat akan melakukan verifikasi sesuai kriteria.
     </p>
 
-    <p class="mt-4">
+    <p class="mt-4 text-sm">
       Jika Anda memenuhi syarat dan verifikasi, Anda akan mendapatkan pemberitahuan melalui Nomor Telepon (SMS, Whatsapp) serta Email.
     </p>
 

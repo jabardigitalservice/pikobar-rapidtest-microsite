@@ -9,7 +9,7 @@
     </p>
 
     <div class="mt-12">
-      <nuxt-link to="/registration/done" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
+      <nuxt-link to="/registration/done" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-orange text-center">
         Kirim
       </nuxt-link>
       <nuxt-link to="/registration/additional" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">

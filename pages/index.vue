@@ -3,7 +3,7 @@
     <logo />
 
     <h2 class="text-xl text-gray-900 text-center">
-      Rapid Test COVID-19
+      COVID-19 Rapid Test
     </h2>
 
     <div class="mt-8">

@@ -5,14 +5,7 @@
     </h2>
 
     <div class="mt-4">
-      <label class="block text-sm font-medium leading-5 text-gray-700">Tanggal Lahir</label>
-      <div class="mt-1 relative rounded-md shadow-sm">
-        <input type="text" class="form-input block w-full">
-      </div>
-    </div>
-
-    <div class="mt-4">
-      <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Telepon</label>
+      <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Pendaftaran</label>
       <div class="mt-1 relative rounded-md shadow-sm">
         <input type="text" class="form-input block w-full">
       </div>

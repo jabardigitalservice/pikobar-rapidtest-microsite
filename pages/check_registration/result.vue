@@ -1,13 +1,13 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-xl text-gray-900 text-center">
+    <h2 class="text-gray-900 text-center">
       Undangan Rapid Test COVID-19
     </h2>
 
     <div class="mt-4 text-center">
       <qrcode />
 
-      <h1 class="text-xl mt-2">
+      <h1 class="text-4xl mt-2">
         A236AXQ
       </h1>
 

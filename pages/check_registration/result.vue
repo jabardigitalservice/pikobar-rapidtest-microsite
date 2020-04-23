@@ -7,8 +7,11 @@
     <div class="mt-4 text-center">
       <qrcode />
 
-      <h1 class="text-4xl mt-2">
-        A236AXQ
+      <h1 class="mt-2">
+        <strong>Nomor Pendaftaran:</strong><br>
+        <h3 class="text-4xl">
+          AZ123
+        </h3>
       </h1>
 
       <p class="mt-4">
@@ -33,6 +36,8 @@
 import Qrcode from '~/components/Qrcode'
 
 export default {
+  layout: 'full-layout',
+
   components: {
     Qrcode
   }

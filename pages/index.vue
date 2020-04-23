@@ -19,11 +19,16 @@
 </template>
 
 <script>
+import VueGeolocation from 'vue-browser-geolocation'
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
     Logo
+  },
+
+  async created () {
+    await VueGeolocation.getLocation({ enableHighAccuracy: true })
   }
 }
 </script>

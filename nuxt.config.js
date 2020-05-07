@@ -1,6 +1,11 @@
 
 export default {
   mode: 'spa',
+
+  env: {
+    googleRecaptchaKey: process.env.GOOGLE_RECAPTCHA_KEY
+  },
+
   /*
   ** Headers of the page
   */

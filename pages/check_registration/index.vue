@@ -11,6 +11,10 @@
       </div>
     </div>
 
+    <div class="mt-4">
+      <vue-recaptcha ref="recaptcha" :sitekey="recaptcha_key" :load-recaptcha-script="true" @verify="verifyCaptcha" />
+    </div>
+
     <div class="mt-12">
       <button type="submit" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="submit()">
         Lanjutkan
@@ -24,14 +28,17 @@
 
 <script>
 import Swal from 'sweetalert2'
+import VueRecaptcha from 'vue-recaptcha'
 
 export default {
   components: {
-    //
+    VueRecaptcha
   },
 
   data () {
     return {
+      recaptcha_key: process.env.googleRecaptchaKey,
+      recaptcha_response: null,
       registration_code: null
     }
   },
@@ -40,7 +47,7 @@ export default {
     async submit () {
       try {
         await this.$axios.$post('/api/rdt/check', {
-          'g-recaptcha-response': 'x',
+          'g-recaptcha-response': this.recaptcha_response,
           registration_code: this.registration_code
         })
       } catch (error) {
@@ -56,7 +63,14 @@ export default {
         }
 
         return await Swal.fire('Telah terjadi kesalahan sistem', 'Silahkan ulangi beberapa saat kembali.', 'error')
+      } finally {
+        this.recaptcha_response = null
+        this.$refs.recaptcha.reset()
       }
+    },
+
+    verifyCaptcha (response) {
+      this.recaptcha_response = response
     }
   }
 }

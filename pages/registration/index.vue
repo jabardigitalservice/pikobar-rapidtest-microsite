@@ -8,7 +8,7 @@
       <div class="mt-6">
         <validation-provider v-slot="{ errors }" name="NIK" rules="required">
           <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model="nik" type="text" class="form-input block w-full">
+            <input v-model="nik" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
           </div>
           <p class="mt-2 text-sm text-red-600">
             {{ errors[0] }}

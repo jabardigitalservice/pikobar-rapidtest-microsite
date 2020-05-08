@@ -12,23 +12,75 @@
     </div>
 
     <div class="mt-6">
+      <label class="block text-sm font-medium leading-5 text-gray-700">Tanggal Lahir</label>
+      <div class="mt-1 relative rounded-md shadow-sm">
+        <select class="form-select block w-full">
+          <option>Tanggal</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+        </select>
+      </div>
+      <div class="mt-1 relative rounded-md shadow-sm">
+        <select class="form-select block w-full">
+          <option>Bulan</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+        </select>
+      </div>
+      <div class="mt-1 relative rounded-md shadow-sm">
+        <select class="form-select block w-full">
+          <option>Tahun</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mt-6">
       <label class="block text-sm font-medium leading-5 text-gray-700">Kabupaten/Kota</label>
       <div class="mt-1 relative rounded-md shadow-sm">
-        <input type="text" class="form-input block w-full">
+        <select class="form-select block w-full" @change="changeCity">
+          <option :value="null">
+            Pilih
+          </option>
+          <option v-for="city in cities" :key="city.id" :value="city.code_kemendagri">
+            {{ city.name }}
+          </option>
+        </select>
       </div>
     </div>
 
     <div class="mt-6">
       <label class="block text-sm font-medium leading-5 text-gray-700">Kecamatan</label>
       <div class="mt-1 relative rounded-md shadow-sm">
-        <input type="text" class="form-input block w-full">
+        <select class="form-select block w-full" @change="changeDistrict">
+          <option :value="null">
+            Pilih
+          </option>
+          <option v-for="district in districts" :key="district.id" :value="district.code_kemendagri">
+            {{ district.name }}
+          </option>
+        </select>
       </div>
     </div>
 
     <div class="mt-6">
       <label class="block text-sm font-medium leading-5 text-gray-700">Kelurahan/Desa</label>
       <div class="mt-1 relative rounded-md shadow-sm">
-        <input type="text" class="form-input block w-full">
+        <select class="form-select block w-full">
+          <option :value="null">
+            Pilih
+          </option>
+          <option v-for="village in villages" :key="village.id" :value="village.code_kemendagri">
+            {{ village.name }}
+          </option>
+        </select>
       </div>
     </div>
 
@@ -59,6 +111,56 @@
 
 <script>
 export default {
-  //
+  data () {
+    return {
+      city_code: null,
+      cities: [],
+      district_code: null,
+      districts: [],
+      village_code: null,
+      villages: []
+    }
+  },
+
+  mounted () {
+    this.getCities()
+  },
+
+  methods: {
+    async getCities () {
+      const { data } = await this.$axios.$get('/api/master/areas')
+
+      this.cities = data
+    },
+
+    async getDistricts (cityCode) {
+      const { data } = await this.$axios.$get(`/api/master/areas?parent_code_kemendagri=${cityCode}`)
+
+      this.districts = data
+    },
+
+    async getVillages (districtCode) {
+      const { data } = await this.$axios.$get(`/api/master/areas?parent_code_kemendagri=${districtCode}`)
+
+      this.villages = data
+    },
+
+    changeCity (e) {
+      this.district_code = null
+      this.districts = []
+
+      this.village_code = null
+      this.villages = []
+
+      this.getDistricts(e.target.value)
+    },
+
+    changeDistrict (e) {
+      this.village_code = null
+      this.villages = []
+
+      this.getVillages(e.target.value)
+    }
+  }
 }
 </script>

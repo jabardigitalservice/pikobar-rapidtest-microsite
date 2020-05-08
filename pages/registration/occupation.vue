@@ -7,7 +7,7 @@
     <div class="mt-6">
       <label class="block text-sm font-medium leading-5 text-gray-700">Jenis Pekerjaan</label>
       <div class="mt-1 relative rounded-md shadow-sm">
-        <select class="form-input block w-full">
+        <select class="form-select block w-full">
           <option value="">
             Pilih Salah Satu...
           </option>

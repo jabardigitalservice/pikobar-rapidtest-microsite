@@ -93,6 +93,18 @@ export const mutations = {
 
   SET_WORKPLACE_NAME (state, payload) {
     state.workplace_name = payload
+  },
+
+  SET_SYMPTOMS (state, payload) {
+    state.symptoms = payload
+  },
+
+  SET_SYMPTOMS_INTERACTION (state, payload) {
+    state.symptoms_interaction = payload
+  },
+
+  SET_SYMPTOMS_ACTIVITY (state, payload) {
+    state.symptoms_activity = payload
   }
 }
 

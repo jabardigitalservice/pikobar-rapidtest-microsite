@@ -8,7 +8,7 @@
       <div class="mt-6">
         <validation-provider v-slot="{ errors }" name="NIK" rules="required">
           <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model="nik" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
+            <input v-model.lazy="nik" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
           </div>
           <p class="mt-2 text-sm text-red-600">
             {{ errors[0] }}
@@ -43,12 +43,19 @@ export default {
 
   data () {
     return {
-      nik: null
+      //
     }
   },
 
-  mounted () {
-    this.nik = this.$store.state.form.nik
+  computed: {
+    nik: {
+      get () {
+        return this.$store.state.form.nik
+      },
+      set (value) {
+        this.$store.commit('form/SET_NIK', value)
+      }
+    }
   },
 
   methods: {
@@ -56,8 +63,6 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$store.commit('form/SET_FIELD_STEP_INDEX', { nik: this.nik })
-
         this.$router.push('/registration/personal')
       }
     }

@@ -8,3 +8,14 @@
     <nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  mounted () {
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
+  }
+}
+</script>

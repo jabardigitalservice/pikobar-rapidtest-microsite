@@ -10,6 +10,12 @@ export const state = () => ({
   city_code: null,
   district_code: null,
   village_code: null,
+  occupation_type: null,
+  workplace_name: null,
+  symptoms: [],
+  symptoms_notes: null,
+  symptoms_interaction: null,
+  symptoms_activity: [],
   cities: [],
   districts: [],
   villages: []
@@ -79,6 +85,14 @@ export const mutations = {
 
   SET_VILLAGES (state, payload) {
     state.villages = payload
+  },
+
+  SET_OCCUPATION_TYPE (state, payload) {
+    state.occupation_type = payload
+  },
+
+  SET_WORKPLACE_NAME (state, payload) {
+    state.workplace_name = payload
   }
 }
 

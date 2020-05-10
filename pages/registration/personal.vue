@@ -178,8 +178,8 @@
       </div>
 
       <div class="mt-4">
-        <validation-provider v-slot="{ errors }" name="Nomor Telepon" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Telepon</label>
+        <validation-provider v-slot="{ errors }" name="Nomor Telepon" rules="required|phone_number">
+          <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Telepon (Whatsapp)</label>
           <div class="mt-1 flex rounded-md shadow-sm">
             <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
               +62
@@ -214,6 +214,13 @@ import _ from 'lodash'
 extend('required', {
   ...required,
   message: messages.required
+})
+
+extend('phone_number', {
+  validate: (value) => {
+    return value.match(/^8{1}[0-9]{9,11}$/g)
+  },
+  message: 'Format Nomor Telepon tidak benar'
 })
 
 export default {

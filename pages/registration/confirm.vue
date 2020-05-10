@@ -135,10 +135,14 @@
       </div>
     </div>
 
+    <div class="mt-4">
+      <vue-recaptcha ref="recaptcha" :sitekey="recaptcha_key" :load-recaptcha-script="true" @verify="verifyCaptcha" />
+    </div>
+
     <div class="mt-6">
-      <nuxt-link to="/registration/done" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-orange text-center">
+      <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-orange text-center" @click="submit">
         Kirim
-      </nuxt-link>
+      </button>
       <nuxt-link to="/registration/additional" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
         Kembali
       </nuxt-link>
@@ -148,8 +152,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import VueRecaptcha from 'vue-recaptcha'
+import Swal from 'sweetalert2'
 
 export default {
+  components: { VueRecaptcha },
+
+  data () {
+    return {
+      recaptcha_key: process.env.googleRecaptchaKey,
+      recaptcha_response: null,
+      registration_code: null
+    }
+  },
+
   computed: {
     ...mapGetters('form', [
       'nik',
@@ -177,6 +193,32 @@ export default {
       const event = this.eventsOptions.find(x => x.value === value)
 
       return event.text
+    },
+
+    async submit () {
+      try {
+        await this.$axios.$post('/api/rdt/register', {
+          'g-recaptcha-response': this.recaptcha_response
+        })
+
+        return await Swal.fire('', 'Sukses', 'success')
+      } catch (error) {
+        if (error.response.status === 422) {
+          const firstErrorKey = Object.keys(error.response.data.errors)[0]
+          const firstMessage = error.response.data.errors[firstErrorKey][0]
+
+          return await Swal.fire('', firstMessage, 'error')
+        }
+
+        return await Swal.fire('Telah terjadi kesalahan sistem', 'Silahkan ulangi beberapa saat kembali.', 'error')
+      } finally {
+        this.recaptcha_response = null
+        this.$refs.recaptcha.reset()
+      }
+    },
+
+    verifyCaptcha (response) {
+      this.recaptcha_response = response
     }
   }
 }

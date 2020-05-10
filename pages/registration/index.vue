@@ -6,7 +6,7 @@
       </p>
 
       <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="NIK" rules="required">
+        <validation-provider v-slot="{ errors }" name="NIK" rules="required|nik">
           <div class="mt-1 relative rounded-md shadow-sm">
             <input v-model.lazy="nik" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
             <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -41,6 +41,22 @@ import { messages } from 'vee-validate/dist/locale/id.json'
 extend('required', {
   ...required,
   message: messages.required
+})
+
+extend('nik', {
+  validate: (value) => {
+    const allowedPrefix = [
+      '11', '12', '13', '14', '15', '16', '17', '18', '19', '21',
+      '31', '32', '33', '34', '35', '36', '51', '52', '53', '61',
+      '62', '63', '64', '65', '71', '72', '73', '74', '75', '76',
+      '81', '82', '91', '92'
+    ]
+
+    const prefix = value.substring(0, 2)
+
+    return allowedPrefix.includes(prefix) && value.match(/^[1-9]{1}[0-9]{11}(?!0{4})[0-9]{4}$/)
+  },
+  message: 'Format NIK tidak benar'
 })
 
 export default {

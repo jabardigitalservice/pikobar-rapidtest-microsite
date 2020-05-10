@@ -7,18 +7,39 @@ export const state = () => ({
   birth_year: null,
   address: null,
   phone_number: null,
+  email: null,
   city_code: null,
   district_code: null,
   village_code: null,
   occupation_type: null,
   workplace_name: null,
   symptoms: [],
-  symptoms_notes: null,
-  symptoms_interaction: null,
-  symptoms_activity: [],
+  symptomsNotes: null,
+  symptomsInteraction: null,
+  symptomsActivity: [],
   cities: [],
   districts: [],
-  villages: []
+  villages: [],
+  symptomsOptions: [
+    { value: 1, text: 'Batuk' },
+    { value: 2, text: 'Menggigil' },
+    { value: 3, text: 'Nyeri Abdomen' },
+    { value: 4, text: 'Pilek' },
+    { value: 5, text: 'Sakit Tenggorokan' },
+    { value: 6, text: 'Suhu Tubuh < 38' },
+    { value: 7, text: 'Lemah (malaise)' },
+    { value: 8, text: 'Mual atau Muntah' },
+    { value: 9, text: 'Nyeri Otot' },
+    { value: 10, text: 'Sakit Kepala' },
+    { value: 11, text: 'Sesak Napas' },
+    { value: 12, text: 'Suhu Tubuh >= 38 C' }
+  ],
+  eventsOptions: [
+    { value: 1, text: 'Seminar Platform Bisnis Tanpa Riba di Sentul, Kabupaten Bogor (25-28 Februari)' },
+    { value: 2, text: 'Seminar Gereja Protestan di Indonesia Bagian Barat / GPIB di Hotel Aston Bogor (26 - 29 Februari)' },
+    { value: 3, text: 'Seminar Gereja Bethel Indonesia / GBI di Lembang, Kabupaten Bandung Barat (3-5 Maret)' },
+    { value: 4, text: 'Musyawarah Daerah Himpunan Pengusaha Muda Indonesia / HIPMI Jabar di Kabupaten Karawang (9 Maret)' }
+  ]
 })
 
 // getters
@@ -27,10 +48,17 @@ export const getters = {
   name: state => state.name,
   address: state => state.address,
   phone_number: state => state.phone_number,
+  email: state => state.email,
   workplace_name: state => state.workplace_name,
   cities: state => state.cities,
   districts: state => state.districts,
-  villages: state => state.villages
+  villages: state => state.villages,
+  symptoms: state => state.symptoms,
+  symptomsNotes: state => state.symptomsNotes,
+  symptomsInteraction: state => state.symptomsInteraction,
+  symptomsActivity: state => state.symptomsActivity,
+  symptomsOptions: state => state.symptomsOptions,
+  eventsOptions: state => state.eventsOptions
 }
 
 // mutations
@@ -65,6 +93,10 @@ export const mutations = {
 
   SET_PHONE_NUMBER (state, payload) {
     state.phone_number = payload
+  },
+
+  SET_EMAIL (state, payload) {
+    state.email = payload
   },
 
   SET_CITY (state, payload) {
@@ -104,11 +136,15 @@ export const mutations = {
   },
 
   SET_SYMPTOMS_INTERACTION (state, payload) {
-    state.symptoms_interaction = payload
+    state.symptomsInteraction = payload
   },
 
   SET_SYMPTOMS_ACTIVITY (state, payload) {
-    state.symptoms_activity = payload
+    state.symptomsActivity = payload
+  },
+
+  SET_SYMPTOMS_NOTES (state, payload) {
+    state.symptomsNotes = payload
   }
 }
 

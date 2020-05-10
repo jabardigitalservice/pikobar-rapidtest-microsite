@@ -191,6 +191,23 @@
           </p>
         </validation-provider>
       </div>
+
+      <div class="mt-4">
+        <validation-provider v-slot="{ errors }" name="Alamat Email" rules="required|email">
+          <label class="block text-sm font-medium leading-5 text-gray-700">Alamat Email</label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <input v-model.lazy="email" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
+            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+            </div>
+          </div>
+          <p class="mt-2 text-sm text-red-600">
+            {{ errors[0] }}
+          </p>
+        </validation-provider>
+      </div>
     </ValidationObserver>
 
     <div class="mt-12">
@@ -207,13 +224,18 @@
 <script>
 import { mapGetters } from 'vuex'
 import { ValidationObserver, ValidationProvider, extend } from 'vee-validate'
-import { required } from 'vee-validate/dist/rules'
+import { required, email } from 'vee-validate/dist/rules'
 import { messages } from 'vee-validate/dist/locale/id.json'
 import _ from 'lodash'
 
 extend('required', {
   ...required,
   message: messages.required
+})
+
+extend('email', {
+  ...email,
+  message: messages.email
 })
 
 extend('phone_number', {
@@ -308,6 +330,15 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_PHONE_NUMBER', value)
+      }
+    },
+
+    email: {
+      get () {
+        return this.$store.state.form.email
+      },
+      set (value) {
+        this.$store.commit('form/SET_EMAIL', value)
       }
     },
 

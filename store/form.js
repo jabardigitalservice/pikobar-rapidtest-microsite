@@ -24,6 +24,10 @@ export const state = () => ({
 // getters
 export const getters = {
   nik: state => state.nik,
+  name: state => state.name,
+  address: state => state.address,
+  phone_number: state => state.phone_number,
+  workplace_name: state => state.workplace_name,
   cities: state => state.cities,
   districts: state => state.districts,
   villages: state => state.villages

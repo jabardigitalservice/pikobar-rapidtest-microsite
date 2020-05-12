@@ -174,6 +174,7 @@ export default {
       'city_code',
       'district_code',
       'village_code',
+      'birth_date',
       'gender',
       'phone_number',
       'email',
@@ -212,7 +213,7 @@ export default {
 
     async submit () {
       try {
-        await this.$axios.$post('/api/rdt/register', {
+        const { data } = await this.$axios.$post('/api/rdt/register', {
           'g-recaptcha-response': this.recaptcha_response,
           nik: this.nik,
           name: this.name,
@@ -234,7 +235,11 @@ export default {
           longitude: this.longitude
         })
 
-        return await Swal.fire('', 'Sukses', 'success')
+        this.$store.commit('form/SET_RESULT_REGISTRATION_CODE', data.registration_code)
+
+        await Swal.fire('', 'Pendaftaran berhasil. Silahkan unduh bukti pendaftaran pada halaman berikutnya.', 'success')
+
+        this.$router.push('/registration/done')
       } catch (error) {
         if (error.response.status === 422) {
           const firstErrorKey = Object.keys(error.response.data.errors)[0]

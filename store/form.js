@@ -1,5 +1,6 @@
 // state
 export const state = () => ({
+  registrationCode: null,
   nik: null,
   name: null,
   latitude: null,
@@ -59,6 +60,7 @@ export const state = () => ({
 
 // getters
 export const getters = {
+  registrationCode: state => state.registrationCode,
   nik: state => state.nik,
   name: state => state.name,
   latitude: state => state.latitude,
@@ -126,6 +128,11 @@ export const mutations = {
     state.address = payload
   },
 
+  SET_LATLON (state, { latitude, longitude }) {
+    state.latitude = latitude
+    state.longitude = longitude
+  },
+
   SET_PHONE_NUMBER (state, payload) {
     state.phone_number = payload
   },
@@ -180,6 +187,10 @@ export const mutations = {
 
   SET_SYMPTOMS_NOTES (state, payload) {
     state.symptomsNotes = payload
+  },
+
+  SET_RESULT_REGISTRATION_CODE (state, payload) {
+    state.registrationCode = payload
   }
 }
 

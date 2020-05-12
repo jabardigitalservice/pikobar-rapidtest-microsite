@@ -27,8 +27,12 @@ export default {
     Logo
   },
 
-  async created () {
-    await VueGeolocation.getLocation({ enableHighAccuracy: true })
+  async mounted () {
+    const { lat, lng } = await VueGeolocation.getLocation({ enableHighAccuracy: true })
+
+    if (lat && lng) {
+      this.$store.commit('form/SET_LATLON', { latitude: lat, longitude: lng })
+    }
   }
 }
 </script>

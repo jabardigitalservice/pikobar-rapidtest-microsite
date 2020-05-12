@@ -29,16 +29,16 @@
           Apakah pernah berinteraksi dengan ODP/PDP/Positif COVID-19?
         </p>
 
-        <p class="mt-3 text-sm text-gray-700">
-          <strong>ODP:</strong> Orang Dalam Pemantauan (orang ini sempat bepergian ke negara yang menjadi pusat COVID 19. ODP juga adalah orang yang pernah berinteraksi dengan pasien positif COVID 19, tapi belum menunjukan gejala.<br><br>
-          <strong>PDP:</strong> Pasien Dalam Pengawasan (pasien ini sudah dirawat oleh tenaga kesehatan (menjadi pasien) dan menunjukkan gejala sakit seperti demam, batuk, pilek dan sesak napas.
-        </p>
-
         <p v-if="errors.length > 0" class="mt-2 text-sm text-red-600">
           <svg class="h-5 w-5 text-red-500 inline-block" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
           </svg>
           {{ errors[0] }}
+        </p>
+
+        <p class="mt-3 text-sm text-gray-700">
+          <strong>ODP:</strong> Orang Dalam Pemantauan (orang ini sempat bepergian ke negara yang menjadi pusat COVID 19. ODP juga adalah orang yang pernah berinteraksi dengan pasien positif COVID 19, tapi belum menunjukan gejala.<br><br>
+          <strong>PDP:</strong> Pasien Dalam Pengawasan (pasien ini sudah dirawat oleh tenaga kesehatan (menjadi pasien) dan menunjukkan gejala sakit seperti demam, batuk, pilek dan sesak napas.
         </p>
 
         <div class="mt-6">
@@ -63,7 +63,7 @@
         </div>
       </validation-provider>
 
-      <validation-provider v-slot="{ errors }" name="Riwayat Kegiatan">
+      <validation-provider v-slot="{ errors }" name="Riwayat Kegiatan" rules="required">
         <p class="mt-8 text-sm font-medium">
           Apakah pernah datang di kegiatan-kegiatan berikut ini?
         </p>

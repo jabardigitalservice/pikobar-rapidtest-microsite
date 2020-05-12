@@ -41,13 +41,15 @@ export const state = () => ({
     { value: 9, text: 'Nyeri Otot' },
     { value: 10, text: 'Sakit Kepala' },
     { value: 11, text: 'Sesak Napas' },
-    { value: 12, text: 'Suhu Tubuh >= 38 C' }
+    { value: 12, text: 'Suhu Tubuh >= 38 C' },
+    { value: 99, text: 'Tidak ada Gejala' }
   ],
   eventsOptions: [
     { value: 1, text: 'Seminar Platform Bisnis Tanpa Riba di Sentul, Kabupaten Bogor (25-28 Februari)' },
     { value: 2, text: 'Seminar Gereja Protestan di Indonesia Bagian Barat / GPIB di Hotel Aston Bogor (26 - 29 Februari)' },
     { value: 3, text: 'Seminar Gereja Bethel Indonesia / GBI di Lembang, Kabupaten Bandung Barat (3-5 Maret)' },
-    { value: 4, text: 'Musyawarah Daerah Himpunan Pengusaha Muda Indonesia / HIPMI Jabar di Kabupaten Karawang (9 Maret)' }
+    { value: 4, text: 'Musyawarah Daerah Himpunan Pengusaha Muda Indonesia / HIPMI Jabar di Kabupaten Karawang (9 Maret)' },
+    { value: 99, text: 'Tidak pernah mengikuti ke event/kegiatan di atas.' }
   ]
 })
 

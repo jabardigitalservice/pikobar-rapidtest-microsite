@@ -171,6 +171,10 @@ export default {
       'nik',
       'name',
       'address',
+      'city_code',
+      'district_code',
+      'village_code',
+      'gender',
       'phone_number',
       'email',
       'occupationType',
@@ -179,6 +183,8 @@ export default {
       'symptomsInteraction',
       'symptomsActivity',
       'symptomsNotes',
+      'latitude',
+      'longitude',
       'eventsOptions',
       'symptomsOptions',
       'occupationTypeOptions'
@@ -207,7 +213,25 @@ export default {
     async submit () {
       try {
         await this.$axios.$post('/api/rdt/register', {
-          'g-recaptcha-response': this.recaptcha_response
+          'g-recaptcha-response': this.recaptcha_response,
+          nik: this.nik,
+          name: this.name,
+          address: this.address,
+          city_code: this.city_code,
+          district_code: this.district_code,
+          village_code: this.village_code,
+          email: this.email,
+          phone_number: this.phone_number,
+          gender: this.gender,
+          birth_date: this.birth_date,
+          occupation_type: this.occupationType,
+          workplace_name: this.workplaceName,
+          symptoms: this.symptoms,
+          symptoms_activity: this.symptomsActivity,
+          symptoms_interaction: this.symptomsInteraction,
+          symptoms_notes: this.symptomsNotes,
+          latitude: this.latitude,
+          longitude: this.longitude
         })
 
         return await Swal.fire('', 'Sukses', 'success')

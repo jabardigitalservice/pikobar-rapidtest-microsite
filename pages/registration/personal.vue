@@ -26,7 +26,7 @@
         <label class="block text-sm font-medium leading-5 text-gray-700">Tanggal Lahir</label>
         <validation-provider v-slot="{ errors }" name="Tanggal" rules="required">
           <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="birth_date" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
+            <select v-model="birth_day" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
               <option :value="null">
                 Tanggal
               </option>
@@ -296,6 +296,15 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_BIRTH_DATE', value)
+      }
+    },
+
+    birth_day: {
+      get () {
+        return this.$store.state.form.birth_day
+      },
+      set (value) {
+        this.$store.commit('form/SET_BIRTH_DAY', value)
       }
     },
 

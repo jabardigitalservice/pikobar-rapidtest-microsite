@@ -68,7 +68,7 @@
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
           <dt class="text-sm leading-5 font-medium text-gray-500">
-            Nama Pekerjaan
+            Nama Tempat Bekerja
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
             {{ workplaceName }}
@@ -192,6 +192,11 @@ export default {
     ])
   },
 
+  mounted () {
+    this.recaptcha_response = null
+    this.$refs.recaptcha.reset()
+  },
+
   methods: {
     getOccupationName (value) {
       const occupation = this.occupationTypeOptions.find(x => x.value === value)
@@ -239,7 +244,7 @@ export default {
 
         await Swal.fire('', 'Pendaftaran berhasil. Silahkan unduh bukti pendaftaran pada halaman berikutnya.', 'success')
 
-        this.$router.push('/registration/done')
+        this.$router.replace('/registration/done')
       } catch (error) {
         if (error.response.status === 422) {
           const firstErrorKey = Object.keys(error.response.data.errors)[0]

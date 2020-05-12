@@ -84,7 +84,7 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$router.push('/registration/personal')
+        this.$router.replace('/registration/personal')
       }
     }
   }

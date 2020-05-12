@@ -256,6 +256,7 @@ import { ValidationObserver, ValidationProvider, extend } from 'vee-validate'
 import { required, email } from 'vee-validate/dist/rules'
 import { messages } from 'vee-validate/dist/locale/id.json'
 import _ from 'lodash'
+import VueGeolocation from 'vue-browser-geolocation'
 
 extend('required', {
   ...required,
@@ -417,8 +418,14 @@ export default {
     }
   },
 
-  mounted () {
-    this.getCities()
+  async mounted () {
+    const { lat, lng } = await VueGeolocation.getLocation({ enableHighAccuracy: true })
+
+    if (lat && lng) {
+      this.$store.commit('form/SET_LATLON', { latitude: lat, longitude: lng })
+    }
+
+    await this.getCities()
   },
 
   methods: {
@@ -457,7 +464,7 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$router.push('/registration/occupation')
+        this.$router.replace('/registration/occupation')
       }
     }
   }

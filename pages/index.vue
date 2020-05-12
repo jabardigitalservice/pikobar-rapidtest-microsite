@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import VueGeolocation from 'vue-browser-geolocation'
 import Logo from '~/components/Logo.vue'
 
 export default {
@@ -28,11 +27,7 @@ export default {
   },
 
   async mounted () {
-    const { lat, lng } = await VueGeolocation.getLocation({ enableHighAccuracy: true })
-
-    if (lat && lng) {
-      this.$store.commit('form/SET_LATLON', { latitude: lat, longitude: lng })
-    }
+    //
   }
 }
 </script>

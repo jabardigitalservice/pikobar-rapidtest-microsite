@@ -30,8 +30,8 @@
       </div>
 
       <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Nama Tempat Kerja/Institusi" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Pekerjaan</label>
+        <validation-provider v-slot="{ errors }" name="Nama Tempat Bekerja" rules="required">
+          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Tempat Bekerja</label>
           <div class="mt-1 relative rounded-md shadow-sm">
             <input v-model="workplace_name" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
             <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -101,7 +101,7 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$router.push('/registration/additional')
+        this.$router.replace('/registration/additional')
       }
     }
   }

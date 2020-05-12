@@ -93,7 +93,30 @@ export const getters = {
 // mutations
 export const mutations = {
   RESET_FORM (state) {
+    state.registrationCode = null
     state.nik = null
+    state.name = null
+    state.latitude = null
+    state.longitude = null
+    state.city_code = null
+    state.district_code = null
+    state.village_code = null
+    state.gender = null
+    state.address = null
+    state.birth_day = null
+    state.birth_month = null
+    state.birth_year = null
+    state.phone_number = null
+    state.email = null
+    state.occupationType = null
+    state.workplaceName = null
+    state.cities = null
+    state.districts = null
+    state.villages = null
+    state.symptoms = null
+    state.symptomsNotes = null
+    state.symptomsInteraction = null
+    state.symptomsActivity = null
   },
 
   SET_NIK (state, payload) {

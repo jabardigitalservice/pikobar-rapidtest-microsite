@@ -32,7 +32,7 @@ export default {
     nextStep () {
       this.$store.commit('form/RESET_FORM')
 
-      this.$router.push('/registration')
+      this.$router.replace('/registration')
     }
   }
 }

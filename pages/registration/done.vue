@@ -18,11 +18,15 @@
     </div>
 
     <p class="mt-4 text-sm">
+      Simpan nomor pendaftaran Anda berikut ini.
+    </p>
+
+    <p class="mt-4 text-sm">
       Data Anda telah tersimpan dalam sistem. Selanjutnya Dinas Kesehatan Kabupaten/Kota dan Dinas Kesehatan Provinsi Jawa Barat akan melakukan verifikasi sesuai kriteria.
     </p>
 
     <p class="mt-4 text-sm">
-      Jika Anda memenuhi syarat dan verifikasi, Anda akan mendapatkan pemberitahuan undangan melalui Nomor Telepon (SMS, Whatsapp) serta Email.
+      Jika Anda memenuhi syarat dan verifikasi, Anda akan mendapatkan pemberitahuan undangan melalui Nomor Telepon (SMS, Whatsapp) untuk mengikuti COVID-19 Test.
     </p>
 
     <p class="mt-4 text-sm">

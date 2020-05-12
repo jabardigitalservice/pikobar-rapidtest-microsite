@@ -13,26 +13,8 @@
               <option :value="null">
                 Pilih...
               </option>
-              <option value="7">
-                Petugas Pelayanan Publik (Kasir/Customer Service Bank, Petugas Keamanan, Loket Layanan Publik)
-              </option>
-              <option value="8">
-                Petugas Transportasi (Terminal, Airport, Stasiun, Ojol)
-              </option>
-              <option value="9">
-                Petugas Kebersihan
-              </option>
-              <option value="10">
-                Wartawan
-              </option>
-              <option value="11">
-                Pedagang Pasar
-              </option>
-              <option value="12">
-                Pemuka Agama
-              </option>
-              <option value="13">
-                Lainnya
+              <option v-for="occupationTypeOption in occupationTypeOptions" :key="`input-occupation-${occupationTypeOption.value}`" :value="occupationTypeOption.value">
+                {{ occupationTypeOption.text }}
               </option>
             </select>
             <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -49,7 +31,7 @@
 
       <div class="mt-6">
         <validation-provider v-slot="{ errors }" name="Nama Tempat Kerja/Institusi" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Tempat Kerja/Institusi</label>
+          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Pekerjaan</label>
           <div class="mt-1 relative rounded-md shadow-sm">
             <input v-model="workplace_name" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
             <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -77,6 +59,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { ValidationObserver, ValidationProvider, extend } from 'vee-validate'
 import { required } from 'vee-validate/dist/rules'
 import { messages } from 'vee-validate/dist/locale/id.json'
@@ -90,9 +73,13 @@ export default {
   components: { ValidationObserver, ValidationProvider },
 
   computed: {
+    ...mapGetters('form', [
+      'occupationTypeOptions'
+    ]),
+
     occupation_type: {
       get () {
-        return this.$store.state.form.occupation_type
+        return this.$store.state.form.occupationType
       },
       set (value) {
         this.$store.commit('form/SET_OCCUPATION_TYPE', value)
@@ -101,7 +88,7 @@ export default {
 
     workplace_name: {
       get () {
-        return this.$store.state.form.workplace_name
+        return this.$store.state.form.workplaceName
       },
       set (value) {
         this.$store.commit('form/SET_WORKPLACE_NAME', value)

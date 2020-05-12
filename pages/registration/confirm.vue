@@ -63,15 +63,15 @@
             Jenis Pekerjaan
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            Pedagang Pasar
+            {{ getOccupationName(occupationType) }}
           </dd>
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
           <dt class="text-sm leading-5 font-medium text-gray-500">
-            Nama Tempat Bekerja
+            Nama Pekerjaan
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            Pasar Ciroyom
+            {{ workplaceName }}
           </dd>
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -173,16 +173,25 @@ export default {
       'address',
       'phone_number',
       'email',
+      'occupationType',
+      'workplaceName',
       'symptoms',
       'symptomsInteraction',
       'symptomsActivity',
       'symptomsNotes',
       'eventsOptions',
-      'symptomsOptions'
+      'symptomsOptions',
+      'occupationTypeOptions'
     ])
   },
 
   methods: {
+    getOccupationName (value) {
+      const occupation = this.occupationTypeOptions.find(x => x.value === value)
+
+      return occupation.text
+    },
+
     getSymptomName (value) {
       const symptom = this.symptomsOptions.find(x => x.value === value)
 

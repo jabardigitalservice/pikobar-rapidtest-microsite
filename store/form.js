@@ -11,8 +11,8 @@ export const state = () => ({
   city_code: null,
   district_code: null,
   village_code: null,
-  occupation_type: null,
-  workplace_name: null,
+  occupationType: null,
+  workplaceName: null,
   symptoms: [],
   symptomsNotes: null,
   symptomsInteraction: null,
@@ -20,6 +20,15 @@ export const state = () => ({
   cities: [],
   districts: [],
   villages: [],
+  occupationTypeOptions: [
+    { value: 7, text: 'Petugas Pelayanan Publik (Kasir/Customer Service Bank, Petugas Keamanan, Loket Layanan Publik)' },
+    { value: 8, text: 'Petugas Transportasi (Terminal, Airport, Stasiun, Ojol)' },
+    { value: 9, text: 'Petugas Kebersihan' },
+    { value: 10, text: 'Wartawan' },
+    { value: 11, text: 'Pedagang Pasar' },
+    { value: 12, text: 'Pemuka Agama' },
+    { value: 13, text: 'Lainnya' }
+  ],
   symptomsOptions: [
     { value: 1, text: 'Batuk' },
     { value: 2, text: 'Menggigil' },
@@ -49,7 +58,8 @@ export const getters = {
   address: state => state.address,
   phone_number: state => state.phone_number,
   email: state => state.email,
-  workplace_name: state => state.workplace_name,
+  occupationType: state => state.occupationType,
+  workplaceName: state => state.workplaceName,
   cities: state => state.cities,
   districts: state => state.districts,
   villages: state => state.villages,
@@ -58,7 +68,8 @@ export const getters = {
   symptomsInteraction: state => state.symptomsInteraction,
   symptomsActivity: state => state.symptomsActivity,
   symptomsOptions: state => state.symptomsOptions,
-  eventsOptions: state => state.eventsOptions
+  eventsOptions: state => state.eventsOptions,
+  occupationTypeOptions: state => state.occupationTypeOptions
 }
 
 // mutations
@@ -124,11 +135,11 @@ export const mutations = {
   },
 
   SET_OCCUPATION_TYPE (state, payload) {
-    state.occupation_type = payload
+    state.occupationType = payload
   },
 
   SET_WORKPLACE_NAME (state, payload) {
-    state.workplace_name = payload
+    state.workplaceName = payload
   },
 
   SET_SYMPTOMS (state, payload) {

@@ -230,7 +230,7 @@ import _ from 'lodash'
 
 extend('required', {
   ...required,
-  message: messages.required
+  message: messages.requ
 })
 
 extend('email', {

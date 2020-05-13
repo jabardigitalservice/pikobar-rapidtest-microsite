@@ -110,13 +110,13 @@ export const mutations = {
     state.email = null
     state.occupationType = null
     state.workplaceName = null
-    state.cities = null
-    state.districts = null
-    state.villages = null
-    state.symptoms = null
+    state.cities = []
+    state.districts = []
+    state.villages = []
+    state.symptoms = []
     state.symptomsNotes = null
     state.symptomsInteraction = null
-    state.symptomsActivity = null
+    state.symptomsActivity = []
   },
 
   SET_NIK (state, payload) {

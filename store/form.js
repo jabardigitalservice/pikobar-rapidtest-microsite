@@ -1,6 +1,7 @@
 // state
 export const state = () => ({
   registrationCode: null,
+  downloadUrl: null,
   nik: null,
   name: null,
   latitude: null,
@@ -62,6 +63,7 @@ export const state = () => ({
 // getters
 export const getters = {
   registrationCode: state => state.registrationCode,
+  downloadUrl: state => state.downloadUrl,
   nik: state => state.nik,
   name: state => state.name,
   latitude: state => state.latitude,
@@ -96,6 +98,7 @@ export const getters = {
 export const mutations = {
   RESET_FORM (state) {
     state.registrationCode = null
+    state.downloadUrl = null
     state.nik = null
     state.name = null
     state.latitude = null
@@ -219,8 +222,9 @@ export const mutations = {
     state.symptomsNotes = payload
   },
 
-  SET_RESULT_REGISTRATION_CODE (state, payload) {
-    state.registrationCode = payload
+  SET_RESULT_REGISTRATION_RESULT (state, { registrationCode, downloadUrl }) {
+    state.registrationCode = registrationCode
+    state.downloadUrl = downloadUrl
   }
 }
 

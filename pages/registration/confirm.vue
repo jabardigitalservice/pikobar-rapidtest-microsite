@@ -202,8 +202,7 @@ export default {
   },
 
   mounted () {
-    this.recaptcha_response = null
-    this.$refs.recaptcha.reset()
+    //
   },
 
   methods: {
@@ -227,7 +226,7 @@ export default {
 
     async submit () {
       try {
-        const { data } = await this.$axios.$post('/api/rdt/register', {
+        const data = await this.$axios.$post('/api/rdt/register', {
           'g-recaptcha-response': this.recaptcha_response,
           nik: this.nik,
           name: this.name,
@@ -250,7 +249,10 @@ export default {
           longitude: this.longitude
         })
 
-        this.$store.commit('form/SET_RESULT_REGISTRATION_CODE', data.registration_code)
+        this.$store.commit('form/SET_RESULT_REGISTRATION_RESULT', {
+          registrationCode: data.registration_code,
+          downloadUrl: data.download_url
+        })
 
         await Swal.fire('', 'Pendaftaran berhasil. Silahkan unduh bukti pendaftaran pada halaman berikutnya.', 'success')
 

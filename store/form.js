@@ -17,6 +17,7 @@ export const state = () => ({
   district_code: null,
   village_code: null,
   occupationType: null,
+  occupationName: null,
   workplaceName: null,
   symptoms: [],
   symptomsNotes: null,
@@ -77,6 +78,7 @@ export const getters = {
   phone_number: state => state.phone_number,
   email: state => state.email,
   occupationType: state => state.occupationType,
+  occupationName: state => state.occupationName,
   workplaceName: state => state.workplaceName,
   cities: state => state.cities,
   districts: state => state.districts,
@@ -109,6 +111,7 @@ export const mutations = {
     state.phone_number = null
     state.email = null
     state.occupationType = null
+    state.occupationName = null
     state.workplaceName = null
     state.cities = []
     state.districts = []
@@ -190,6 +193,10 @@ export const mutations = {
 
   SET_OCCUPATION_TYPE (state, payload) {
     state.occupationType = payload
+  },
+
+  SET_OCCUPATION_NAME (state, payload) {
+    state.occupationName = payload
   },
 
   SET_WORKPLACE_NAME (state, payload) {

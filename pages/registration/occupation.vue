@@ -9,7 +9,7 @@
         <validation-provider v-slot="{ errors }" name="Jenis Pekerjaan" rules="required">
           <label class="block text-sm font-medium leading-5 text-gray-700">Jenis Pekerjaan</label>
           <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="occupation_type" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
+            <select v-model="occupationType" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
               <option :value="null">
                 Pilih...
               </option>
@@ -29,11 +29,28 @@
         </validation-provider>
       </div>
 
+      <div v-if="occupationType === 13" class="mt-6">
+        <validation-provider v-slot="{ errors }" name="Nama Pekerjaan" rules="required">
+          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Pekerjaan</label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <input v-model="occupationName" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
+            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+            </div>
+          </div>
+          <p class="mt-2 text-sm text-red-600">
+            {{ errors[0] }}
+          </p>
+        </validation-provider>
+      </div>
+
       <div class="mt-6">
         <validation-provider v-slot="{ errors }" name="Nama Tempat Bekerja" rules="required">
           <label class="block text-sm font-medium leading-5 text-gray-700">Nama Tempat Bekerja</label>
           <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model="workplace_name" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
+            <input v-model="workplaceName" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
             <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -77,7 +94,7 @@ export default {
       'occupationTypeOptions'
     ]),
 
-    occupation_type: {
+    occupationType: {
       get () {
         return this.$store.state.form.occupationType
       },
@@ -86,7 +103,16 @@ export default {
       }
     },
 
-    workplace_name: {
+    occupationName: {
+      get () {
+        return this.$store.state.form.occupationName
+      },
+      set (value) {
+        this.$store.commit('form/SET_OCCUPATION_NAME', value)
+      }
+    },
+
+    workplaceName: {
       get () {
         return this.$store.state.form.workplaceName
       },

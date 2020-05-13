@@ -66,6 +66,14 @@
             {{ getOccupationName(occupationType) }}
           </dd>
         </div>
+        <div v-if="occupationType === 13" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Nama Pekerjaan
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ occupationName }}
+          </dd>
+        </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
           <dt class="text-sm leading-5 font-medium text-gray-500">
             Nama Tempat Bekerja
@@ -179,6 +187,7 @@ export default {
       'phone_number',
       'email',
       'occupationType',
+      'occupationName',
       'workplaceName',
       'symptoms',
       'symptomsInteraction',
@@ -231,6 +240,7 @@ export default {
           gender: this.gender,
           birth_date: this.birth_date,
           occupation_type: this.occupationType,
+          occupation_name: this.occupationName,
           workplace_name: this.workplaceName,
           symptoms: this.symptoms,
           symptoms_activity: this.symptomsActivity,

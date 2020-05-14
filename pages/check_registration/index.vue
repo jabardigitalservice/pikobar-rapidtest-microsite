@@ -54,7 +54,8 @@ export default {
         this.$store.commit('check/SET_DATA', {
           registrationCode: data.registration_code,
           name: data.name,
-          qrcode: data.qrcode
+          qrcode: data.qrcode,
+          status: data.status
         })
 
         this.$router.replace('/check_registration/result')

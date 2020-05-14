@@ -7,7 +7,7 @@
     </h2>
 
     <div class="mt-8">
-      <template v-if="sessionId">
+      <template v-if="enableRegistration">
         <nuxt-link to="/terms-conditions" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
           Pendaftaran Baru
         </nuxt-link>
@@ -54,7 +54,11 @@ export default {
     ...mapGetters('form', [
       'sessionId',
       'pikobarUid'
-    ])
+    ]),
+
+    enableRegistration () {
+      return process.env.enableRegistration || this.sessionId !== null
+    }
   },
 
   mounted () {

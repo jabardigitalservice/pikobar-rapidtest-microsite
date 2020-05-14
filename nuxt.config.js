@@ -3,7 +3,8 @@ export default {
   mode: 'spa',
 
   env: {
-    googleRecaptchaKey: process.env.GOOGLE_RECAPTCHA_KEY
+    googleRecaptchaKey: process.env.GOOGLE_RECAPTCHA_KEY,
+    enableRegistration: process.env.APP_REGISTRATION_ENABLED === 'true'
   },
 
   /*

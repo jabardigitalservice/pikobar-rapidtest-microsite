@@ -1,5 +1,6 @@
 // state
 export const state = () => ({
+  sessionId: null,
   registrationCode: null,
   downloadUrl: null,
   nik: null,
@@ -62,6 +63,7 @@ export const state = () => ({
 
 // getters
 export const getters = {
+  sessionId: state => state.sessionId,
   registrationCode: state => state.registrationCode,
   downloadUrl: state => state.downloadUrl,
   nik: state => state.nik,
@@ -131,6 +133,10 @@ export const mutations = {
     state.symptomsNotes = null
     state.symptomsInteraction = null
     state.symptomsActivity = []
+  },
+
+  SET_SESSION_ID (state, payload) {
+    state.sessionId = payload
   },
 
   SET_NIK (state, payload) {

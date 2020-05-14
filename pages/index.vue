@@ -7,7 +7,7 @@
     </h2>
 
     <div class="mt-8">
-      <nuxt-link to="/terms-conditions" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
+      <nuxt-link v-if="sessionId" to="/terms-conditions" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
         Pendaftaran Baru
       </nuxt-link>
 
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import Logo from '~/components/Logo.vue'
 
 export default {
@@ -26,8 +27,20 @@ export default {
     Logo
   },
 
-  async mounted () {
-    //
+  data () {
+    return {
+      sessionId: null
+    }
+  },
+
+  mounted () {
+    this.sessionId = this.$route.query.sessionId
+
+    this.$store.commit('form/SET_SESSION_ID', this.$route.query.sessionId)
+
+    const newRouteQuery = _.omit(this.$route.query, 'sessionId')
+
+    this.$router.replace({ query: newRouteQuery })
   }
 }
 </script>

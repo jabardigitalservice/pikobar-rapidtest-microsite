@@ -177,6 +177,7 @@ export default {
 
   computed: {
     ...mapGetters('form', [
+      'sessionId',
       'nik',
       'name',
       'address',
@@ -234,6 +235,7 @@ export default {
       try {
         const data = await this.$axios.$post('/api/rdt/register', {
           'g-recaptcha-response': this.recaptcha_response,
+          sessionId: this.sessionId,
           nik: this.nik,
           name: this.name,
           address: this.address,

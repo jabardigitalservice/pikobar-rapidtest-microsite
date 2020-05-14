@@ -46,10 +46,18 @@ export default {
   methods: {
     async submit () {
       try {
-        await this.$axios.$post('/api/rdt/check', {
+        const { data } = await this.$axios.$post('/api/rdt/check', {
           'g-recaptcha-response': this.recaptcha_response,
           registration_code: this.registration_code
         })
+
+        this.$store.commit('check/SET_DATA', {
+          registrationCode: data.registration_code,
+          name: data.name,
+          qrcode: data.qrcode
+        })
+
+        this.$router.replace('/check_registration/result')
       } catch (error) {
         if (error.response.status === 422) {
           const firstErrorKey = Object.keys(error.response.data.errors)[0]

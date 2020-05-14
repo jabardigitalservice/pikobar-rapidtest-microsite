@@ -5,12 +5,12 @@
     </h2>
 
     <div class="mt-4 text-center">
-      <qrcode />
+      <img :src="qrcode" height="320">
 
       <h1 class="mt-2">
         <strong>Nomor Pendaftaran:</strong><br>
         <h3 class="text-4xl">
-          AZ123
+          {{ registrationCode }}
         </h3>
       </h1>
 
@@ -33,13 +33,21 @@
 </template>
 
 <script>
-import Qrcode from '~/components/Qrcode'
+import { mapGetters } from 'vuex'
 
 export default {
   layout: 'full-layout',
 
   components: {
-    Qrcode
+    //
+  },
+
+  computed: {
+    ...mapGetters('check', [
+      'registrationCode',
+      'name',
+      'qrcode'
+    ])
   }
 }
 </script>

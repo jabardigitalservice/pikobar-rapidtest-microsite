@@ -235,7 +235,8 @@ export default {
       try {
         const data = await this.$axios.$post('/api/rdt/register', {
           'g-recaptcha-response': this.recaptcha_response,
-          sessionId: this.sessionId,
+          pikobar_session_id: this.sessionId,
+          pikobar_user_id: this.pikobar_user_id,
           nik: this.nik,
           name: this.name,
           address: this.address,

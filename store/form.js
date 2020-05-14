@@ -1,6 +1,7 @@
 // state
 export const state = () => ({
   sessionId: null,
+  pikobarUid: null,
   registrationCode: null,
   downloadUrl: null,
   nik: null,
@@ -64,6 +65,7 @@ export const state = () => ({
 // getters
 export const getters = {
   sessionId: state => state.sessionId,
+  pikobarUid: state => state.pikobarUid,
   registrationCode: state => state.registrationCode,
   downloadUrl: state => state.downloadUrl,
   nik: state => state.nik,
@@ -137,6 +139,10 @@ export const mutations = {
 
   SET_SESSION_ID (state, payload) {
     state.sessionId = payload
+  },
+
+  SET_PIKOBAR_UID (state, payload) {
+    state.pikobarUid = payload
   },
 
   SET_NIK (state, payload) {

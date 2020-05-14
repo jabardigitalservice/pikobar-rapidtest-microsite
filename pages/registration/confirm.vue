@@ -31,7 +31,7 @@
             Tanggal Lahir
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            15 November 1989
+            {{ format(new Date(birth_year, birth_month, birth_day), 'dd-MM-yyyy') }}
           </dd>
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -162,6 +162,7 @@
 import { mapGetters } from 'vuex'
 import VueRecaptcha from 'vue-recaptcha'
 import Swal from 'sweetalert2'
+import { format } from 'date-fns'
 
 export default {
   components: { VueRecaptcha },
@@ -183,6 +184,9 @@ export default {
       'district_code',
       'village_code',
       'birth_date',
+      'birth_day',
+      'birth_month',
+      'birth_year',
       'gender',
       'phone_number',
       'email',
@@ -206,6 +210,8 @@ export default {
   },
 
   methods: {
+    format,
+
     getOccupationName (value) {
       const occupation = this.occupationTypeOptions.find(x => x.value === value)
 

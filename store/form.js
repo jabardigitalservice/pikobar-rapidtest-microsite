@@ -76,7 +76,15 @@ export const getters = {
   birth_day: state => state.birth_day,
   birth_month: state => state.birth_month,
   birth_year: state => state.birth_year,
-  birth_date: state => `${state.birth_year}-${state.birth_month}-${state.birth_day}`,
+  birth_date: (state) => {
+    if (state.birth_year === null || state.birth_month === null || state.birth_day === null) {
+      return null
+    }
+
+    const birthMonth = (state.birth_month + 1).toString().padStart(2, '0')
+
+    return `${state.birth_year}-${birthMonth}-${state.birth_day}`
+  },
   phone_number: state => state.phone_number,
   email: state => state.email,
   occupationType: state => state.occupationType,
@@ -139,10 +147,6 @@ export const mutations = {
 
   SET_BIRTH_DAY (state, payload) {
     state.birth_day = payload
-  },
-
-  SET_BIRTH_DATE (state, payload) {
-    state.birth_date = payload
   },
 
   SET_BIRTH_MONTH (state, payload) {

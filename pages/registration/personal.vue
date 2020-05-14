@@ -327,15 +327,6 @@ export default {
       }
     },
 
-    birth_date: {
-      get () {
-        return this.$store.state.form.birth_date
-      },
-      set (value) {
-        this.$store.commit('form/SET_BIRTH_DATE', value)
-      }
-    },
-
     birth_day: {
       get () {
         return this.$store.state.form.birth_day

@@ -12,7 +12,7 @@
     </div>
 
     <div class="mt-4">
-      <vue-recaptcha ref="recaptcha" :sitekey="recaptcha_key" :load-recaptcha-script="true" @verify="verifyCaptcha" />
+      <!-- vue-recaptcha ref="recaptcha" :sitekey="recaptcha_key" :load-recaptcha-script="true" @verify="verifyCaptcha" /-->
     </div>
 
     <div class="mt-12">
@@ -28,11 +28,11 @@
 
 <script>
 import Swal from 'sweetalert2'
-import VueRecaptcha from 'vue-recaptcha'
+// import VueRecaptcha from 'vue-recaptcha'
 
 export default {
   components: {
-    VueRecaptcha
+    // VueRecaptcha
   },
 
   data () {
@@ -47,7 +47,7 @@ export default {
     async submit () {
       try {
         const { data } = await this.$axios.$post('/api/rdt/check', {
-          'g-recaptcha-response': this.recaptcha_response,
+          // 'g-recaptcha-response': this.recaptcha_response,
           registration_code: this.registration_code
         })
 
@@ -74,8 +74,8 @@ export default {
 
         return await Swal.fire('Telah terjadi kesalahan sistem', 'Silahkan ulangi beberapa saat kembali.', 'error')
       } finally {
-        this.recaptcha_response = null
-        this.$refs.recaptcha.reset()
+        // this.recaptcha_response = null
+        // this.$refs.recaptcha.reset()
       }
     },
 

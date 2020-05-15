@@ -55,6 +55,7 @@ export default {
           registrationCode: data.registration_code,
           name: data.name,
           qrcode: data.qrcode,
+          event: data.event,
           status: data.status
         })
 

@@ -38,19 +38,19 @@
         </div>
       </template>
 
-      <template v-if="status === 'APPROVED'">
-        <p class="mt-4">
+      <template v-if="status === 'APPROVED' && event !== null">
+        <p class="mt-4 text-center">
           <strong>Waktu:</strong><br>
-          Senin, 1 Mei 2020 08:00-10:00 WIB
+          {{ format(new Date(event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) }} WIB
         </p>
-        <p class="mt-4">
+        <p class="mt-4 text-center">
           <strong>Tempat:</strong><br>
-          Gedung Sate, Bandung
+          {{ event.event_location }}
         </p>
       </template>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-6">
       <nuxt-link to="/check_registration" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
         Kembali
       </nuxt-link>
@@ -60,6 +60,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { format } from 'date-fns'
+import { id } from 'date-fns/locale'
 
 export default {
   layout: 'full-layout',
@@ -68,13 +70,24 @@ export default {
     //
   },
 
+  data () {
+    return {
+      lang: id
+    }
+  },
+
   computed: {
     ...mapGetters('check', [
       'registrationCode',
       'name',
       'qrcode',
+      'event',
       'status'
     ])
+  },
+
+  methods: {
+    format
   }
 }
 </script>

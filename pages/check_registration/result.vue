@@ -1,15 +1,22 @@
 <template>
   <div class="container mx-auto p-6">
-    <h2 class="text-gray-900 text-center">
-      Pendaftaran Test COVID-19
-    </h2>
+    <template v-if="status === 'NEW'">
+      <h2 class="text-gray-900 text-center">
+        Pendaftaran Test COVID-19
+      </h2>
+    </template>
+    <template v-if="status === 'APPROVED' && event !== null">
+      <h2 class="text-gray-900 text-center">
+        Undangan Test COVID-19
+      </h2>
+    </template>
 
     <div class="mt-4">
       <img :src="qrcode" height="320">
 
       <h1 class="mt-4 text-center">
         <strong>Nomor Pendaftaran:</strong><br>
-        <h3 class="text-6xl">
+        <h3 class="text-5xl">
           {{ registrationCode }}
         </h3>
       </h1>

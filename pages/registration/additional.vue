@@ -179,6 +179,13 @@ export default {
     }
   },
 
+  mounted () {
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
+  },
+
   methods: {
     async nextStep () {
       const valid = await this.$refs.form.validate()

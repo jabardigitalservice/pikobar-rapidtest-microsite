@@ -5,7 +5,7 @@
     </h2>
     <div class="mt-4 text-sm">
       <p>
-        Pendaftaran Peserta Rapid Test COVID-19 bersifat terbatas dan diprioritaskan bagi orang yang paling rentan terjangkit wabah virus COVID-19.
+        Pendaftaran Peserta Tes Masif COVID-19 bersifat terbatas dan diprioritaskan bagi orang yang paling rentan terjangkit wabah virus COVID-19.
       </p>
       <p class="mt-4">
         Mendaftarkan diri tidak secara otomatis menjamin akses untuk melakukan pengetesan.

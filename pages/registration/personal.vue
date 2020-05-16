@@ -410,6 +410,11 @@ export default {
   },
 
   async mounted () {
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
+
     const { lat, lng } = await VueGeolocation.getLocation({ enableHighAccuracy: true })
 
     if (lat && lng) {

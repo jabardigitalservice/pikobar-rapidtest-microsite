@@ -56,7 +56,10 @@ export default {
   },
 
   mounted () {
-    //
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="main-layout">
     <div class="w-full bg-brand-green-dark text-white text-sm leading-6 font-medium p-3 text-center sticky top-0 z-20">
       <nuxt-link to="/">
-        Rapid Test - PIKOBAR Jawa Barat
+        Tes Masif COVID-19
       </nuxt-link>
     </div>
     <nuxt />
@@ -13,9 +13,9 @@
 export default {
   mounted () {
     // Enable navigation prompt
-    window.onbeforeunload = function () {
-      return true
-    }
+    // window.onbeforeunload = function () {
+    //   return true
+    // }
   }
 }
 </script>

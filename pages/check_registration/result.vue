@@ -2,12 +2,12 @@
   <div class="container mx-auto p-6">
     <template v-if="status === 'NEW'">
       <h2 class="text-gray-900 text-center">
-        Pendaftaran Test COVID-19
+        Pendaftaran Tes Masif COVID-19
       </h2>
     </template>
     <template v-if="status === 'APPROVED' && event !== null">
       <h2 class="text-gray-900 text-center">
-        Undangan Test COVID-19
+        Undangan Tes Masif COVID-19
       </h2>
     </template>
 
@@ -38,7 +38,7 @@
               </p>
 
               <p class="mt-4">
-                Hanya yang sudah diverifikasi oleh Dinas Kesehatan Provinsi atau Dinas Kesehatan Kabupaten/Kota akan mendapatkan undangan untuk mengikuti COVID-19 Test. Undangan akan dikirimkan melalui SMS, Whatsapp, dan Email yang digunakan untuk mendaftar.
+                Hanya yang sudah diverifikasi oleh Dinas Kesehatan Provinsi atau Dinas Kesehatan Kabupaten/Kota akan mendapatkan undangan untuk mengikuti Tes Masif COVID-19 Provinsi Jawa Barat. Undangan akan dikirimkan melalui SMS, Whatsapp, dan Email yang digunakan untuk mendaftar.
               </p>
             </div>
           </div>
@@ -91,6 +91,13 @@ export default {
       'event',
       'status'
     ])
+  },
+
+  mounted () {
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
   },
 
   methods: {

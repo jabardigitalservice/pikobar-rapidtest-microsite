@@ -207,7 +207,10 @@ export default {
   },
 
   mounted () {
-    //
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
   },
 
   methods: {

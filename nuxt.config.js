@@ -11,11 +11,11 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'PIKOBAR Jawa Barat Rapid Diagnostic Test COVID-19',
+    title: 'Tes Masif COVID-19',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-      { hid: 'description', name: 'description', content: 'Pendaftaran Rapid Diagnostic Test (RDT) COVID-19 PIKOBAR Jawa Barat' },
+      { hid: 'description', name: 'description', content: 'Pendaftaran Tes Masif COVID-19 PIKOBAR Jawa Barat' },
       { hid: 'theme-color', name: 'theme-color', content: '#399F4F' }
     ],
     link: [

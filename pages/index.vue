@@ -16,7 +16,10 @@
             </h3>
             <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
               <p>
-                Pendaftaran dapat dilakukan melalui <strong><a href="https://play.google.com/store/apps/details?id=id.go.jabarprov.pikobar" target="_blank">Aplikasi PIKOBAR</a></strong>.
+                Pendaftaran dapat dilakukan melalui <strong>Aplikasi PIKOBAR</strong> pada menu <strong>Periksa Mandiri</strong>.
+              </p>
+              <p class="mt-4">
+                Unduh melalui <a href="https://play.google.com/store/apps/details?id=id.go.jabarprov.pikobar" class="font-bold underline" target="_blank">Google Play</a> atau <a href="https://apps.apple.com/us/app/pikobar-jawa-barat/id1509760172" class="font-bold underline" target="_blank">Apple Store</a>.
               </p>
             </div>
           </div>

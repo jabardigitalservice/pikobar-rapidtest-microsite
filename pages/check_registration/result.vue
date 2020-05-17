@@ -2,12 +2,12 @@
   <div class="container mx-auto p-6">
     <template v-if="status === 'NEW'">
       <h2 class="text-gray-900 text-center">
-        Pendaftaran Tes Masif COVID-19
+        Pendaftaran Tes Masif COVID-19 Jawa Barat
       </h2>
     </template>
     <template v-if="status === 'APPROVED' && event !== null">
       <h2 class="text-gray-900 text-center">
-        Undangan Tes Masif COVID-19
+        Undangan Tes Masif COVID-19 Jawa Barat
       </h2>
     </template>
 
@@ -54,6 +54,22 @@
           <strong>Tempat:</strong><br>
           {{ event.event_location }}
         </p>
+
+        <div class="bg-red-50 sm:rounded-lg border border-red-300 mt-8">
+          <div class="px-4 py-5 sm:p-6">
+            <h3 class="leading-6 font-bold text-red-900">
+              Informasi Penting
+            </h3>
+            <div class="mt-2 max-w-xl text-sm leading-5 text-red-500">
+              <p>
+                Peserta wajib membawa fotokopi identitas (KTP) atau Kartu Keluarga (KK).
+              </p>
+              <p class="mt-4">
+                Peserta wajib menggunakan masker serta mengikuti protokol kesehatan perlidungan diri dan orang lain.
+              </p>
+            </div>
+          </div>
+        </div>
       </template>
     </div>
 

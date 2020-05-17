@@ -48,7 +48,7 @@
       <template v-if="status === 'APPROVED' && event !== null">
         <p class="mt-4 text-center">
           <strong>Waktu:</strong><br>
-          {{ format(new Date(event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) }} WIB
+          {{ format(new Date(event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(event.end_at), 'HH:mm', {locale: lang}) }} WIB
         </p>
         <p class="mt-4 text-center">
           <strong>Tempat:</strong><br>

@@ -7,7 +7,7 @@
     <div class="mt-4">
       <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Pendaftaran</label>
       <div class="mt-1 relative rounded-md shadow-sm">
-        <input v-model="registration_code" type="text" class="form-input block w-full">
+        <input :value="registration_code" type="text" class="form-input block w-full" @input="updateRegistrationCode($event.target.value)">
       </div>
     </div>
 
@@ -47,6 +47,10 @@ export default {
   },
 
   methods: {
+    updateRegistrationCode (newValue) {
+      this.registration_code = newValue.toUpperCase()
+    },
+
     async submit () {
       try {
         const { data } = await this.$axios.$post('/api/rdt/check', {

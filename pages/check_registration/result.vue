@@ -75,7 +75,7 @@
                   Wajib menggunakan masker serta mengikuti protokol kesehatan perlidungan diri dan orang lain.
                 </li>
                 <li class="mt-2">
-                  Informasi dan pertanyaan lebih lanjut hubungi Hotline Dinas Kesehatan Provinsi Jawa Barat: <a href="tel:628112093306" class="font-bold">08112093306</a> atau Dinas Kesehatan Kota/Kabupaten setempat.
+                  Informasi dan pertanyaan lebih lanjut hubungi Pusat Bantuan PIKOBAR: <a href="https://api.whatsapp.com/send?phone=628112093306" class="font-bold">08112093306</a> atau Dinas Kesehatan Kota/Kabupaten setempat.
                 </li>
               </ol>
             </div>
@@ -85,6 +85,9 @@
     </div>
 
     <div class="mt-6">
+      <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
+        Hubungi Pusat Bantuan PIKOBAR
+      </a>
       <nuxt-link to="/check_registration" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
         Kembali
       </nuxt-link>

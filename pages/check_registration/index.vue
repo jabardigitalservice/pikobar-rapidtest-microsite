@@ -22,9 +22,9 @@
       <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="submit">
         Lanjutkan
       </button>
-      <nuxt-link to="/" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
-        Kembali
-      </nuxt-link>
+      <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
+        Hubungi Pusat Bantuan PIKOBAR
+      </a>
     </div>
   </div>
 </template>

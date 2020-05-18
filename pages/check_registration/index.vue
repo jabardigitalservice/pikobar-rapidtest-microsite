@@ -70,6 +70,10 @@ export default {
 
         this.$router.replace('/check_registration/result')
       } catch (error) {
+        if (typeof error.response === 'undefined') {
+          return await Swal.fire('', 'Gagal menyambungkan ke server, silahkan coba beberapa saat kembali.', 'error')
+        }
+
         if (error.response.status === 422) {
           const firstErrorKey = Object.keys(error.response.data.errors)[0]
           const firstMessage = error.response.data.errors[firstErrorKey][0]

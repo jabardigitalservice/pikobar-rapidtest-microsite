@@ -5,7 +5,9 @@
         Tes Masif COVID-19
       </nuxt-link>
     </div>
-    <nuxt />
+    <div class="content">
+      <nuxt />
+    </div>
   </div>
 </template>
 

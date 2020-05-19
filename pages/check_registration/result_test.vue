@@ -36,7 +36,8 @@
       </div>
     </div>
 
-    <content-result-reactive />
+    <content-result-reactive v-if="labResult === 'REACTIVE'" />
+    <content-result-non-reactive v-if="labResult === 'NONREACTIVE'" />
 
     <div class="mt-6">
       <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
@@ -54,12 +55,14 @@ import { mapGetters } from 'vuex'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale'
 import ContentResultReactive from '@/components/ContentResultReactive'
+import ContentResultNonReactive from '@/components/ContentResultNonReactive'
 
 export default {
   middleware: 'check_result',
 
   components: {
-    ContentResultReactive
+    ContentResultReactive,
+    ContentResultNonReactive
   },
 
   data () {

@@ -69,8 +69,8 @@ export default {
           status: data.status
         })
 
-        if (data.lab_result === 'REACTIVE') {
-          return this.$router.replace('/check_registration/result_reactive')
+        if (data.lab_result) {
+          return this.$router.replace('/check_registration/result_test')
         }
 
         return this.$router.replace('/check_registration/result')

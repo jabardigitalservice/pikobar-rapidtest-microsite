@@ -8,7 +8,7 @@
     </p>
     <p>
       Anda diminta tetap tenang dan tidak panik. Sebagai tindak lanjut, <b>Anda akan diundang untuk tes swab
-      lanjutan</b>. Waktu dan tempat akan segera kami informasikan kepada Anda melalui SMS.
+        lanjutan</b>. Waktu dan tempat akan segera kami informasikan kepada Anda melalui SMS.
     </p>
     <p>
       <img

@@ -69,7 +69,11 @@ export default {
           status: data.status
         })
 
-        this.$router.replace('/check_registration/result')
+        if (data.lab_result === 'REACTIVE') {
+          return this.$router.replace('/check_registration/result_reactive')
+        }
+
+        return this.$router.replace('/check_registration/result')
       } catch (error) {
         if (typeof error.response === 'undefined') {
           return await Swal.fire('', 'Gagal menyambungkan ke server, silahkan coba beberapa saat kembali.', 'error')

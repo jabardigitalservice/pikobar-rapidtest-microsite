@@ -13,3 +13,16 @@ body {
 .swal2-title {
   font-size: 1.5em !important;
 }
+
+.html-content p {
+  margin-bottom: 20px;
+}
+
+.html-content ol {
+  list-style: decimal;
+  margin-left: 25px;
+
+  li {
+    margin-bottom: 20px;
+  }
+}

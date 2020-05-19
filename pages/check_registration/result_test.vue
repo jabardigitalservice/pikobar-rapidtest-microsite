@@ -15,7 +15,7 @@
                 {{ name }}
               </dd>
             </div>
-            <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+            <div v-if="event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
               <dt class="text-sm leading-5 font-bold text-gray-500">
                 Tanggal
               </dt>
@@ -23,7 +23,7 @@
                 {{ format(new Date(event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(event.end_at), 'HH:mm', {locale: lang}) }} WIB
               </dd>
             </div>
-            <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+            <div v-if="event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
               <dt class="text-sm leading-5 font-bold text-gray-500">
                 Tempat
               </dt>

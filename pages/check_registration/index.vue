@@ -65,6 +65,7 @@ export default {
           name: data.name,
           qrcode: data.qrcode,
           event: data.event,
+          labResult: data.lab_result,
           status: data.status
         })
 

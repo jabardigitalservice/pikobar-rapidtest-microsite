@@ -4,6 +4,7 @@ export const state = () => ({
   name: null,
   qrcode: null,
   event: null,
+  labResult: null,
   status: null
 })
 
@@ -13,6 +14,7 @@ export const getters = {
   name: state => state.name,
   qrcode: state => state.qrcode,
   event: state => state.event,
+  labResult: state => state.labResult,
   status: state => state.status
 }
 
@@ -23,6 +25,7 @@ export const mutations = {
     state.name = null
     state.qrcode = null
     state.event = null
+    state.labResult = null
     state.status = null
   },
 
@@ -31,6 +34,7 @@ export const mutations = {
     state.name = payload.name
     state.qrcode = payload.qrcode
     state.event = payload.event
+    state.labResult = payload.labResult
     state.status = payload.status
   }
 }

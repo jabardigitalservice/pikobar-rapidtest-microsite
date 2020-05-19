@@ -3,12 +3,14 @@
     <p> Wargi Jabar yang baik, </p>
     <p> Terima kasih telah memenuhi panggilan Tes Masif COVID-19. </p>
     <p>
-      Hasil tes swab dan pemeriksaan PCR Anda <b>Inkonklusif</b>, artinya keberadaan RNA dari SARS-CoV-2 yang
-      merupakan penyebab COVID 19 belum dapat disimpulkan.
+      Hasil tes Swab dan pemeriksaan PCR Anda <b>Positif</b>, artinya ditemukan adanya RNA dari SARS-CoV-2 yang
+      merupakan penyebab COVID-19.
     </p>
     <p>
-      Anda diminta tetap tenang dan tidak panik. Sebagai tindak lanjut, <b>Anda akan diundang untuk tes swab
-        lanjutan</b>. Waktu dan tempat akan segera kami informasikan kepada Anda melalui SMS.
+      Anda diminta tetap tenang dan tidak panik. Tetap optimis bahwa Anda dapat mengalahkan virus ini. Observasi
+      gejala yang Anda alami. Untuk Anda yang positif namun tanpa gejala, atau dengan gejala ringan sampai sedang, Anda
+      disarankan untuk melakukan isolasi dan perawatan mandiri. Apabila Anda merasakan perburukan kondisi, segera
+      konsultasi ke dokter atau fasyankes terdekat.
     </p> <img
       class="object-contain object-center w-full h-auto"
       src="https://firebasestorage.googleapis.com/v0/b/jabarprov-covid19.appspot.com/o/public%2Frdt-pikobar.png?alt=media&amp;token=00c5a8c1-de59-4657-8097-6e84ba0195b6"
@@ -36,11 +38,6 @@
       src="https://firebasestorage.googleapis.com/v0/b/jabarprov-covid19.appspot.com/o/public%2F5-hal-penting-cegah-covid.jpeg?alt=media&amp;token=6d19cc68-c578-4351-8893-9642d1e8229c"
     >
     <p />
-    <p>
-      Observasi gejala yang Anda alami. Apabila Anda tidak bergejala atau bergejala ringan sampai sedang, Anda
-      disarankan untuk melakukan isolasi dan perawatan mandiri. Apabila dirasakan mengalami perburukan kondisi, segera
-      konsultasi ke dokter atau fasyankes terdekat.
-    </p>
     <p>
       Untuk pertanyaan lebih lanjut, Anda dapat menghubungi Pusat Bantuan.
     </p>

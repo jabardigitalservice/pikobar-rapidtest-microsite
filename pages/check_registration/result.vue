@@ -5,14 +5,9 @@
         Pendaftaran Tes Masif COVID-19 Jawa Barat
       </h2>
     </template>
-    <template v-if="status === 'APPROVED' && event !== null && labResult === null">
+    <template v-if="status === 'APPROVED' && event !== null">
       <h2 class="text-gray-900 text-center">
         Undangan Tes Masif COVID-19 Jawa Barat
-      </h2>
-    </template>
-    <template v-if="status === 'APPROVED' && labResult !== null">
-      <h2 class="text-gray-900 text-center">
-        Hasil Tes Masif COVID-19 Jawa Barat
       </h2>
     </template>
 
@@ -64,55 +59,32 @@
           {{ event.event_location }}
         </p>
 
-        <template v-if="labResult === null">
-          <div class="bg-gray-50 sm:rounded-lg border border-gray-300 mt-8">
-            <div class="px-4 py-5 sm:p-6">
-              <h3 class="leading-6 font-bold text-gray-900">
-                Informasi Penting
-              </h3>
-              <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
-                <ol style="list-style: decimal" class="ml-4">
-                  <li>
-                    Silahkan hadir pada jadwal waktu dan tempat yang sudah ditentukan.
-                  </li>
-                  <li class="mt-2">
-                    Tunjukkan undangan kode elektronik ini pada petugas checkin kehadiran saat tiba di lokasi.
-                  </li>
-                  <li class="mt-2">
-                    Wajib membawa fotokopi identitas (KTP) atau Kartu Keluarga (KK).
-                  </li>
-                  <li class="mt-2">
-                    Wajib menggunakan masker serta mengikuti protokol kesehatan perlidungan diri dan orang lain.
-                  </li>
-                  <li class="mt-2">
-                    Informasi dan pertanyaan lebih lanjut hubungi Pusat Bantuan PIKOBAR: <a href="https://api.whatsapp.com/send?phone=628112093306" class="font-bold">08112093306</a> atau Dinas Kesehatan Kota/Kabupaten setempat.
-                  </li>
-                </ol>
-              </div>
+        <div class="bg-gray-50 sm:rounded-lg border border-gray-300 mt-8">
+          <div class="px-4 py-5 sm:p-6">
+            <h3 class="leading-6 font-bold text-gray-900">
+              Informasi Penting
+            </h3>
+            <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
+              <ol style="list-style: decimal" class="ml-4">
+                <li>
+                  Silahkan hadir pada jadwal waktu dan tempat yang sudah ditentukan.
+                </li>
+                <li class="mt-2">
+                  Tunjukkan undangan kode elektronik ini pada petugas checkin kehadiran saat tiba di lokasi.
+                </li>
+                <li class="mt-2">
+                  Wajib membawa fotokopi identitas (KTP) atau Kartu Keluarga (KK).
+                </li>
+                <li class="mt-2">
+                  Wajib menggunakan masker serta mengikuti protokol kesehatan perlidungan diri dan orang lain.
+                </li>
+                <li class="mt-2">
+                  Informasi dan pertanyaan lebih lanjut hubungi Pusat Bantuan PIKOBAR: <a href="https://api.whatsapp.com/send?phone=628112093306" class="font-bold">08112093306</a> atau Dinas Kesehatan Kota/Kabupaten setempat.
+                </li>
+              </ol>
             </div>
           </div>
-        </template>
-        <template v-if="labResult">
-          <div class="bg-gray-50 sm:rounded-lg border border-gray-300 mt-8">
-            <div class="px-4 py-5 sm:p-6">
-              <h3 class="leading-6 font-bold text-gray-900">
-                Hasil Pemeriksaan Laboratorium
-              </h3>
-              <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
-                <dl>
-                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
-                    <dt class="text-sm leading-5 font-bold text-gray-500">
-                      {{ getResultCaption(labResult) }}
-                    </dt>
-                    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                      <a :href="getResultLink(labResult)" target="_blank" class="font-bold text-blue-600 underline">Baca Penjelasan</a>
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
-          </div>
-        </template>
+        </div>
       </template>
     </div>
 
@@ -131,22 +103,6 @@
 import { mapGetters } from 'vuex'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale'
-
-const resultsCaption = {
-  REACTIVE: 'Reaktif',
-  NONREACTIVE: 'Non Reaktif',
-  INKONKLUSIF: 'Inkonklusif',
-  POSITIVE: 'Positif',
-  NEGATIVE: 'Negatif'
-}
-
-const resultsLink = {
-  REACTIVE: 'https://bit.ly/r-PZUWcx',
-  NONREACTIVE: 'https://bit.ly/n-7pxhuc',
-  INKONKLUSIF: 'https://bit.ly/i-lBD6y',
-  POSITIVE: 'https://bit.ly/p-4CaOK',
-  NEGATIVE: 'https://bit.ly/n-lzVSM'
-}
 
 export default {
   middleware: 'check_result',
@@ -181,15 +137,7 @@ export default {
   },
 
   methods: {
-    format,
-
-    getResultCaption (value) {
-      return resultsCaption[value]
-    },
-
-    getResultLink (value) {
-      return resultsLink[value]
-    }
+    format
   }
 }
 </script>

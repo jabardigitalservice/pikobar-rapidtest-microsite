@@ -12,7 +12,7 @@
                 Nama
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                Yoga Hanggara
+                {{ name }}
               </dd>
             </div>
             <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -20,7 +20,7 @@
                 Tanggal
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                Senin, 18 Mei 2020 08:00 WIB
+                {{ format(new Date(event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(event.end_at), 'HH:mm', {locale: lang}) }} WIB
               </dd>
             </div>
             <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -28,7 +28,7 @@
                 Tempat
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                Dinkes Kota Bandung, Jalan Supratman No 73, Cihapit, Bandung
+                {{ event.event_location }}
               </dd>
             </div>
           </dl>
@@ -39,6 +39,8 @@
     <content-result-reactive v-if="labResult === 'REACTIVE'" />
     <content-result-non-reactive v-if="labResult === 'NONREACTIVE'" />
     <content-result-inconclusive v-if="labResult === 'INCONCLUSIVE'" />
+    <content-result-positive v-if="labResult === 'POSITIVE'" />
+    <content-result-negative v-if="labResult === 'NEGATIVE'" />
 
     <div class="mt-6">
       <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
@@ -58,6 +60,8 @@ import { id } from 'date-fns/locale'
 import ContentResultReactive from '@/components/ContentResultReactive'
 import ContentResultNonReactive from '@/components/ContentResultNonReactive'
 import ContentResultInconclusive from '@/components/ContentResultInconclusive'
+import ContentResultPositive from '@/components/ContentResultPositive'
+import ContentResultNegative from '@/components/ContentResultNegative'
 
 export default {
   middleware: 'check_result',
@@ -65,7 +69,9 @@ export default {
   components: {
     ContentResultReactive,
     ContentResultNonReactive,
-    ContentResultInconclusive
+    ContentResultInconclusive,
+    ContentResultPositive,
+    ContentResultNegative
   },
 
   data () {

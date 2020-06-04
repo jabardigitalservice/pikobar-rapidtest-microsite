@@ -415,10 +415,14 @@ export default {
       return true
     }
 
-    const { lat, lng } = await VueGeolocation.getLocation({ enableHighAccuracy: true })
+    try {
+      const { lat, lng } = await VueGeolocation.getLocation({ enableHighAccuracy: true })
 
-    if (lat && lng) {
-      this.$store.commit('form/SET_LATLON', { latitude: lat, longitude: lng })
+      if (lat && lng) {
+        this.$store.commit('form/SET_LATLON', { latitude: lat, longitude: lng })
+      }
+    } catch (e) {
+      // console.log(e)
     }
 
     await this.getCities()

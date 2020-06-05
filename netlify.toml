@@ -1,0 +1,13 @@
+[context.production]
+  command = "npm run generate"
+  [context.production.environment]
+    API_BASEURL = "https://api.tesmasif.pikobar.jabarprov.go.id"
+    APP_REGISTRATION_ENABLED = false
+    GOOGLE_RECAPTCHA_KEY = "6LfVjPMUAAAAAHc-HvefxVlNVcCvUV2ZU6ZAo7VN"
+
+[context.develop]
+  command = "npm run generate"
+  [context.develop.environment]
+    API_BASEURL = "https://api.rapidtest.digitalservice.id"
+    APP_REGISTRATION_ENABLED = true
+    GOOGLE_RECAPTCHA_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"

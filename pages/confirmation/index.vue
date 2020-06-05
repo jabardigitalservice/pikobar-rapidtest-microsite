@@ -51,12 +51,12 @@ export default {
 
     async onSubmit () {
       try {
-        const { data } = await this.$axios.$post('/api/rdt/check', {
-          'g-recaptcha-response': this.recaptcha_response,
-          registration_code: this.registration_code
-        })
+        // const { data } = await this.$axios.$post('/api/rdt/check', {
+        //   'g-recaptcha-response': this.recaptcha_response,
+        //   registration_code: this.registration_code
+        // })
 
-        console.log(data)
+        // console.log(data)
 
         // return this.$router.replace('/check_registration/result')
       } catch (error) {

@@ -1,11 +1,11 @@
 [context.production]
+  command = "GOOGLE_RECAPTCHA_KEY=$PROD_GOOGLE_RECAPTCHA_KEY && npm run generate"
   [context.production.environment]
     API_BASEURL = "https://api.tesmasif.pikobar.jabarprov.go.id"
     APP_REGISTRATION_ENABLED = "false"
-    GOOGLE_RECAPTCHA_KEY = "PROD_PLACEHOLDER_GOOGLE_RECAPTCHA_KEY"
 
 [context.develop]
+  command = "GOOGLE_RECAPTCHA_KEY=$STAGING_GOOGLE_RECAPTCHA_KEY npm run generate"
   [context.develop.environment]
     API_BASEURL = "https://api.rapidtest.digitalservice.id"
     APP_REGISTRATION_ENABLED = "true"
-    GOOGLE_RECAPTCHA_KEY = "DEV_PLACEHOLDER_GOOGLE_RECAPTCHA_KEY"

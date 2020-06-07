@@ -1,13 +1,13 @@
 [context.production]
-  command = "sed -i s/PROD_GOOGLE_RECAPTCHA_KEY/${PROD_GOOGLE_RECAPTCHA_KEY}/g netlify.toml && npm run generate"
+  command = "sed -i s/PLACEHOLDER_GOOGLE_RECAPTCHA_KEY/${PROD_GOOGLE_RECAPTCHA_KEY}/g netlify.toml && npm run generate"
   [context.production.environment]
     API_BASEURL = "https://api.tesmasif.pikobar.jabarprov.go.id"
     APP_REGISTRATION_ENABLED = "false"
-    GOOGLE_RECAPTCHA_KEY = "PROD_GOOGLE_RECAPTCHA_KEY"
+    GOOGLE_RECAPTCHA_KEY = "PLACEHOLDER_GOOGLE_RECAPTCHA_KEY"
 
 [context.develop]
-  command = "sed -i s/DEV_GOOGLE_RECAPTCHA_KEY/${DEV_GOOGLE_RECAPTCHA_KEY}/g netlify.toml && npm run generate"
+  command = "sed -i s/PLACEHOLDER_GOOGLE_RECAPTCHA_KEY/${DEV_GOOGLE_RECAPTCHA_KEY}/g netlify.toml && npm run generate"
   [context.develop.environment]
     API_BASEURL = "https://api.rapidtest.digitalservice.id"
     APP_REGISTRATION_ENABLED = "true"
-    GOOGLE_RECAPTCHA_KEY = "DEV_GOOGLE_RECAPTCHA_KEY"
+    GOOGLE_RECAPTCHA_KEY = "PLACEHOLDER_GOOGLE_RECAPTCHA_KEY"

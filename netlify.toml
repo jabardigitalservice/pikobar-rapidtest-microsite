@@ -1,5 +1,5 @@
 [context.production]
-  command = "GOOGLE_RECAPTCHA_KEY=$PROD_GOOGLE_RECAPTCHA_KEY && npm run generate"
+  command = "GOOGLE_RECAPTCHA_KEY=$PROD_GOOGLE_RECAPTCHA_KEY npm run generate"
   [context.production.environment]
     API_BASEURL = "https://api.tesmasif.pikobar.jabarprov.go.id"
     APP_REGISTRATION_ENABLED = "false"

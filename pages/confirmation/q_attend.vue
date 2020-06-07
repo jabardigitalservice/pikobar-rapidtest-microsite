@@ -15,25 +15,25 @@
           </p>
 
           <div class="mt-6">
-            <div class="flex items-start">
+            <a href="#" class="flex items-start border rounded-lg p-4" @click.prevent="testAttend = 1">
               <div class="absolute flex items-center h-5">
-                <input v-model="testAttend" name="test_attend" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" value="0">
+                <input v-model="testAttend" name="test_attend" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="1">
               </div>
               <div class="pl-7 text-sm leading-5">
                 <label class="font-medium text-gray-700">Hadir
                 </label>
               </div>
-            </div>
+            </a>
 
-            <div class="flex items-start mt-4">
+            <a href="#" class="flex items-start border rounded-lg p-4 mt-4" @click.prevent="testAttend = 0">
               <div class="absolute flex items-center h-5">
-                <input v-model="testAttend" name="test_attend" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" value="1">
+                <input v-model="testAttend" name="test_attend" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="0">
               </div>
               <div class="pl-7 text-sm leading-5">
                 <label class="font-medium text-gray-700">Tidak Hadir
                 </label>
               </div>
-            </div>
+            </a>
           </div>
         </validation-provider>
       </ValidationObserver>
@@ -80,7 +80,11 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$router.push('/confirmation/q_test_type')
+        if (this.testAttend === 1) {
+          this.$router.push('/confirmation/q_test_type')
+        } else {
+          this.$router.push('/confirmation/q_interested')
+        }
       }
     }
   }

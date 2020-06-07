@@ -15,9 +15,9 @@
           </p>
 
           <div class="mt-6">
-            <div class="flex items-start">
+            <a href="#" class="flex items-start border rounded-lg p-4" @click.prevent="testMethod = 1">
               <div class="absolute flex items-center h-5">
-                <input v-model="testMethod" name="test_method" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" value="0">
+                <input v-model="testMethod" name="test_method" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="1">
               </div>
               <div class="pl-7 text-sm leading-5">
                 <label class="font-medium text-gray-700">Rapid Test
@@ -26,11 +26,11 @@
                   Menggunakan sampel uji darah.
                 </p>
               </div>
-            </div>
+            </a>
 
-            <div class="flex items-start mt-4">
+            <a href="#" class="flex items-start border rounded-lg p-4 mt-4" @click.prevent="testMethod = 2">
               <div class="absolute flex items-center h-5">
-                <input v-model="testMethod" name="test_method" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" value="1">
+                <input v-model="testMethod" name="test_method" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="2">
               </div>
               <div class="pl-7 text-sm leading-5">
                 <label class="font-medium text-gray-700">Swab/PCR Test
@@ -39,17 +39,17 @@
                   Menggunakan sampel usap dari dalam hidung atau tenggorokan.
                 </p>
               </div>
-            </div>
+            </a>
 
-            <div class="flex items-start mt-4">
+            <a href="#" class="flex items-start border rounded-lg p-4 mt-4" @click.prevent="testMethod = 0">
               <div class="absolute flex items-center h-5">
-                <input v-model="testMethod" name="test_method" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" value="2">
+                <input v-model="testMethod" name="test_method" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="0">
               </div>
               <div class="pl-7 text-sm leading-5">
                 <label class="font-medium text-gray-700">Tidak Tahu
                 </label>
               </div>
-            </div>
+            </a>
           </div>
         </validation-provider>
       </ValidationObserver>

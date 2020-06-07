@@ -3,7 +3,8 @@ export const state = () => ({
   registrationCode: null,
   testInvited: null,
   testAttend: null,
-  testMethod: null
+  testMethod: null,
+  testInterested: null
 })
 
 // getters
@@ -11,7 +12,8 @@ export const getters = {
   registrationCode: state => state.registrationCode,
   testInvited: state => state.testInvited,
   testAttend: state => state.testAttend,
-  testMethod: state => state.testMethod
+  testMethod: state => state.testMethod,
+  testInterested: state => state.testInterested
 }
 
 // mutations
@@ -31,6 +33,10 @@ export const mutations = {
 
   SET_TEST_METHOD (state, payload) {
     state.testMethod = payload
+  },
+
+  SET_TEST_INTERESTED (state, payload) {
+    state.testInterested = payload
   }
 }
 

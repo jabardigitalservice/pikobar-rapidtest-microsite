@@ -1,27 +1,28 @@
 <template>
-  <div class="container mx-auto p-6">
+  <div class="container mx-auto">
     <form @submit.prevent="onSubmit">
-      <div class="mt-4">
-        <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Pendaftaran</label>
-        <div class="mt-1 relative rounded-md shadow-sm">
-          <input :value="registration_code" type="text" class="form-input block w-full" @input="updateRegistrationCode($event.target.value)">
-        </div>
-      </div>
+      <div class="mobile-screen relative w-full p-6">
+        <div class="mobile-content">
+          <div class="mt-4">
+            <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Pendaftaran</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <input :value="registration_code" type="text" class="form-input block w-full" @input="updateRegistrationCode($event.target.value)">
+            </div>
+          </div>
 
-      <div class="mt-4">
-        <label class="block text-sm font-medium leading-5 text-gray-700">Berilah Tanda Centang</label>
-        <div class="mt-1">
-          <vue-recaptcha ref="recaptcha" :sitekey="recaptcha_key" :load-recaptcha-script="true" @verify="verifyCaptcha" />
+          <div class="mt-4">
+            <label class="block text-sm font-medium leading-5 text-gray-700">Berilah Tanda Centang</label>
+            <div class="mt-1">
+              <vue-recaptcha ref="recaptcha" :sitekey="recaptcha_key" :load-recaptcha-script="true" @verify="verifyCaptcha" />
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="mt-12">
-        <button type="submit" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
-          Lanjutkan
-        </button>
-        <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg bg-brand-yellow-darkest text-white text-center mt-2">
-          Hubungi Pusat Bantuan PIKOBAR
-        </a>
+        <div class="mobile-actions absolute inset-x-0 bottom-0 p-6">
+          <button type="submit" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
+            Lanjutkan
+          </button>
+        </div>
       </div>
     </form>
   </div>

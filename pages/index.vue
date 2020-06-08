@@ -1,34 +1,40 @@
 <template>
-  <div class="container mx-auto p-6">
-    <logo />
+  <div class="container mx-auto">
+    <div class="mobile-screen relative w-full p-6">
+      <div class="mobile-content">
+        <logo />
 
-    <div class="mt-8">
-      <template v-if="enableRegistration">
-        <nuxt-link to="/terms-conditions" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
-          Pendaftaran Baru
-        </nuxt-link>
-      </template>
-      <template v-else>
-        <div class="bg-gray-50 sm:rounded-lg border border-gray-300">
-          <div class="px-4 py-5 sm:p-6">
-            <h3 class="leading-6 font-bold text-gray-900">
-              Pendaftaran Baru
-            </h3>
-            <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
-              <p>
-                Pendaftaran dapat dilakukan melalui <strong>Aplikasi PIKOBAR</strong> pada menu <strong>Periksa Mandiri</strong>.
-              </p>
-              <p class="mt-4">
-                Unduh melalui <a href="https://play.google.com/store/apps/details?id=id.go.jabarprov.pikobar" class="font-bold underline" target="_blank">Google Play</a> atau <a href="https://apps.apple.com/us/app/pikobar-jawa-barat/id1509760172" class="font-bold underline" target="_blank">Apple Store</a>.
-              </p>
+        <div class="mt-8">
+          <template v-if="enableRegistration === false">
+            <div class="bg-gray-50 sm:rounded-lg border border-gray-300">
+              <div class="px-4 py-5 sm:p-6">
+                <h3 class="leading-6 font-bold text-gray-900">
+                  Pendaftaran Baru
+                </h3>
+                <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
+                  <p>
+                    Pendaftaran dapat dilakukan melalui <strong>Aplikasi PIKOBAR</strong> pada menu <strong>Periksa Mandiri</strong>.
+                  </p>
+                  <p class="mt-4">
+                    Unduh melalui <a href="https://play.google.com/store/apps/details?id=id.go.jabarprov.pikobar" class="font-bold underline" target="_blank">Google Play</a> atau <a href="https://apps.apple.com/us/app/pikobar-jawa-barat/id1509760172" class="font-bold underline" target="_blank">Apple Store</a>.
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          </template>
         </div>
-      </template>
 
-      <nuxt-link to="/check_registration" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
-        Cek Pendaftaran &amp; Hasil
-      </nuxt-link>
+        <div>
+          <template v-if="enableRegistration">
+            <nuxt-link to="/terms-conditions" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
+              Pendaftaran Baru
+            </nuxt-link>
+          </template>
+          <nuxt-link to="/check_registration" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-center mt-2" :class="{ 'bg-brand-green-dark text-white': enableRegistration === false, 'text-brand-green-dark': enableRegistration === true }">
+            Cek Pendaftaran &amp; Hasil
+          </nuxt-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>

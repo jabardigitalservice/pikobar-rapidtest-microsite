@@ -1,26 +1,33 @@
 <template>
   <div class="container mx-auto">
-    <div class="relative h-screen w-full p-6" style="height: calc(100vh - 48px); max-height: 640px">
-      <img src="/check-ilustration.png" class="mx-auto">
-
+    <div class="mobile-screen relative h-screen w-full p-6">
       <template v-if="error === false">
-        <h1 class="text-xl font-bold mt-6">
-          Hi, {{ applicantName }}
-        </h1>
-        <p class="mt-4 text-sm">
-          {{ text }}
-        </p>
-        <div class="absolute inset-x-0 bottom-0 p-6">
+        <div class="mobile-content">
+          <img src="/check-ilustration.png" class="mx-auto">
+          <h1 class="text-xl font-bold mt-6">
+            Hi, {{ applicantName }}
+          </h1>
+          <p class="mt-4 text-sm">
+            {{ text }}
+          </p>
+        </div>
+        <div class="mobile-actions absolute inset-x-0 bottom-0 p-6">
           <nuxt-link to="/" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
             Selesai
           </nuxt-link>
         </div>
       </template>
       <template v-else>
-        <p class="mt-4 text-sm">
-          Telah terjadi kesalahan sistem. Silahkan coba simpan ulang kembali.
-        </p>
-        <div class="absolute inset-x-0 bottom-0 p-6">
+        <div class="mobile-content">
+          <img src="/check-ilustration.png" class="mx-auto">
+          <h1 class="text-xl font-bold mt-6">
+            Oops!
+          </h1>
+          <p class="mt-4 text-sm">
+            Telah terjadi kesalahan sistem. Silahkan coba simpan ulang kembali.
+          </p>
+        </div>
+        <div class="mobile-actions absolute inset-x-0 bottom-0 p-6">
           <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-orange text-center" @click="submit">
             Simpan Ulang
           </button>
@@ -85,7 +92,7 @@ export default {
           return await Swal.fire('', firstMessage, 'error')
         }
 
-        return await Swal.fire('Telah terjadi kesalahan sistem', 'Silahkan ulangi beberapa saat kembali.', 'error')
+        return await Swal.fire('', 'Silahkan ulangi beberapa saat kembali.', 'error')
       } finally {
         //
       }

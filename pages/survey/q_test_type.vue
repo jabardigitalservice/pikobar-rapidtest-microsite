@@ -57,7 +57,7 @@
         <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="nextStep">
           Lanjutkan
         </button>
-        <nuxt-link to="/confirmation/q_attend" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
+        <nuxt-link to="/survey/q_attend" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
           Kembali
         </nuxt-link>
       </div>
@@ -109,7 +109,7 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$router.push({ path: '/confirmation/thankyou', query: { type: 'attended' } })
+        this.$router.push({ path: '/survey/thankyou', query: { type: 'attended' } })
       }
     }
   }

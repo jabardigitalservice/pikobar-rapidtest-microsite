@@ -13,7 +13,7 @@
         <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="nextStep">
           Lanjutkan
         </button>
-        <nuxt-link to="/confirmation" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
+        <nuxt-link to="/survey" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
           Kembali
         </nuxt-link>
       </div>
@@ -43,7 +43,7 @@ export default {
 
   methods: {
     nextStep () {
-      return this.$router.push('/confirmation/q_invitation')
+      return this.$router.push('/survey/q_invitation')
     }
   }
 }

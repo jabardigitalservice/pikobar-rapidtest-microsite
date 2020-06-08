@@ -4,7 +4,7 @@
       <ValidationObserver ref="form">
         <validation-provider v-slot="{ errors }" name="Jawaban" rules="required">
           <p>
-            Apakah Anda menghadiri undangan Tes Masif COVID-19 tersebut?
+            Apakah Anda masih tertarik mengikuti Tes Masif COVID-19?
           </p>
 
           <p v-if="errors.length > 0" class="mt-2 text-sm text-red-600">
@@ -15,37 +15,37 @@
           </p>
 
           <div class="mt-6">
-            <a href="#" class="flex items-start border rounded-lg p-4" @click.prevent="testAttend = 1">
+            <a href="#" class="flex items-start border rounded-lg p-4" @click.prevent="testInterested = 1">
               <div class="absolute flex items-center h-5">
-                <input v-model="testAttend" name="test_attend" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="1">
+                <input v-model="testInterested" name="test_invited" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="1">
               </div>
               <div class="pl-7 text-sm leading-5">
-                <label class="font-medium text-gray-700">Hadir
+                <label class="font-medium text-gray-700">Ya, tertarik
                 </label>
               </div>
             </a>
 
-            <a href="#" class="flex items-start border rounded-lg p-4 mt-4" @click.prevent="testAttend = 0">
+            <a href="#" class="flex items-start border rounded-lg p-4 mt-4" @click.prevent="testInterested = 0">
               <div class="absolute flex items-center h-5">
-                <input v-model="testAttend" name="test_attend" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="0">
+                <input v-model="testInterested" name="test_invited" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="0">
               </div>
               <div class="pl-7 text-sm leading-5">
-                <label class="font-medium text-gray-700">Tidak Hadir
+                <label class="font-medium text-gray-700">Tidak tertarik
                 </label>
               </div>
             </a>
           </div>
+
+          <div class="absolute inset-x-0 bottom-0 p-6">
+            <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="nextStep">
+              Lanjutkan
+            </button>
+            <button tyoe="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2" @click="previousStep">
+              Kembali
+            </button>
+          </div>
         </validation-provider>
       </ValidationObserver>
-
-      <div class="absolute inset-x-0 bottom-0 p-6">
-        <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="nextStep">
-          Lanjutkan
-        </button>
-        <nuxt-link to="/confirmation/q_invitation" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
-          Kembali
-        </nuxt-link>
-      </div>
     </div>
   </div>
 </template>
@@ -66,12 +66,12 @@ export default {
   components: { ValidationObserver, ValidationProvider },
 
   computed: {
-    testAttend: {
+    testInterested: {
       get () {
-        return this.$store.state.survey.testAttend
+        return this.$store.state.survey.testInterested
       },
       set (value) {
-        this.$store.commit('survey/SET_TEST_ATTEND', value)
+        this.$store.commit('survey/SET_TEST_INTERESTED', value)
       }
     }
   },
@@ -88,12 +88,16 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        if (this.testAttend === 1) {
-          this.$router.push('/confirmation/q_test_type')
+        if (this.testInterested) {
+          this.$router.push({ path: '/survey/thankyou', query: { type: 'interested' } })
         } else {
-          this.$router.push('/confirmation/q_interested')
+          this.$router.push('/survey/thankyou')
         }
       }
+    },
+
+    previousStep () {
+      this.$router.go(-1)
     }
   }
 }

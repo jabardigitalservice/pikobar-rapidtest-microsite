@@ -61,7 +61,7 @@ export default {
           name: data.name
         })
 
-        return this.$router.replace('/confirmation/hello')
+        return this.$router.replace('/survey/hello')
       } catch (error) {
         if (typeof error.response === 'undefined') {
           return await Swal.fire('', 'Gagal menyambungkan ke server, silahkan coba beberapa saat kembali.', 'error')

@@ -20,7 +20,7 @@
                 <input v-model="testInterested" name="test_invited" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="1">
               </div>
               <div class="pl-7 text-sm leading-5">
-                <label class="font-medium text-gray-700">Ya
+                <label class="font-medium text-gray-700">Ya, tertarik
                 </label>
               </div>
             </a>
@@ -30,7 +30,7 @@
                 <input v-model="testInterested" name="test_invited" type="radio" class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out" :value="0">
               </div>
               <div class="pl-7 text-sm leading-5">
-                <label class="font-medium text-gray-700">Tidak
+                <label class="font-medium text-gray-700">Tidak tertarik
                 </label>
               </div>
             </a>
@@ -80,7 +80,11 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        // this.$router.push('/confirmation/q_attend')
+        if (this.testInterested) {
+          this.$router.push({ path: '/confirmation/thankyou', query: { type: 'interested' } })
+        } else {
+          this.$router.push('/confirmation/thankyou')
+        }
       }
     },
 

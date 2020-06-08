@@ -105,7 +105,7 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        // this.$router.push('/registration/confirm')
+        this.$router.push({ path: '/confirmation/thankyou', query: { type: 'attended' } })
       }
     }
   }

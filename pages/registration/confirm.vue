@@ -270,7 +270,7 @@ export default {
 
         this.$router.replace('/registration/done')
       } catch (error) {
-        if (error.response.status === 422) {
+        if (error.response && error.response.status === 422) {
           const firstErrorKey = Object.keys(error.response.data.errors)[0]
           const firstMessage = error.response.data.errors[firstErrorKey][0]
 

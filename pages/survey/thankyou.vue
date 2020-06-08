@@ -46,7 +46,11 @@ export default {
   computed: {
     ...mapGetters('survey', [
       'registrationCode',
-      'applicantName'
+      'applicantName',
+      'testInvited',
+      'testAttend',
+      'testMethod',
+      'testInterested'
     ])
   },
   mounted () {
@@ -62,7 +66,11 @@ export default {
     async submit () {
       try {
         await this.$axios.$post('/api/rdt/survey', {
-          //
+          registration_code: this.registrationCode,
+          attended: this.testAttend,
+          invited: this.testInvited,
+          interested: this.testInterested,
+          test_method: this.testMethod
         })
 
         this.error = false

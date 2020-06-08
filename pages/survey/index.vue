@@ -44,6 +44,10 @@ export default {
     }
   },
 
+  mounted () {
+    this.$store.commit('survey/RESET_FORM')
+  },
+
   methods: {
     updateRegistrationCode (newValue) {
       this.registration_code = newValue.toUpperCase()

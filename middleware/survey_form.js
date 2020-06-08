@@ -1,5 +1,5 @@
 export default function ({ store, redirect }) {
   if (!store.state.survey.registrationCode) {
-    return redirect('/confirmation')
+    return redirect('/survey')
   }
 }

@@ -68,7 +68,6 @@ export default {
         this.error = false
         this.setText()
         await Swal.fire('', 'Data berhasil disimpan.', 'success')
-
       } catch (error) {
         this.error = true
         if (error.response && error.response.status === 422) {

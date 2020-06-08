@@ -20,6 +20,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Swal from 'sweetalert2'
 
 export default {
   middleware: 'survey_form',
@@ -41,10 +42,32 @@ export default {
       return true
     }
 
+    this.submit()
     this.setText()
   },
 
   methods: {
+    async submit () {
+      try {
+        await this.$axios.$post('/api/rdt/survey', {
+          //
+        })
+
+        await Swal.fire('', 'Data berhasil disimpan.', 'success')
+      } catch (error) {
+        if (error.response.status === 422) {
+          const firstErrorKey = Object.keys(error.response.data.errors)[0]
+          const firstMessage = error.response.data.errors[firstErrorKey][0]
+
+          return await Swal.fire('', firstMessage, 'error')
+        }
+
+        return await Swal.fire('Telah terjadi kesalahan sistem', 'Silahkan ulangi beberapa saat kembali.', 'error')
+      } finally {
+        //
+      }
+    },
+
     setText () {
       this.text = 'Terima kasih atas kesediaan Anda telah mengisi survei dari kami.'
 

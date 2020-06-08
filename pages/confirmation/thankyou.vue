@@ -22,6 +22,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  middleware: 'survey_form',
   data () {
     return {
       text: null
@@ -34,8 +35,12 @@ export default {
       'applicantName'
     ])
   },
-
   mounted () {
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
+
     this.setText()
   },
 

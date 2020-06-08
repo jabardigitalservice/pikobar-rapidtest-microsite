@@ -62,6 +62,7 @@ extend('required', {
 })
 
 export default {
+  middleware: 'survey_form',
   components: { ValidationObserver, ValidationProvider },
 
   computed: {
@@ -72,6 +73,13 @@ export default {
       set (value) {
         this.$store.commit('survey/SET_TEST_INVITED', value)
       }
+    }
+  },
+
+  mounted () {
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
     }
   },
 

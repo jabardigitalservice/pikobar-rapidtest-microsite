@@ -25,11 +25,20 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  middleware: 'survey_form',
+
   computed: {
     ...mapGetters('survey', [
       'registrationCode',
       'applicantName'
     ])
+  },
+
+  mounted () {
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
   },
 
   methods: {

@@ -77,6 +77,7 @@ extend('required', {
 })
 
 export default {
+  middleware: 'survey_form',
   components: { ValidationObserver, ValidationProvider },
 
   data () {
@@ -97,7 +98,10 @@ export default {
   },
 
   mounted () {
-    //
+    // Enable navigation prompt
+    window.onbeforeunload = function () {
+      return true
+    }
   },
 
   methods: {

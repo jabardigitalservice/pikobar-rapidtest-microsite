@@ -4,7 +4,7 @@
       <img src="/check-ilustration.png" class="mx-auto">
 
       <h1 class="text-xl font-bold mt-6">
-        Hi, Ahmad Yurianto
+        Hi, {{ applicantName }}
       </h1>
       <p class="mt-4 text-sm">
         {{ text }}
@@ -19,11 +19,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data () {
     return {
       text: null
     }
+  },
+
+  computed: {
+    ...mapGetters('survey', [
+      'registrationCode',
+      'applicantName'
+    ])
   },
 
   mounted () {

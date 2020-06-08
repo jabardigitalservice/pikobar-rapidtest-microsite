@@ -51,12 +51,15 @@ export default {
 
     async onSubmit () {
       try {
-        // const { data } = await this.$axios.$post('/api/rdt/check', {
-        //   'g-recaptcha-response': this.recaptcha_response,
-        //   registration_code: this.registration_code
-        // })
+        const { data } = await this.$axios.$post('/api/rdt/check', {
+          'g-recaptcha-response': this.recaptcha_response,
+          registration_code: this.registration_code
+        })
 
-        // console.log(data)
+        this.$store.commit('survey/SET_DATA', {
+          registrationCode: data.registration_code,
+          name: data.name
+        })
 
         return this.$router.replace('/confirmation/hello')
       } catch (error) {

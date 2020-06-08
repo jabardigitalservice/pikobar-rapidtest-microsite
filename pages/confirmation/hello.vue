@@ -4,10 +4,10 @@
       <img src="/check-ilustration.png" class="mx-auto">
 
       <h1 class="text-xl font-bold mt-6">
-        Hi, Ahmad Yurianto
+        Hi, {{ applicantName }}
       </h1>
       <p class="mt-4 text-sm">
-        Selamat Datang di halaman konfirmasi undangan Tes Masif COVID-19 PIKOBAR Jawa Barat. Untuk melengkapi data Anda, kami ingin menanyakan beberapa pertanyaan berikut.
+        Selamat Datang di halaman survei Tes Masif COVID-19 PIKOBAR Jawa Barat. Untuk melengkapi data Anda, kami ingin menanyakan beberapa pertanyaan berikut.
       </p>
       <div class="absolute inset-x-0 bottom-0 p-6">
         <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="nextStep">
@@ -22,7 +22,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
+  computed: {
+    ...mapGetters('survey', [
+      'registrationCode',
+      'applicantName'
+    ])
+  },
+
   methods: {
     nextStep () {
       return this.$router.push('/confirmation/q_invitation')

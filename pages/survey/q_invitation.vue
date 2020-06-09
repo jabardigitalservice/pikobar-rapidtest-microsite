@@ -5,7 +5,7 @@
         <div class="mobile-content">
           <validation-provider v-slot="{ errors }" name="Jawaban" rules="required">
             <p>
-              Apakah Anda pernah mendapatkan undangan mengikuti Tes Masif COVID-19 dari PIKOBAR?
+              Apakah Anda pernah mendapatkan undangan mengikuti Tes Masif COVID-19 dari PIKOBAR atau instansi lainnya?
             </p>
 
             <p v-if="errors.length > 0" class="mt-2 text-sm text-red-600">

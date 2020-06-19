@@ -43,6 +43,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    // Doc: https://github.com/nuxt-community/stylelint-module
+    '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss'
   ],
@@ -51,7 +53,9 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // Doc: https://github.com/nuxt/content
+    '@nuxt/content'
   ],
   /*
   ** Axios module configuration
@@ -60,6 +64,11 @@ export default {
   axios: {
     baseURL: process.env.API_BASEURL
   },
+  /*
+  ** Content module configuration
+  ** See https://content.nuxtjs.org/configuration
+  */
+  content: {},
   /*
   ** Build configuration
   */

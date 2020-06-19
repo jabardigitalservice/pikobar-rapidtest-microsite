@@ -1,7 +1,8 @@
 {
   "name": "pikobar-rapidtest-microsite",
+  "title": "Tes Masif COVID-19",
   "version": "1.0.0",
-  "description": "My good Nuxt.js project",
+  "description": "Pendaftaran Tes Masif COVID-19 PIKOBAR Jawa Barat",
   "author": "Yoga Hanggara",
   "private": true,
   "scripts": {

@@ -11,11 +11,11 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Tes Masif COVID-19',
+    title: process.env.npm_package_title || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-      { hid: 'description', name: 'description', content: 'Pendaftaran Tes Masif COVID-19 PIKOBAR Jawa Barat' },
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { hid: 'theme-color', name: 'theme-color', content: '#399F4F' }
     ],
     link: [

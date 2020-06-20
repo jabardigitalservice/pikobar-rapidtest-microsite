@@ -11,11 +11,11 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Tes Masif COVID-19',
+    title: process.env.npm_package_title || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-      { hid: 'description', name: 'description', content: 'Pendaftaran Tes Masif COVID-19 PIKOBAR Jawa Barat' },
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { hid: 'theme-color', name: 'theme-color', content: '#399F4F' }
     ],
     link: [
@@ -36,6 +36,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/validation-rules',
+    '~/plugins/global-components'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -43,6 +45,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    // Doc: https://github.com/nuxt-community/stylelint-module
+    '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss'
   ],
@@ -51,7 +55,9 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // Doc: https://github.com/nuxt/content
+    '@nuxt/content'
   ],
   /*
   ** Axios module configuration
@@ -60,6 +66,11 @@ export default {
   axios: {
     baseURL: process.env.API_BASEURL
   },
+  /*
+  ** Content module configuration
+  ** See https://content.nuxtjs.org/configuration
+  */
+  content: {},
   /*
   ** Build configuration
   */

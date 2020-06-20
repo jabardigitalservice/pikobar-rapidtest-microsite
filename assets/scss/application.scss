@@ -62,5 +62,5 @@ body {
 }
 
 .form-radio:checked {
-  background-image: none;
+  @apply border-brand-green;
 }

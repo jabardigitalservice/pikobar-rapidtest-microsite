@@ -3,8 +3,8 @@ export const state = () => ({
   registrationCode: null,
   name: null,
   qrcode: null,
-  event: null,
-  labResult: null,
+  invitations: [],
+  lastInvitation: null,
   status: null
 })
 
@@ -13,8 +13,8 @@ export const getters = {
   registrationCode: state => state.registrationCode,
   name: state => state.name,
   qrcode: state => state.qrcode,
-  event: state => state.event,
-  labResult: state => state.labResult,
+  invitations: state => state.invitations,
+  lastInvitation: state => state.lastInvitation,
   status: state => state.status
 }
 
@@ -24,8 +24,8 @@ export const mutations = {
     state.registrationCode = null
     state.name = null
     state.qrcode = null
-    state.event = null
-    state.labResult = null
+    state.invitations = []
+    state.lastInvitation = null
     state.status = null
   },
 
@@ -33,8 +33,8 @@ export const mutations = {
     state.registrationCode = payload.registrationCode
     state.name = payload.name
     state.qrcode = payload.qrcode
-    state.event = payload.event
-    state.labResult = payload.labResult
+    state.invitations = payload.invitations
+    state.lastInvitation = payload.lastInvitation
     state.status = payload.status
   }
 }

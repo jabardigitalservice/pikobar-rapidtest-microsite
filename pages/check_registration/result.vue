@@ -5,7 +5,7 @@
         Pendaftaran Tes Masif COVID-19 Jawa Barat
       </h2>
     </template>
-    <template v-if="status === 'APPROVED' && event !== null">
+    <template v-if="status === 'APPROVED' && lastInvitation !== null">
       <h2 class="text-gray-900 text-center">
         Undangan Tes Masif COVID-19 Jawa Barat
       </h2>
@@ -49,14 +49,14 @@
         </div>
       </template>
 
-      <template v-if="status === 'APPROVED' && event !== null">
+      <template v-if="status === 'APPROVED' && lastInvitation !== null">
         <p class="mt-4 text-center">
           <strong>Waktu:</strong><br>
-          {{ format(new Date(event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(event.end_at), 'HH:mm', {locale: lang}) }} WIB
+          {{ format(new Date(lastInvitation.event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(lastInvitation.event.end_at), 'HH:mm', {locale: lang}) }} WIB
         </p>
         <p class="mt-4 text-center">
           <strong>Tempat:</strong><br>
-          {{ event.event_location }}
+          {{ lastInvitation.event.event_location }}
         </p>
 
         <div class="bg-gray-50 sm:rounded-lg border border-gray-300 mt-8">
@@ -76,7 +76,10 @@
                   Wajib membawa fotokopi identitas (KTP) atau Kartu Keluarga (KK).
                 </li>
                 <li class="mt-2">
-                  Wajib menggunakan masker serta mengikuti protokol kesehatan perlidungan diri dan orang lain.
+                  Wajib menggunakan masker serta mengikuti protokol kesehatan perlindungan diri dan orang lain.
+                </li>
+                <li class="mt-2">
+                  Tes Masif COVID-19 ini tidak dipungut biaya.
                 </li>
                 <li class="mt-2">
                   Informasi dan pertanyaan lebih lanjut hubungi Pusat Bantuan PIKOBAR: <a href="https://api.whatsapp.com/send?phone=628112093306" class="font-bold">08112093306</a> atau Dinas Kesehatan Kota/Kabupaten setempat.
@@ -123,8 +126,8 @@ export default {
       'registrationCode',
       'name',
       'qrcode',
-      'event',
-      'labResult',
+      'invitations',
+      'lastInvitation',
       'status'
     ])
   },

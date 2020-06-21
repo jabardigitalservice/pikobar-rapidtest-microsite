@@ -15,20 +15,20 @@
                 {{ name }}
               </dd>
             </div>
-            <div v-if="event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+            <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
               <dt class="text-sm leading-5 font-bold text-gray-500">
                 Tanggal
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ format(new Date(event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(event.end_at), 'HH:mm', {locale: lang}) }} WIB
+                {{ format(new Date(lastInvitation.event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(lastInvitation.event.end_at), 'HH:mm', {locale: lang}) }} WIB
               </dd>
             </div>
-            <div v-if="event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+            <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
               <dt class="text-sm leading-5 font-bold text-gray-500">
                 Tempat
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ event.event_location }}
+                {{ lastInvitation.event.event_location }}
               </dd>
             </div>
           </dl>
@@ -36,11 +36,11 @@
       </div>
     </div>
 
-    <content-result-reactive v-if="labResult === 'REACTIVE'" />
-    <content-result-non-reactive v-if="labResult === 'NONREACTIVE'" />
-    <content-result-inconclusive v-if="labResult === 'INCONCLUSIVE'" />
-    <content-result-positive v-if="labResult === 'POSITIVE'" />
-    <content-result-negative v-if="labResult === 'NEGATIVE'" />
+    <content-result-reactive v-if="lastInvitation.lab_result_type === 'REACTIVE'" />
+    <content-result-non-reactive v-if="lastInvitation.lab_result_type === 'NONREACTIVE'" />
+    <content-result-inconclusive v-if="lastInvitation.lab_result_type === 'INCONCLUSIVE'" />
+    <content-result-positive v-if="lastInvitation.lab_result_type === 'POSITIVE'" />
+    <content-result-negative v-if="lastInvitation.lab_result_type === 'NEGATIVE'" />
 
     <div class="mt-6">
       <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
@@ -84,8 +84,8 @@ export default {
     ...mapGetters('check', [
       'registrationCode',
       'name',
-      'event',
-      'labResult',
+      'invitations',
+      'lastInvitation',
       'status'
     ])
   },

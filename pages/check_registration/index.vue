@@ -60,16 +60,22 @@ export default {
           registration_code: this.registration_code
         })
 
+        let lastInvitation = null
+
+        if (data.invitations.length > 0) {
+          [lastInvitation] = data.invitations.slice(-1)
+        }
+
         this.$store.commit('check/SET_DATA', {
           registrationCode: data.registration_code,
           name: data.name,
           qrcode: data.qrcode,
-          event: data.event,
-          labResult: data.lab_result,
+          invitations: data.invitations,
+          lastInvitation,
           status: data.status
         })
 
-        if (data.lab_result) {
+        if (lastInvitation && lastInvitation.lab_result_type) {
           return this.$router.replace('/check_registration/result_test')
         }
 

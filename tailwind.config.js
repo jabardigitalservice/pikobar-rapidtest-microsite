@@ -8,7 +8,8 @@ module.exports = {
   purge: [
     './pages/**/*.html',
     './pages/**/*.vue',
-    './pages/**/*.jsx'
+    './components/**/*.vue',
+    './layouts/*.vue'
   ],
   theme: {
     extend: {

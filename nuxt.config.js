@@ -3,6 +3,8 @@ export default {
   mode: 'spa',
 
   env: {
+    appEnv: process.env.APP_ENV || 'local',
+    apiUrl: process.env.API_BASEURL,
     googleRecaptchaKey: process.env.GOOGLE_RECAPTCHA_KEY,
     enableRegistration: process.env.APP_REGISTRATION_ENABLED === 'true'
   },
@@ -57,7 +59,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/sentry'
   ],
   /*
   ** Axios module configuration
@@ -66,6 +69,14 @@ export default {
   axios: {
     baseURL: process.env.API_BASEURL
   },
+
+  sentry: {
+    dsn: process.env.SENTRY_DSN,
+    config: {
+      environment: process.env.APP_ENV || 'local'
+    }
+  },
+
   /*
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration

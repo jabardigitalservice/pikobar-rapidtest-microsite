@@ -72,7 +72,7 @@ export default {
 
   sentry: {
     dsn: process.env.SENTRY_DSN,
-    publishRelease: true,
+    publishRelease: false,
     config: {
       environment: process.env.APP_ENV || 'local'
     }

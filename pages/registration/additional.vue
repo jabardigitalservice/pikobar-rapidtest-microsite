@@ -118,7 +118,7 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$router.replace('/registration/confirm')
+        this.$router.replace('/registration/status')
       }
     }
   }

@@ -25,6 +25,7 @@ export const state = () => ({
   symptoms: [],
   symptomsNotes: null,
   symptomsInteraction: null,
+  status: null,
   symptomsActivity: [],
   cities: [],
   districts: [],
@@ -53,6 +54,15 @@ export const state = () => ({
     { value: 12, text: 'Suhu Tubuh >= 38 C' },
     { value: 99, text: 'Tidak ada Gejala' }
   ],
+
+  statusOptions: [
+    { value: 1, text: 'ODP' },
+    { value: 2, text: 'PDP' },
+    { value: 3, text: 'OTG' },
+    { value: 4, text: 'Bukan termasuk ketiganya' },
+    { value: 5, text: 'Tidak tahu' }
+  ],
+
   eventsOptions: [
     { value: 1, text: 'Seminar Platform Bisnis Tanpa Riba di Sentul, Kabupaten Bogor (25-28 Februari)' },
     { value: 2, text: 'Seminar Gereja Protestan di Indonesia Bagian Barat / GPIB di Hotel Aston Bogor (26 - 29 Februari)' },
@@ -103,6 +113,8 @@ export const getters = {
   symptomsActivity: state => state.symptomsActivity,
   symptomsOptions: state => state.symptomsOptions,
   eventsOptions: state => state.eventsOptions,
+  statusOptions: state => state.statusOptions,
+  status: state => state.status,
   occupationTypeOptions: state => state.occupationTypeOptions
 }
 
@@ -133,6 +145,7 @@ export const mutations = {
     state.villages = []
     state.symptoms = []
     state.symptomsNotes = null
+    state.status = null
     state.symptomsInteraction = null
     state.symptomsActivity = []
   },
@@ -236,6 +249,10 @@ export const mutations = {
 
   SET_SYMPTOMS_NOTES (state, payload) {
     state.symptomsNotes = payload
+  },
+
+  SET_STATUS (state, payload) {
+    state.status = payload
   },
 
   SET_RESULT_REGISTRATION_RESULT (state, { registrationCode, downloadUrl }) {

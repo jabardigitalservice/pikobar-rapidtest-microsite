@@ -24,12 +24,12 @@
           :value="item[itemValue]"
         >
         <label class="ml-3" :for="`${name}-${index}`">
-          <span class="block text-sm leading-5 font-medium text-gray-700">{{ item[itemText] }}</span>
+          <span class="block text-sm leading-5 text-gray-700">{{ item[itemText] }}</span>
         </label>
       </div>
     </div>
 
-    <template name="info" class="text-sm text-gray-700" />
+    <slot name="info" class="text-sm text-gray-700" />
   </validation-provider>
 </template>
 

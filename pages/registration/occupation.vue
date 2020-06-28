@@ -5,63 +5,31 @@
     </p>
 
     <ValidationObserver ref="form">
-      <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Jenis Pekerjaan" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Jenis Pekerjaan</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="occupationType" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-              <option :value="null">
-                Pilih...
-              </option>
-              <option v-for="occupationTypeOption in occupationTypeOptions" :key="`input-occupation-${occupationTypeOption.value}`" :value="occupationTypeOption.value">
-                {{ occupationTypeOption.text }}
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-select
+        v-model="occupationType"
+        class="mt-6"
+        :items="occupationTypeOptions"
+        name="Jenis Pekerjaan"
+        label="Jenis Pekerjaan"
+        rules="required"
+      />
 
-      <div v-if="occupationType === 13" class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Nama Pekerjaan" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Pekerjaan</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model="occupationName" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-input
+        v-if="occupationType === 13"
+        v-model="occupationName"
+        class="mt-4"
+        name="Nama Pekerjaan"
+        label="Nama Pekerjaan"
+        rules="required"
+      />
 
-      <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Nama Tempat Bekerja" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Tempat Bekerja</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model="workplaceName" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-input
+        v-model="workplaceName"
+        class="mt-4"
+        name="Nama Tempat Bekerja"
+        label="Nama Tempat Bekerja"
+        rules="required"
+      />
     </ValidationObserver>
 
     <div class="mt-12">
@@ -77,17 +45,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { ValidationObserver, ValidationProvider, extend } from 'vee-validate'
-import { required } from 'vee-validate/dist/rules'
-import { messages } from 'vee-validate/dist/locale/id.json'
-
-extend('required', {
-  ...required,
-  message: messages.required
-})
+import { ValidationObserver } from 'vee-validate'
 
 export default {
-  components: { ValidationObserver, ValidationProvider },
+  components: { ValidationObserver },
 
   computed: {
     ...mapGetters('form', [

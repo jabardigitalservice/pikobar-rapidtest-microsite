@@ -64,3 +64,11 @@ body {
 .form-radio:checked {
   @apply border-brand-green;
 }
+
+.form-select {
+  .placeholdered {
+    option[disabled] {
+      @apply text-gray-500;
+    }
+  }
+}

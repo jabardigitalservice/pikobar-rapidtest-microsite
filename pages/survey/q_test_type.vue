@@ -55,14 +55,7 @@
           </validation-provider>
         </div>
       </ValidationObserver>
-      <div class="mobile-actions absolute inset-x-0 bottom-0 p-6">
-        <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="nextStep">
-          Lanjutkan
-        </button>
-        <nuxt-link to="/survey/q_attend" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
-          Kembali
-        </nuxt-link>
-      </div>
+      <form-actions class="mobile-actions absolute inset-x-0 bottom-0" back-link="/survey/q_attend" @next="nextStep" />
     </div>
   </div>
 </template>

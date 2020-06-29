@@ -5,278 +5,120 @@
     </p>
 
     <ValidationObserver ref="form">
-      <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Nama Lengkap" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Nama Lengkap</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model.lazy="name" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-input v-model="name" class="mt-6" name="Nama Lengkap" label="Nama Lengkap" rules="required" />
 
-      <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Jenis Kelamin" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Jenis Kelamin</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="gender" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-              <option :value="null">
-                Pilih
-              </option>
-              <option value="M">
-                Laki-Laki
-              </option>
-              <option value="F">
-                Perempuan
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-select
+        v-model="gender"
+        class="mt-4"
+        :items="[
+          {text: 'Laki-laki', value: 'M'},
+          {text: 'Perempuan', value: 'F'}
+        ]"
+        name="Jenis Kelamin"
+        label="Jenis Kelamin"
+        rules="required"
+      />
 
-      <div class="mt-6">
-        <label class="block text-sm font-medium leading-5 text-gray-700">Tanggal Lahir</label>
-        <validation-provider v-slot="{ errors }" name="Tanggal" rules="required">
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="birth_day" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-              <option :value="null">
-                Tanggal
-              </option>
-              <option v-for="n in days" :key="n" :value="n">
-                {{ n }}
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
+      <pkbr-select
+        v-model="birth_day"
+        class="mt-4"
+        :items="days"
+        name="Tanggal Lahir"
+        label="Tanggal Lahir"
+        placeholder="Tanggal"
+        rules="required"
+      />
 
-        <validation-provider v-slot="{ errors }" name="Bulan" rules="required">
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="birth_month" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-              <option :value="null">
-                Bulan
-              </option>
-              <option v-for="(month, index) in months" :key="index" :value="index">
-                {{ month }}
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
+      <pkbr-select
+        v-model="birth_month"
+        :items="months"
+        name="Bulan"
+        placeholder="Bulan"
+        rules="required"
+      />
 
-        <validation-provider v-slot="{ errors }" name="Tahun" rules="required">
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="birth_year" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-              <option :value="null">
-                Tahun
-              </option>
-              <option v-for="year in years" :key="year" :value="year">
-                {{ year }}
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-select
+        v-model="birth_year"
+        :items="years"
+        name="Tahun"
+        placeholder="Tahun"
+        rules="required"
+      />
 
-      <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Kabupaten/Kota" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Kabupaten/Kota</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="city_code" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }" @change="changeCity">
-              <option :value="null">
-                Pilih
-              </option>
-              <option v-for="city in cities" :key="city.id" :value="city.code_kemendagri">
-                {{ city.name }}
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-select
+        v-model="city_code"
+        class="mt-4"
+        :items="cities"
+        name="Kabupaten/Kota"
+        label="Kabupaten/Kota"
+        rules="required"
+        item-text="name"
+        item-value="code"
+        @change="changeCity"
+      />
 
-      <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Kecamatan" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Kecamatan</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="district_code" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }" @change="changeDistrict">
-              <option :value="null">
-                Pilih
-              </option>
-              <option v-for="district in districts" :key="district.id" :value="district.code_kemendagri">
-                {{ district.name }}
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-select
+        v-model="district_code"
+        class="mt-4"
+        :items="districts"
+        name="Kecamatan"
+        label="Kecamatan"
+        rules="required"
+        item-text="name"
+        item-value="code"
+        @change="changeDistrict"
+      />
 
-      <div class="mt-6">
-        <validation-provider v-slot="{ errors }" name="Kelurahan/Desa" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Kelurahan/Desa</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <select v-model="village_code" class="form-select block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-              <option :value="null">
-                Pilih
-              </option>
-              <option v-for="village in villages" :key="village.id" :value="village.code_kemendagri">
-                {{ village.name }}
-              </option>
-            </select>
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-select
+        v-model="village_code"
+        class="mt-4"
+        :items="villages"
+        name="Kelurahan/Desa"
+        label="Kelurahan/Desa"
+        rules="required"
+        item-text="name"
+        item-value="code"
+      />
 
-      <div class="mt-4">
-        <validation-provider v-slot="{ errors }" name="Alamat" rules="required">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Alamat</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <textarea v-model.lazy="address" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }" />
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-input
+        v-model="address"
+        class="mt-4"
+        name="Alamat"
+        label="Alamat"
+        rules="required"
+        type="textarea"
+      />
 
-      <div class="mt-4">
-        <validation-provider v-slot="{ errors }" name="Nomor Telepon" rules="required|phone_number">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Telepon (Whatsapp)</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model.lazy="phone_number" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-input
+        v-model="phone_number"
+        class="mt-4"
+        name="Nomor Telepon"
+        label="Nomor Telepon (Whatsapp)"
+        rules="required|phone_number"
+        type="tel"
+      />
 
-      <div class="mt-4">
-        <validation-provider v-slot="{ errors }" name="Alamat Email" rules="required|email">
-          <label class="block text-sm font-medium leading-5 text-gray-700">Alamat Email</label>
-          <div class="mt-1 relative rounded-md shadow-sm">
-            <input v-model.lazy="email" type="text" class="form-input block w-full" :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red': errors.length > 0 }">
-            <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <p class="mt-2 text-sm text-red-600">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-      </div>
+      <pkbr-input
+        v-model="email"
+        class="mt-4"
+        name="Alamat Email"
+        label="Alamat Email"
+        rules="required|email"
+      />
     </ValidationObserver>
 
-    <div class="mt-12">
-      <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center" @click="nextStep">
-        Lanjutkan
-      </button>
-      <nuxt-link to="/registration" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-brand-green-dark text-center mt-2">
-        Kembali
-      </nuxt-link>
-    </div>
+    <form-actions class="mt-12" back-link="/registration" @next="nextStep" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { ValidationObserver, ValidationProvider, extend } from 'vee-validate'
-import { required, email } from 'vee-validate/dist/rules'
-import { messages } from 'vee-validate/dist/locale/id.json'
+import { ValidationObserver } from 'vee-validate'
 import _ from 'lodash'
 import VueGeolocation from 'vue-browser-geolocation'
 
-extend('required', {
-  ...required,
-  message: messages.required
-})
-
-extend('email', {
-  ...email,
-  message: messages.email
-})
-
-extend('phone_number', {
-  validate: (value) => {
-    return value.match(/^0{1}8{1}[0-9]{9,11}$/g)
-  },
-  message: 'Format Nomor Telepon tidak benar'
-})
-
 export default {
-  components: { ValidationObserver, ValidationProvider },
+  components: { ValidationObserver },
 
   data () {
     return {
@@ -299,8 +141,18 @@ export default {
 
     months () {
       return [
-        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
-        'September', 'Oktober', 'November', 'Desember'
+        { value: 0, text: 'Januari' },
+        { value: 1, text: 'Februari' },
+        { value: 2, text: 'Maret' },
+        { value: 3, text: 'April' },
+        { value: 4, text: 'Mei' },
+        { value: 5, text: 'Juni' },
+        { value: 6, text: 'Juli' },
+        { value: 7, text: 'Agustus' },
+        { value: 8, text: 'September' },
+        { value: 9, text: 'Oktober' },
+        { value: 10, text: 'November' },
+        { value: 11, text: 'Desember' }
       ]
     },
 
@@ -447,17 +299,17 @@ export default {
       this.$store.commit('form/SET_VILLAGES', data)
     },
 
-    changeCity (e) {
+    changeCity (code) {
       this.district_code = null
       this.village_code = null
 
-      this.getDistricts(e.target.value)
+      this.getDistricts(code)
     },
 
-    changeDistrict (e) {
+    changeDistrict (code) {
       this.village_code = null
 
-      this.getVillages(e.target.value)
+      this.getVillages(code)
     },
 
     async nextStep () {

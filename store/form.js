@@ -56,11 +56,11 @@ export const state = () => ({
   ],
 
   statusOptions: [
-    { value: 1, text: 'ODP' },
-    { value: 2, text: 'PDP' },
-    { value: 3, text: 'OTG' },
-    { value: 4, text: 'Bukan termasuk ketiganya' },
-    { value: 5, text: 'Tidak tahu' }
+    { value: 'ODP', text: 'ODP' },
+    { value: 'PDP', text: 'PDP' },
+    { value: 'OTG', text: 'OTG' },
+    { value: 'NOT_ALL', text: 'Bukan termasuk ketiganya' },
+    { value: 'UNKNOWN', text: 'Tidak tahu' }
   ],
 
   eventsOptions: [

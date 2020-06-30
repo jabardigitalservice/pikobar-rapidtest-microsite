@@ -278,7 +278,7 @@ export default {
           symptoms_activity: this.symptomsActivity,
           symptoms_interaction: this.symptomsInteraction,
           symptoms_notes: this.symptomsNotes,
-          status: this.status,
+          person_status: this.status,
           latitude: this.latitude,
           longitude: this.longitude
         })

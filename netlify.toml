@@ -7,5 +7,5 @@
 [context.develop]
   command = "APP_ENV=staging GOOGLE_RECAPTCHA_KEY=$STAGING_GOOGLE_RECAPTCHA_KEY npm run generate"
   [context.develop.environment]
-    API_BASEURL = "https://api.rapidtest.digitalservice.id"
+    API_BASEURL = "https://tesmasif-api.digitalservice.id"
     APP_REGISTRATION_ENABLED = "true"

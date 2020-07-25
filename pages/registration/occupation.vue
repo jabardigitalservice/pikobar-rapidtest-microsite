@@ -14,15 +14,6 @@
         rules="required"
       />
 
-      <pkbr-input
-        v-if="occupationType === 13"
-        v-model="occupationName"
-        class="mt-4"
-        name="Nama Pekerjaan"
-        label="Nama Pekerjaan"
-        rules="required"
-      />
-
       <pkbr-select
         v-if="occupationType === 14"
         v-model="workplaceName"
@@ -39,6 +30,14 @@
         class="mt-4"
         name="Nama Tempat Bekerja"
         label="Nama Tempat Bekerja"
+        rules="required"
+      />
+
+      <pkbr-input
+        v-model="occupationName"
+        class="mt-4"
+        name="Nama Profesi/Pekerjaan"
+        label="Nama Profesi/Pekerjaan"
         rules="required"
       />
     </ValidationObserver>

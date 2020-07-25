@@ -23,7 +23,18 @@
         rules="required"
       />
 
+      <pkbr-select
+        v-if="occupationType === 14"
+        v-model="workplaceName"
+        :items="JabarOptions"
+        class="mt-4"
+        name="Unit Kerja"
+        label="Unit Kerja"
+        rules="required"
+      />
+
       <pkbr-input
+        v-if="occupationType !== 14"
         v-model="workplaceName"
         class="mt-4"
         name="Nama Tempat Bekerja"
@@ -45,7 +56,8 @@ export default {
 
   computed: {
     ...mapGetters('form', [
-      'occupationTypeOptions'
+      'occupationTypeOptions',
+      'JabarOptions'
     ]),
 
     occupationType: {

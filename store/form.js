@@ -31,6 +31,7 @@ export const state = () => ({
   districts: [],
   villages: [],
   occupationTypeOptions: [
+    { value: 14, text: 'Pegawai Pemprov Jawa Barat' },
     { value: 7, text: 'Petugas Pelayanan Publik (Kasir/Customer Service Bank, Petugas Keamanan, Loket Layanan Publik)' },
     { value: 8, text: 'Petugas Transportasi (Terminal, Airport, Stasiun, Ojol)' },
     { value: 9, text: 'Petugas Kebersihan' },
@@ -69,6 +70,27 @@ export const state = () => ({
     { value: 3, text: 'Seminar Gereja Bethel Indonesia / GBI di Lembang, Kabupaten Bandung Barat (3-5 Maret)' },
     { value: 4, text: 'Musyawarah Daerah Himpunan Pengusaha Muda Indonesia / HIPMI Jabar di Kabupaten Karawang (9 Maret)' },
     { value: 99, text: 'Tidak pernah mengikuti ke event/kegiatan di atas.' }
+  ],
+
+  JabarOptions: [
+    'SEKRETARIS DAERAH PROVINSI',
+    'ASISTEN PEMERINTAHAN, HUKUM, DAN KESEJAHTERAAN SOSIAL',
+    'BIRO PEMERINTAHAN DAN KERJASAMA',
+    'BIRO HUKUM DAN HAK ASASI MANUSIA',
+    'BIRO PELAYANAN DAN PENGEMBANGAN SOSIAL',
+    'ASISTEN PEREKONOMIAN DAN PEMBANGUNAN',
+    'BIRO BADAN USAHA MILIK DAERAH DAN INVESTASI',
+    'BIRO PEREKONOMIAN',
+    'BIRO PENGADAAN BARANG/JASA',
+    'ASISTEN ADMINISTRASI',
+    'BIRO ORGANISASI',
+    'BIRO HUBUNGAN MASYARAKAT DAN PROTOKOL',
+    'BIRO UMUM',
+    'Jabar Digital Service',
+    'Jabar Saber Hoax',
+    'Jabar Bergerak',
+    'Jabar Quick Response',
+    'Lainnya'
   ]
 })
 
@@ -115,7 +137,8 @@ export const getters = {
   eventsOptions: state => state.eventsOptions,
   statusOptions: state => state.statusOptions,
   status: state => state.status,
-  occupationTypeOptions: state => state.occupationTypeOptions
+  occupationTypeOptions: state => state.occupationTypeOptions,
+  JabarOptions: state => state.JabarOptions
 }
 
 // mutations

@@ -36,8 +36,8 @@
       <pkbr-input
         v-model="occupationName"
         class="mt-4"
-        name="Nama Profesi/Pekerjaan"
-        label="Nama Profesi/Pekerjaan"
+        name="Nama Profesi/Pekerjaan/Sub Bagian"
+        label="Nama Profesi/Pekerjaan/Sub Bagian"
         rules="required"
       />
     </ValidationObserver>

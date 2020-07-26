@@ -26,7 +26,7 @@
         {{ name }}
       </h1>
 
-      <template v-if="status === 'NEW'">
+      <template v-if="lastInvitation === null">
         <div class="bg-gray-50 sm:rounded-lg border border-gray-300 mt-8">
           <div class="px-4 py-5 sm:p-6">
             <h3 class="leading-6 font-bold text-gray-900">
@@ -49,7 +49,7 @@
         </div>
       </template>
 
-      <template v-if="status === 'APPROVED' && lastInvitation !== null">
+      <template v-if="lastInvitation !== null">
         <p class="mt-4 text-center">
           <strong>Waktu:</strong><br>
           {{ format(utcToZonedTime(new Date(lastInvitation.event.start_at), 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(utcToZonedTime(new Date(lastInvitation.event.end_at), 'Asia/Jakarta'), 'HH:mm', {locale: lang}) }} WIB

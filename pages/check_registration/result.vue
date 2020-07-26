@@ -52,7 +52,7 @@
       <template v-if="status === 'APPROVED' && lastInvitation !== null">
         <p class="mt-4 text-center">
           <strong>Waktu:</strong><br>
-          {{ format(new Date(lastInvitation.event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(lastInvitation.event.end_at), 'HH:mm', {locale: lang}) }} WIB
+          {{ format(utcToZonedTime(new Date(lastInvitation.event.start_at), 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(utcToZonedTime(new Date(lastInvitation.event.end_at), 'Asia/Jakarta'), 'HH:mm', {locale: lang}) }} WIB
         </p>
         <p class="mt-4 text-center">
           <strong>Tempat:</strong><br>
@@ -111,6 +111,7 @@
 import { mapGetters } from 'vuex'
 import { format } from 'date-fns'
 import { id } from 'date-fns/locale'
+import { utcToZonedTime } from 'date-fns-tz'
 
 export default {
   middleware: 'check_result',
@@ -144,7 +145,8 @@ export default {
   },
 
   methods: {
-    format
+    format,
+    utcToZonedTime
   }
 }
 </script>

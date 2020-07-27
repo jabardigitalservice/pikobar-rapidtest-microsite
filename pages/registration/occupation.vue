@@ -17,7 +17,7 @@
       <pkbr-select
         v-if="occupationType === 14"
         v-model="workplaceName"
-        :items="JabarOptions"
+        :items="jabarOptions"
         class="mt-4"
         name="Unit Kerja"
         label="Unit Kerja"
@@ -31,6 +31,17 @@
         name="Nama Tempat Bekerja"
         label="Nama Tempat Bekerja"
         rules="required"
+      />
+
+      <pkbr-select
+        v-if="occupationType === 14"
+        v-model="employeeType"
+        :items="employeeTypeOptions"
+        class="mt-4"
+        name="Tipe Kepegawaian"
+        label="Tipe Kepegawaian"
+        rules="required"
+        @change="changeTypeKepegawaian"
       />
 
       <pkbr-input
@@ -53,10 +64,19 @@ import { ValidationObserver } from 'vee-validate'
 export default {
   components: { ValidationObserver },
 
+  data () {
+    return {
+      employeeTypeOptions: [
+        { value: 'PNS', text: 'PNS' },
+        { value: 'NON-PNS', text: 'Non PNS' }
+      ]
+    }
+  },
+
   computed: {
     ...mapGetters('form', [
       'occupationTypeOptions',
-      'JabarOptions'
+      'jabarOptions'
     ]),
 
     occupationType: {
@@ -83,6 +103,15 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_WORKPLACE_NAME', value)
+      }
+    },
+
+    employeeType: {
+      get () {
+        return this.$store.state.form.employeeType
+      },
+      set (value) {
+        this.$store.commit('form/SET_EMPLOYEE_TYPE', value)
       }
     }
   },

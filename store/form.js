@@ -22,6 +22,7 @@ export const state = () => ({
   occupationType: null,
   occupationName: null,
   workplaceName: null,
+  employeeType: null,
   symptoms: [],
   symptomsNotes: null,
   symptomsInteraction: null,
@@ -72,7 +73,7 @@ export const state = () => ({
     { value: 99, text: 'Tidak pernah mengikuti ke event/kegiatan di atas.' }
   ],
 
-  JabarOptions: [
+  jabarOptions: [
     'SEKRETARIS DAERAH PROVINSI',
     'ASISTEN PEMERINTAHAN, HUKUM, DAN KESEJAHTERAAN SOSIAL',
     'BIRO PEMERINTAHAN DAN KERJASAMA',
@@ -129,6 +130,7 @@ export const getters = {
   occupationType: state => state.occupationType,
   occupationName: state => state.occupationName,
   workplaceName: state => state.workplaceName,
+  employeeType: state => state.employeeType,
   cities: state => state.cities,
   districts: state => state.districts,
   villages: state => state.villages,
@@ -141,7 +143,7 @@ export const getters = {
   statusOptions: state => state.statusOptions,
   status: state => state.status,
   occupationTypeOptions: state => state.occupationTypeOptions,
-  JabarOptions: state => state.JabarOptions
+  jabarOptions: state => state.jabarOptions
 }
 
 // mutations
@@ -166,6 +168,7 @@ export const mutations = {
     state.occupationType = null
     state.occupationName = null
     state.workplaceName = null
+    state.employeeType = null
     state.cities = []
     state.districts = []
     state.villages = []
@@ -259,6 +262,10 @@ export const mutations = {
 
   SET_WORKPLACE_NAME (state, payload) {
     state.workplaceName = payload
+  },
+
+  SET_EMPLOYEE_TYPE (state, payload) {
+    state.employeeType = payload
   },
 
   SET_SYMPTOMS (state, payload) {

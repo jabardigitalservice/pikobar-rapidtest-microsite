@@ -91,6 +91,8 @@ export const state = () => ({
     'Jabar Saber Hoax',
     'Jabar Bergerak',
     'Jabar Quick Response',
+    'Jabar Saber Pungli',
+    'DINAS PERHUBUNGAN',
     'Lainnya'
   ]
 })

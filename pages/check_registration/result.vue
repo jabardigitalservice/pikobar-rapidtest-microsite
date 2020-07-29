@@ -52,7 +52,7 @@
       <template v-if="lastInvitation !== null">
         <p class="mt-4 text-center">
           <strong>Waktu:</strong><br>
-          {{ format(utcToZonedTime(new Date(lastInvitation.event.start_at), 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(utcToZonedTime(new Date(lastInvitation.event.end_at), 'Asia/Jakarta'), 'HH:mm', {locale: lang}) }} WIB
+          {{ getSchedule(lastInvitation) }}
         </p>
         <p class="mt-4 text-center">
           <strong>Tempat:</strong><br>
@@ -122,7 +122,7 @@ export default {
 
   data () {
     return {
-      lang: id
+      //
     }
   },
 
@@ -138,15 +138,24 @@ export default {
   },
 
   mounted () {
-    // Enable navigation prompt
-    window.onbeforeunload = function () {
-      return true
-    }
+    //
   },
 
   methods: {
-    format,
-    utcToZonedTime
+    getSchedule (lastInvitation) {
+      let scheduleStart = new Date(lastInvitation.event.start_at)
+      let scheduleEnd = new Date(lastInvitation.event.end_at)
+
+      if (lastInvitation.rdt_event_schedule_id !== null) {
+        scheduleStart = new Date(lastInvitation.schedule.start_at)
+        scheduleEnd = new Date(lastInvitation.schedule.end_at)
+      }
+
+      const scheduleStartString = format(utcToZonedTime(scheduleStart, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, 'Asia/Jakarta'), 'HH:mm', { locale: id })
+
+      return `${scheduleStartString}-${scheduleEndAtString} WIB`
+    }
   }
 }
 </script>

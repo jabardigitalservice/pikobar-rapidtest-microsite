@@ -14,7 +14,7 @@ extend('email', {
 
 extend('phone_number', {
   validate: (value) => {
-    return value.match(/^0{1}8{1}[0-9]{9,11}$/g)
+    return value.match(/^0{1}8{1}[0-9]{8,11}$/g)
   },
   message: 'Format Nomor Telepon tidak benar'
 })

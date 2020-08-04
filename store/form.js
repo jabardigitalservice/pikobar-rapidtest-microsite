@@ -32,6 +32,7 @@ export const state = () => ({
   districts: [],
   villages: [],
   occupationTypeOptions: [
+    { value: 99, text: 'Belum bekerja' },
     { value: 14, text: 'Pegawai Pemprov Jawa Barat' },
     { value: 7, text: 'Petugas Pelayanan Publik (Kasir/Customer Service Bank, Petugas Keamanan, Loket Layanan Publik)' },
     { value: 8, text: 'Petugas Transportasi (Terminal, Airport, Stasiun, Ojol)' },
@@ -39,7 +40,24 @@ export const state = () => ({
     { value: 10, text: 'Wartawan' },
     { value: 11, text: 'Pedagang Pasar' },
     { value: 12, text: 'Pemuka Agama' },
-    { value: 13, text: 'Lainnya' }
+    { value: 13, text: 'Lainnya' },
+    { value: 15, text: 'Hukum' },
+    { value: 16, text: 'Ibu rumah tangga' },
+    { value: 17, text: 'Kesehatan' },
+    { value: 18, text: 'Keuangan' },
+    { value: 19, text: 'Mesin' },
+    { value: 20, text: 'Nelayan' },
+    { value: 21, text: 'Pegawai negeri' },
+    { value: 22, text: 'Pegawai swasta' },
+    { value: 23, text: 'Pelajar/mahasiswa' },
+    { value: 24, text: 'Pendidikan' },
+    { value: 25, text: 'Pemerintahan' },
+    { value: 26, text: 'Pengobatan' },
+    { value: 27, text: 'Petani' },
+    { value: 28, text: 'Peternak' },
+    { value: 29, text: 'TNI/Polisi' },
+    { value: 30, text: 'Tukang Bangunan' },
+    { value: 31, text: 'Wiraswasta' }
   ],
   symptomsOptions: [
     { value: 1, text: 'Batuk' },

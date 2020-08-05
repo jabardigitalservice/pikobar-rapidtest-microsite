@@ -273,7 +273,7 @@ export default {
           gender: this.gender,
           birth_date: this.birth_date,
           occupation_type: this.occupationType,
-          occupation_name: `${this.employeeType} - ${this.occupationName}`,
+          occupation_name: `${this.employeeType !== null ? this.employeeType + ' - ' : ''}${this.occupationName}`,
           workplace_name: this.workplaceName,
           symptoms: this.symptoms,
           symptoms_activity: this.symptomsActivity,

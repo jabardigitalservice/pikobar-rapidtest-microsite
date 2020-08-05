@@ -102,8 +102,8 @@
         v-model="email"
         class="mt-4"
         name="Alamat Email"
-        label="Alamat Email"
-        rules="required|email"
+        label="Alamat Email (Tidak Wajib)"
+        rules="email"
       />
     </ValidationObserver>
 

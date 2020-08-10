@@ -12,7 +12,7 @@
     </template>
 
     <div class="mt-4">
-      <img v-if="status === 'APPROVED' && lastInvitation !== null" :src="qrcode" height="320">
+      <img :src="qrcode" height="320">
 
       <h1 class="mt-4 text-center">
         <strong>Nomor Pendaftaran:</strong><br>

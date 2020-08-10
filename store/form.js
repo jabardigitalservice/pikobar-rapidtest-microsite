@@ -112,6 +112,7 @@ export const state = () => ({
     'Jabar Quick Response',
     'Jabar Saber Pungli',
     'DINAS PERHUBUNGAN',
+    'DINAS PENDIDIKAN',
     'Lainnya'
   ]
 })

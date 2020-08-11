@@ -92,6 +92,11 @@ export const state = () => ({
   ],
 
   jabarOptions: [
+    'DINAS PERHUBUNGAN',
+    'DINAS PENDIDIKAN',
+    'DINAS PERPUSTAKAAN KEARSIPAN DAERAH',
+    'DINAS PERKEBUNAN',
+    'DINAS KOMUNIKASI DAN INFORMATIKA',
     'SEKRETARIS DAERAH PROVINSI',
     'ASISTEN PEMERINTAHAN, HUKUM, DAN KESEJAHTERAAN SOSIAL',
     'BIRO PEMERINTAHAN DAN KERJASAMA',
@@ -111,8 +116,6 @@ export const state = () => ({
     'Jabar Bergerak',
     'Jabar Quick Response',
     'Jabar Saber Pungli',
-    'DINAS PERHUBUNGAN',
-    'DINAS PENDIDIKAN',
     'Lainnya'
   ]
 })

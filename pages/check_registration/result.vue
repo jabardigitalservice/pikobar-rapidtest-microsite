@@ -64,7 +64,7 @@
             <h3 class="leading-6 font-bold text-gray-900">
               Informasi Penting
             </h3>
-            <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
+            <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
               <ol style="list-style: decimal;" class="ml-4">
                 <li>
                   Silahkan hadir pada jadwal waktu dan tempat yang sudah ditentukan.
@@ -80,6 +80,9 @@
                 </li>
                 <li class="mt-2">
                   Tes Masif COVID-19 ini tidak dipungut biaya.
+                </li>
+                <li class="mt-2">
+                  Jangan membagikan nomor pendaftaran ini kepada siapapun. Pastikan identitas Anda tidak digunakan orang lain.
                 </li>
                 <li class="mt-2">
                   Informasi dan pertanyaan lebih lanjut hubungi Pusat Bantuan PIKOBAR: <a href="https://api.whatsapp.com/send?phone=628112093306" class="font-bold">08112093306</a> atau Dinas Kesehatan Kota/Kabupaten setempat.

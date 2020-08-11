@@ -1,8 +1,15 @@
 <template>
   <div class="container mx-auto p-6">
-    <p class="mt-4 text-sm">
-      Silahkan isi kelengkapan informasi tempat tinggal sekarang (domisili) calon peserta test COVID-19.
-    </p>
+    <div class="bg-orange-50 sm:rounded-lg border border-orange-300 mt-4">
+      <div class="px-4 py-5 sm:p-6">
+        <h3 class="leading-6 font-bold text-gray-900">
+          Data Diri
+        </h3>
+        <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
+          <p>Silahkan isi kelengkapan informasi data diri dan tempat tinggal sekarang (domisili) calon peserta test COVID-19.</p>
+        </div>
+      </div>
+    </div>
 
     <ValidationObserver ref="form">
       <pkbr-input v-model="name" class="mt-6" name="Nama Lengkap" label="Nama Lengkap" rules="required" />
@@ -45,12 +52,23 @@
         rules="required"
       />
 
+      <div class="bg-orange-50 sm:rounded-lg border border-orange-300 mt-8">
+        <div class="px-4 py-5 sm:p-6">
+          <h3 class="leading-6 font-bold text-gray-900">
+            Alamat Tempat Tinggal Sekarang
+          </h3>
+          <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
+            <p>Isi formulir dengan Alamat Tempat Tinggal Anda saat ini, <strong>bukan alamat di KTP.</strong></p>
+          </div>
+        </div>
+      </div>
+
       <pkbr-select
         v-model="city_code"
         class="mt-4"
         :items="cities"
         name="Kabupaten/Kota"
-        label="Kabupaten/Kota"
+        label="Kabupaten/Kota Anda Tinggal"
         rules="required"
         item-text="name"
         item-value="code"
@@ -89,12 +107,24 @@
         type="textarea"
       />
 
+      <div class="bg-orange-50 sm:rounded-lg border border-orange-300 mt-8">
+        <div class="px-4 py-5 sm:p-6">
+          <h3 class="leading-6 font-bold text-gray-900">
+            Nomor Telepon
+          </h3>
+          <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
+            <p>Undangan tes dan hasil tes akan dikirimkan melalui nomor telepon Anda. Pastikan tidak keliru.</p>
+          </div>
+        </div>
+      </div>
+
       <pkbr-input
         v-model="phone_number"
         class="mt-4"
         name="Nomor Telepon"
         label="Nomor Telepon (Whatsapp)"
         rules="required|phone_number"
+        placeholder="08.........."
         type="tel"
       />
 

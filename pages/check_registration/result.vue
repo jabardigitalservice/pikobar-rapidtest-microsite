@@ -6,12 +6,17 @@
       </h2>
     </template>
     <template v-if="status === 'APPROVED' && lastInvitation !== null">
-      <h2 class="text-gray-900 text-center">
-        Undangan Tes Masif COVID-19 Jawa Barat
-      </h2>
+<!--      <h2 class="text-gray-900 text-center">-->
+<!--        Undangan Tes Masif COVID-19 Jawa Barat-->
+<!--      </h2>-->
     </template>
 
-    <div class="mt-4">
+    <div>
+      <h1 class="mb-4 text-center">
+        <strong>Nama Peserta:</strong><br>
+        {{ name }}
+      </h1>
+
       <img :src="qrcode" height="320">
 
       <h1 class="mt-4 text-center">
@@ -19,11 +24,6 @@
         <h3 class="text-5xl">
           {{ registrationCode }}
         </h3>
-      </h1>
-
-      <h1 class="mt-4 text-center">
-        <strong>Nama Peserta:</strong><br>
-        {{ name }}
       </h1>
 
       <template v-if="lastInvitation === null">
@@ -67,13 +67,13 @@
             <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
               <ol style="list-style: decimal;" class="ml-4">
                 <li>
-                  Silahkan hadir pada jadwal waktu dan tempat yang sudah ditentukan.
+                  Silahkan hadir pada jadwal waktu dan tempat yang sudah ditentukan pada undangan.
                 </li>
                 <li class="mt-2">
                   Tunjukkan undangan kode elektronik ini pada petugas checkin kehadiran saat tiba di lokasi.
                 </li>
                 <li class="mt-2">
-                  Wajib membawa fotokopi identitas (KTP) atau Kartu Keluarga (KK).
+                  Wajib membawa identitas (KTP) atau Kartu Keluarga (KK).
                 </li>
                 <li class="mt-2">
                   Wajib menggunakan masker serta mengikuti protokol kesehatan perlindungan diri dan orang lain.
@@ -82,7 +82,7 @@
                   Tes Masif COVID-19 ini tidak dipungut biaya.
                 </li>
                 <li class="mt-2">
-                  Jangan membagikan nomor pendaftaran ini kepada siapapun. Pastikan identitas Anda tidak digunakan orang lain.
+                  Jangan membagikan nomor pendaftaran ini kepada orang lain. Pastikan identitas Anda tidak digunakan orang lain.
                 </li>
                 <li class="mt-2">
                   Informasi dan pertanyaan lebih lanjut hubungi Pusat Bantuan PIKOBAR: <a href="https://api.whatsapp.com/send?phone=628112093306" class="font-bold">08112093306</a> atau Dinas Kesehatan Kota/Kabupaten setempat.

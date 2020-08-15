@@ -5,11 +5,7 @@
         Pendaftaran Tes Masif COVID-19 Jawa Barat
       </h2>
     </template>
-    <template v-if="status === 'APPROVED' && lastInvitation !== null">
-<!--      <h2 class="text-gray-900 text-center">-->
-<!--        Undangan Tes Masif COVID-19 Jawa Barat-->
-<!--      </h2>-->
-    </template>
+    <template v-if="status === 'APPROVED' && lastInvitation !== null" />
 
     <div>
       <h1 class="mb-4 text-center">

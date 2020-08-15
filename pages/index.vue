@@ -42,6 +42,7 @@
 <script>
 // import _ from 'lodash'
 import { mapGetters } from 'vuex'
+import Cookies from 'js-cookie'
 import Logo from '~/components/Logo.vue'
 
 export default {
@@ -71,6 +72,8 @@ export default {
     const pikobarUid = this.$route.query.uid
 
     if (sessionId) {
+      Cookies.set('session_id', sessionId)
+
       this.$store.commit('form/SET_SESSION_ID', sessionId)
 
       this.$store.dispatch('form/saveSessionId', { sessionId })

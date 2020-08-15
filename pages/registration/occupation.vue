@@ -41,7 +41,6 @@
         name="Tipe Kepegawaian"
         label="Tipe Kepegawaian"
         rules="required"
-        @change="changeTypeKepegawaian"
       />
 
       <pkbr-input

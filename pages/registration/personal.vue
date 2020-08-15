@@ -104,7 +104,6 @@
         name="Alamat"
         label="Alamat Anda Tinggal"
         rules="required"
-        type="textarea"
       />
 
       <div class="bg-orange-50 sm:rounded-lg border border-orange-300 mt-8">

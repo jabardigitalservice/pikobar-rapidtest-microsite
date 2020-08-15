@@ -73,6 +73,8 @@ export default {
     if (sessionId) {
       this.$store.commit('form/SET_SESSION_ID', sessionId)
 
+      this.$store.dispatch('form/saveSessionId', { sessionId })
+
       // const newRouteQuery = _.omit(this.$route.query, 'sessionId')
       // this.$router.replace({ query: newRouteQuery })
     }

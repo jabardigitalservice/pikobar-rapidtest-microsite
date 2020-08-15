@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+
 // state
 export const state = () => ({
   sessionId: null,
@@ -318,5 +320,7 @@ export const mutations = {
 
 // actions
 export const actions = {
-  //
+  saveSessionId ({ commit, dispatch }, { sessionId }) {
+    Cookies.set('session_id', sessionId)
+  }
 }

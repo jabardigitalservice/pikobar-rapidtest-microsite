@@ -176,6 +176,7 @@ import { mapGetters } from 'vuex'
 import VueRecaptcha from 'vue-recaptcha'
 import Swal from 'sweetalert2'
 import { format } from 'date-fns'
+import Cookies from 'js-cookie'
 
 export default {
   components: { VueRecaptcha },
@@ -258,9 +259,11 @@ export default {
 
     async submit () {
       try {
+        const sessionId = Cookies.get('session_id')
+
         const data = await this.$axios.$post('/api/rdt/register', {
           'g-recaptcha-response': this.recaptcha_response,
-          pikobar_session_id: this.sessionId,
+          pikobar_session_id: sessionId,
           pikobar_user_id: this.pikobar_user_id,
           nik: this.nik,
           name: this.name,

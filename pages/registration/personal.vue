@@ -297,6 +297,8 @@ export default {
       return true
     }
 
+    await this.getCities()
+
     try {
       const { lat, lng } = await VueGeolocation.getLocation({ enableHighAccuracy: true })
 
@@ -306,8 +308,6 @@ export default {
     } catch (e) {
       // console.log(e)
     }
-
-    await this.getCities()
   },
 
   methods: {

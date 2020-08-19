@@ -48,7 +48,9 @@
       <template v-if="lastInvitation !== null">
         <p class="mt-4 text-center">
           <strong>Waktu:</strong><br>
-          {{ getSchedule(lastInvitation) }}
+          <!-- eslint-disable vue/no-v-html -->
+          <span v-html="getSchedule(lastInvitation)" />
+          <!--eslint-enable-->
         </p>
         <p class="mt-4 text-center">
           <strong>Tempat:</strong><br>
@@ -108,7 +110,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { format } from 'date-fns'
+import { format, isSameDay } from 'date-fns'
 import { id } from 'date-fns/locale'
 import { utcToZonedTime } from 'date-fns-tz'
 
@@ -150,10 +152,19 @@ export default {
         scheduleEnd = new Date(lastInvitation.schedule.end_at)
       }
 
-      const scheduleStartString = format(utcToZonedTime(scheduleStart, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
-      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, 'Asia/Jakarta'), 'HH:mm', { locale: id })
+      if (isSameDay(scheduleStart, scheduleEnd)) {
+        const scheduleStartString = format(utcToZonedTime(scheduleStart, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+        const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, 'Asia/Jakarta'), 'HH:mm', { locale: id })
 
-      return `${scheduleStartString}-${scheduleEndAtString} WIB`
+        return `${scheduleStartString}-${scheduleEndAtString} WIB`
+      }
+
+      const scheduleStartString = format(utcToZonedTime(scheduleStart, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+
+      return `${scheduleStartString} WIB <br />
+      s/d <br />
+      ${scheduleEndAtString} WIB`
     }
   }
 }

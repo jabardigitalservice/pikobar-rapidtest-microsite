@@ -82,7 +82,7 @@ export default {
     ]),
 
     enableRegistration () {
-      return process.env.enableRegistration || (this.sessionId !== null && this.event !== null)
+      return process.env.enableRegistration || this.sessionId !== null
     }
   },
 

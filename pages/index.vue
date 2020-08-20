@@ -26,6 +26,24 @@
 
         <div>
           <template v-if="enableRegistration">
+            <template v-if="event !== null">
+              <div class="bg-gray-50 sm:rounded-lg border border-gray-300 mb-8">
+                <div class="px-4 py-5 sm:p-6">
+                  <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
+                    <p class="mb-2">
+                      <strong>Pendaftaran Peserta</strong>
+                    </p>
+                    <p>
+                      {{ event.event_name }}
+                    </p>
+                    <p v-if="event.is_ended" class="mt-4 font-bold text-red-700">
+                      Kegiatan Tes Masif Sudah Selesai
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </template>
+
             <nuxt-link to="/terms-conditions" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
               Pendaftaran Baru
             </nuxt-link>
@@ -41,6 +59,7 @@
 
 <script>
 // import _ from 'lodash'
+import { isAfter } from 'date-fns'
 import { mapGetters } from 'vuex'
 import Cookies from 'js-cookie'
 import Logo from '~/components/Logo.vue'
@@ -52,7 +71,7 @@ export default {
 
   data () {
     return {
-      //
+      event: null
     }
   },
 
@@ -63,7 +82,22 @@ export default {
     ]),
 
     enableRegistration () {
-      return process.env.enableRegistration || this.sessionId !== null
+      return process.env.enableRegistration || (this.sessionId !== null && this.event !== null)
+    }
+  },
+
+  methods: {
+    async getEventDetail (sessionId) {
+      try {
+        this.event = await this.$axios.$get(`/api/rdt/check-event?event_code=${sessionId}`)
+
+        const today = new Date()
+        const eventEndDate = new Date(this.event.end_at)
+
+        this.event.is_ended = isAfter(today, eventEndDate)
+      } catch (e) {
+        //
+      }
     }
   },
 
@@ -78,6 +112,7 @@ export default {
 
       this.$store.dispatch('form/saveSessionId', { sessionId })
 
+      this.getEventDetail(sessionId)
       // const newRouteQuery = _.omit(this.$route.query, 'sessionId')
       // this.$router.replace({ query: newRouteQuery })
     }

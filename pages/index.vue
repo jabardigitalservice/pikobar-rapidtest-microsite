@@ -86,21 +86,6 @@ export default {
     }
   },
 
-  methods: {
-    async getEventDetail (sessionId) {
-      try {
-        this.event = await this.$axios.$get(`/api/rdt/check-event?event_code=${sessionId}`)
-
-        const today = new Date()
-        const eventEndDate = new Date(this.event.end_at)
-
-        this.event.is_ended = isAfter(today, eventEndDate)
-      } catch (e) {
-        //
-      }
-    }
-  },
-
   mounted () {
     const sessionId = this.$route.query.sessionId
     const pikobarUid = this.$route.query.uid
@@ -122,6 +107,21 @@ export default {
 
       // const newRouteQuery = _.omit(this.$route.query, 'uid')
       // this.$router.replace({ query: newRouteQuery })
+    }
+  },
+
+  methods: {
+    async getEventDetail (sessionId) {
+      try {
+        this.event = await this.$axios.$get(`/api/rdt/check-event?event_code=${sessionId}`)
+
+        const today = new Date()
+        const eventEndDate = new Date(this.event.end_at)
+
+        this.event.is_ended = isAfter(today, eventEndDate)
+      } catch (e) {
+        //
+      }
     }
   }
 }

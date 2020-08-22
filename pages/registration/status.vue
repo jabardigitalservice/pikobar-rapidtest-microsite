@@ -47,7 +47,7 @@
             </ul>
 
             <h3 class="font-bold">
-              Konfirmasi
+              Konfirmasi:
             </h3>
             <ul class="list-disc pl-4 mt-2 mb-4">
               <li>Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</li>

@@ -78,10 +78,10 @@ export const state = () => ({
   ],
 
   statusOptions: [
-    { value: 'CONFIRMED', text: 'Konfirmasi' },
+    { value: 'CLOSE_CONTACT', text: 'Kontak Erat' },
     { value: 'SUSPECT', text: 'Suspek' },
     { value: 'PROBABLE', text: 'Probable' },
-    { value: 'CLOSE_CONTACT', text: 'Kontak Erat' },
+    { value: 'CONFIRMED', text: 'Konfirmasi' },
     { value: 'NOT_ALL', text: 'Bukan termasuk semua di atas' },
     { value: 'UNKNOWN', text: 'Tidak tahu' }
   ],

@@ -10,10 +10,24 @@
         <template slot="info">
           <div class="mt-8 text-sm text-gray-700">
             <h3 class="font-bold">
-              Konfirmasi
+              Kontak Erat:
             </h3>
+            <p>
+              Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi COVID-19. Riwayat kontak yang dimaksud antara lain:
+            </p>
             <ul class="list-disc pl-4 mt-2 mb-4">
-              <li>Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</li>
+              <li>
+                Kontak tatap muka/berdekatan dengan kasus probable atau kasus konfirmasi dalam radius 1 meter dan dalam jangka waktu 15 menit atau lebih.
+              </li>
+              <li>
+                Sentuhan fisik langsung dengan kasus probable atau konfirmasi (seperti bersalaman, berpegangan tangan, dan lain-lain).
+              </li>
+              <li>
+                Orang yang memberikan perawatan langsung terhadap kasus probable atau konfirmasi tanpa menggunakan APD yang sesuai standar.
+              </li>
+              <li>
+                Situasi lainnya yang mengindikasikan adanya kontak berdasarkan penilaian risiko lokal yang ditetapkan oleh tim penyelidikan epidemiologi setempat (penjelasan sebagaimana terlampir).
+              </li>
             </ul>
 
             <h3 class="font-bold">
@@ -33,24 +47,10 @@
             </ul>
 
             <h3 class="font-bold">
-              Kontak Erat:
+              Konfirmasi
             </h3>
-            <p>
-              Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi COVID-19. Riwayat kontak yang dimaksud antara lain:
-            </p>
-            <ul class="list-disc pl-4 mt-2 mb-1">
-              <li>
-                Kontak tatap muka/berdekatan dengan kasus probable atau kasus konfirmasi dalam radius 1 meter dan dalam jangka waktu 15 menit atau lebih.
-              </li>
-              <li>
-                Sentuhan fisik langsung dengan kasus probable atau konfirmasi (seperti bersalaman, berpegangan tangan, dan lain-lain).
-              </li>
-              <li>
-                Orang yang memberikan perawatan langsung terhadap kasus probable atau konfirmasi tanpa menggunakan APD yang sesuai standar.
-              </li>
-              <li>
-                Situasi lainnya yang mengindikasikan adanya kontak berdasarkan penilaian risiko lokal yang ditetapkan oleh tim penyelidikan epidemiologi setempat (penjelasan sebagaimana terlampir).
-              </li>
+            <ul class="list-disc pl-4 mt-2 mb-4">
+              <li>Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</li>
             </ul>
           </div>
         </template>

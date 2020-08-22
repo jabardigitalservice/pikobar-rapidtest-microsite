@@ -35,8 +35,8 @@
             <h3 class="font-bold">
               Kontak Erat:
             </h3>
-            <p>Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi
-              COVID-19. Riwayat kontak yang dimaksud antara lain:
+            <p>
+              Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi COVID-19. Riwayat kontak yang dimaksud antara lain:
             </p>
             <ul class="list-disc pl-4 mt-2 mb-1">
               <li>

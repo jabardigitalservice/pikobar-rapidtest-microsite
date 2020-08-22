@@ -97,30 +97,6 @@
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
           <dt class="text-sm leading-5 font-medium text-gray-500">
-            Riwayat Kontak
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            Ya
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Riwayat Kegiatan
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            <ul v-if="symptomsActivity.length > 0">
-              <li v-for="eventValue in symptomsActivity" :key="`event-${eventValue}`" class="mb-4">
-                <svg class="h-4 w-4 inline fill-current text-brand-green-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" /></svg>
-                {{ getEventName(eventValue) }}
-              </li>
-            </ul>
-            <p v-if="symptomsActivity.length === 0">
-              Tidak ada.
-            </p>
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
             Catatan Lain
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">

@@ -3,49 +3,56 @@
     <ValidationObserver ref="form">
       <pkbr-select-group
         v-model="status"
-        label="Apakah Anda orang dengan salah satu status berikut?"
+        label="Apakah Anda orang dengan salah satu status kesehatan berikut?"
         :items="statusOptions"
         name="Status"
       >
         <template slot="info">
-          <p class="mt-3 text-sm text-gray-700">
-            <strong>ODP:</strong>
+          <div class="mt-8 text-sm text-gray-700">
+            <h3 class="font-bold">
+              Konfirmasi
+            </h3>
             <ul class="list-disc pl-4 mt-2 mb-4">
-              <li>Memiliki gejala demam >38°C; atau gejala gangguan sistem pernapasan seperti batuk, pilek, sakit tenggorokan.</li>
-              <li>Memiliki riwayat perjalanan dalam/ luar negeri dengan transmisi lokal dan riwayat kontak dengan penderita.</li>
+              <li>Seseorang yang dinyatakan positif terinfeksi virus COVID-19 yang dibuktikan dengan pemeriksaan laboratorium RT-PCR.</li>
             </ul>
-            <strong>PDP:</strong>
+
+            <h3 class="font-bold">
+              Suspek:
+            </h3>
             <ul class="list-disc pl-4 mt-2 mb-4">
-              <li>Memiliki Infeksi Saluran Pernapasan Akut (ISPA) atau demam  >38°C.</li>
-              <li>Memiliki gejala batuk, pilek, sakit tenggorokan, sesak nafas, pneumonia berat/ radang paru-paru.</li>
-              <li>Memiliki riwayat perjalanan dalam/ luar negeri dengan transmisi lokal dan riwayat kontak dengan penderita.</li>
+              <li>Sesak napas pada 14 hari terakhir sebelum timbul gejala memiliki riwayat perjalanan atau tinggal di negara/wilayah Indonesia yang melaporkan transmisi lokal.</li>
+              <li>Memiliki salah satu gejala sesak napas  dan pada 14 hari terakhir sebelum timbul gejala memiliki riwayat kontak dengan kasus konfirmasi/probable COVID-19.</li>
+              <li>Sesak napas berat  yang membutuhkan perawatan di rumah sakit DAN tidak ada penyebab lain berdasarkan gambaran klinis yang meyakinkan.</li>
             </ul>
-            <strong>OTG:</strong>
+
+            <h3 class="font-bold">
+              Probable:
+            </h3>
+            <ul class="list-disc pl-4 mt-2 mb-4">
+              <li>Kasus suspek dengan ISPA Berat dengan gambaran klinis yang meyakinkan COVID-19 DAN belum ada hasil pemeriksaan laboratorium RT-PCR.</li>
+            </ul>
+
+            <h3 class="font-bold">
+              Kontak Erat:
+            </h3>
+            <p>Orang yang memiliki riwayat kontak dengan kasus probable atau konfirmasi
+              COVID-19. Riwayat kontak yang dimaksud antara lain:
+            </p>
             <ul class="list-disc pl-4 mt-2 mb-1">
-              <li>Tidak ada gejala.</li>
-              <li>Memiliki resiko tertular.</li>
               <li>
-                Memiliki riwayat kontak erat dengan kasus positif
-                Kontak erat high risk <strong>(2)</strong>.
+                Kontak tatap muka/berdekatan dengan kasus probable atau kasus konfirmasi dalam radius 1 meter dan dalam jangka waktu 15 menit atau lebih.
               </li>
               <li>
-                Memiliki riwayat kontak langsung dengan kasus konfirmasi/ probabel
-                Kontak erat low risk <strong>(2)</strong>.
+                Sentuhan fisik langsung dengan kasus probable atau konfirmasi (seperti bersalaman, berpegangan tangan, dan lain-lain).
               </li>
-            </ul>
-            <strong>Kasus probable (2):</strong>
-            <ul class="list-disc pl-4 mt-1 mb-1">
               <li>
-                Pasien Dalam Pengawasan (PDP) yang yang diperiksa untuk Covid-19 tetapi inkonklusif (tidak dapat disimpulkan).
+                Orang yang memberikan perawatan langsung terhadap kasus probable atau konfirmasi tanpa menggunakan APD yang sesuai standar.
+              </li>
+              <li>
+                Situasi lainnya yang mengindikasikan adanya kontak berdasarkan penilaian risiko lokal yang ditetapkan oleh tim penyelidikan epidemiologi setempat (penjelasan sebagaimana terlampir).
               </li>
             </ul>
-            <strong>Kasus konfirmasi (2):</strong>
-            <ul class="list-disc pl-4 mt-1">
-              <li>
-                Pasien yang terinfeksi Covid-19 dengan hasil test PCR positif.
-              </li>
-            </ul>
-          </p>
+          </div>
         </template>
       </pkbr-select-group>
     </ValidationObserver>

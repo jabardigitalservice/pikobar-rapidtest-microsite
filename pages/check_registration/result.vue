@@ -1,10 +1,6 @@
 <template>
   <div class="container mx-auto p-6">
-    <template v-if="status === 'NEW'">
-      <h2 class="text-gray-900 text-center">
-        Pendaftaran Tes Masif COVID-19 Jawa Barat
-      </h2>
-    </template>
+    <template v-if="status === 'NEW'" />
     <template v-if="status === 'APPROVED' && lastInvitation !== null" />
 
     <div>

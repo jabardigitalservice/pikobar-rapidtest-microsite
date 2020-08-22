@@ -45,7 +45,7 @@ export const state = () => ({
     { value: 13, text: 'Lainnya' },
     { value: 15, text: 'Hukum' },
     { value: 16, text: 'Ibu rumah tangga' },
-    { value: 17, text: 'Kesehatan' },
+    { value: 17, text: 'Tenaga Kesehatan' },
     { value: 18, text: 'Keuangan' },
     { value: 19, text: 'Mesin' },
     { value: 20, text: 'Nelayan' },
@@ -78,10 +78,11 @@ export const state = () => ({
   ],
 
   statusOptions: [
-    { value: 'ODP', text: 'ODP' },
-    { value: 'PDP', text: 'PDP' },
-    { value: 'OTG', text: 'OTG' },
-    { value: 'NOT_ALL', text: 'Bukan termasuk ketiganya' },
+    { value: 'CONFIRMED', text: 'Konfirmasi' },
+    { value: 'SUSPECT', text: 'Suspek' },
+    { value: 'PROBABLE', text: 'Probable' },
+    { value: 'CLOSE_CONTACT', text: 'Kontak Erat' },
+    { value: 'NOT_ALL', text: 'Bukan termasuk semua di atas' },
     { value: 'UNKNOWN', text: 'Tidak tahu' }
   ],
 

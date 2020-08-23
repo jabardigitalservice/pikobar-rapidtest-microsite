@@ -10,6 +10,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "dist": "npm run generate && rimraf dist/**/*.js.map",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style"
@@ -23,6 +24,7 @@
     "date-fns-tz": "^1.0.10",
     "js-cookie": "^2.2.1",
     "nuxt": "^2.13.0",
+    "rimraf": "^3.0.2",
     "sweetalert2": "^9.15.1",
     "vee-validate": "^3.3.5",
     "vue-browser-geolocation": "^1.8.0",

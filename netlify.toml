@@ -1,11 +1,8 @@
 [context.production]
-  command = "APP_ENV=production GOOGLE_RECAPTCHA_KEY=$PROD_GOOGLE_RECAPTCHA_KEY npm run generate"
-  [context.production.environment]
-    API_BASEURL = "https://api.tesmasif.pikobar.jabarprov.go.id"
-    APP_REGISTRATION_ENABLED = "false"
+  command = "APP_ENV=production API_BASEURL=$PROD_API_URL APP_REGISTRATION_ENABLED=$PROD_REGISTRATION_ENABLED GOOGLE_RECAPTCHA_KEY=$PROD_GOOGLE_RECAPTCHA_KEY npm run dist"
 
 [context.develop]
-  command = "APP_ENV=staging GOOGLE_RECAPTCHA_KEY=$STAGING_GOOGLE_RECAPTCHA_KEY npm run generate"
-  [context.develop.environment]
-    API_BASEURL = "https://tesmasif-api.digitalservice.id"
-    APP_REGISTRATION_ENABLED = "true"
+  command = "APP_ENV=staging API_BASEURL=$STAGING_API_URL APP_REGISTRATION_ENABLED=$STAGING_REGISTRATION_ENABLED GOOGLE_RECAPTCHA_KEY=$STAGING_GOOGLE_RECAPTCHA_KEY npm run dist"
+
+[context.deploy-preview]
+  command = "APP_ENV=staging API_BASEURL=$STAGING_API_URL APP_REGISTRATION_ENABLED=$STAGING_REGISTRATION_ENABLED GOOGLE_RECAPTCHA_KEY=$STAGING_GOOGLE_RECAPTCHA_KEY npm run dist"

@@ -163,12 +163,12 @@ export default {
         return `${scheduleStartString}-${scheduleEndAtString} WIB`
       }
 
-      const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
-      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+      const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
+      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
 
-      return `${scheduleStartString} WIB <br />
+      return `${scheduleStartString} <br />
       s/d <br />
-      ${scheduleEndAtString} WIB`
+      ${scheduleEndAtString}`
     }
   }
 }

@@ -67,11 +67,9 @@
     <content-result-negative v-if="lastInvitation.lab_result_type === 'NEGATIVE'" />
 
     <div class="mt-6 text-center">
-      <a :href="registrationPdf" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
-        Unduh Bukti Pendaftaran
-      </a>
-
+      <button-link-registration-pdf :registration-pdf-url="registrationPdf" />
       <button-link-call-center />
+
       <nuxt-link to="/check_registration" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-green-dark text-center mt-5">
         <svg
           class="h-5 w-auto inline-block mr-2"
@@ -95,6 +93,7 @@ import ContentResultInconclusive from '@/components/ContentResultInconclusive'
 import ContentResultPositive from '@/components/ContentResultPositive'
 import ContentResultNegative from '@/components/ContentResultNegative'
 import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
+import ButtonLinkRegistrationPdf from '@/components/ButtonLinkRegistrationPdf'
 
 export default {
   middleware: 'check_result',
@@ -105,7 +104,8 @@ export default {
     ContentResultInconclusive,
     ContentResultPositive,
     ContentResultNegative,
-    ButtonLinkCallCenter
+    ButtonLinkCallCenter,
+    ButtonLinkRegistrationPdf
   },
 
   data () {

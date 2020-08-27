@@ -53,7 +53,9 @@
           {{ lastInvitation.event.event_location }}
         </p>
 
-        <div class="bg-gray-50 sm:rounded-lg border border-gray-300 mt-8">
+        <info-attended-thankyou v-if="lastInvitation.attended_at !== null" :invitation="lastInvitation" />
+
+        <div v-if="lastInvitation.attended_at === null" class="bg-gray-50 sm:rounded-lg border border-gray-300 mt-8">
           <div class="px-4 py-5 sm:p-6">
             <h3 class="leading-6 font-bold text-gray-900">
               Informasi Penting
@@ -111,11 +113,13 @@ import { format, isSameDay } from 'date-fns'
 import { id } from 'date-fns/locale'
 import { utcToZonedTime } from 'date-fns-tz'
 import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
+import InfoAttendedThankyou from '@/components/InfoAttendedThankyou'
 
 export default {
   middleware: 'check_result',
 
   components: {
+    InfoAttendedThankyou,
     ButtonLinkCallCenter
   },
 

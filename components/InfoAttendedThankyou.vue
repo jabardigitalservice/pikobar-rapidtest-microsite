@@ -28,7 +28,7 @@
           </div>
           <div v-if="invitation.attend_location !== null" class="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-1 mt-4 sm:mt-0">
             <dt class="text-sm leading-5 font-bold text-gray-500">
-              Tempat
+              Lokasi
             </dt>
             <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {{ attendLocation }}

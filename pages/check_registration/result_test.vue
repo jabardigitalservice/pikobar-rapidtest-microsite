@@ -15,12 +15,28 @@
                 {{ name }}
               </dd>
             </div>
+            <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+              <dt class="text-sm leading-5 font-bold text-gray-500">
+                Nomor
+              </dt>
+              <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                {{ registrationCode }}
+              </dd>
+            </div>
             <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
               <dt class="text-sm leading-5 font-bold text-gray-500">
                 Tanggal
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ format(new Date(lastInvitation.event.start_at), 'eeee, dd MMMM yyyy HH:mm', {locale: lang}) + '-' + format(new Date(lastInvitation.event.end_at), 'HH:mm', {locale: lang}) }} WIB
+                {{ attendDate }}
+              </dd>
+            </div>
+            <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+              <dt class="text-sm leading-5 font-bold text-gray-500">
+                Waktu
+              </dt>
+              <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                {{ attendTime }} WIB
               </dd>
             </div>
             <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -29,6 +45,14 @@
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                 {{ lastInvitation.event.event_location }}
+              </dd>
+            </div>
+            <div v-if="lastInvitation.event && lastInvitation.attend_location !== null" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+              <dt class="text-sm leading-5 font-bold text-gray-500">
+                Lokasi
+              </dt>
+              <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                {{ attendLocation }}
               </dd>
             </div>
           </dl>
@@ -43,6 +67,10 @@
     <content-result-negative v-if="lastInvitation.lab_result_type === 'NEGATIVE'" />
 
     <div class="mt-6 text-center">
+      <a :href="registrationPdf" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
+        Unduh Bukti Pendaftaran
+      </a>
+
       <button-link-call-center />
       <nuxt-link to="/check_registration" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-green-dark text-center mt-5">
         <svg
@@ -59,6 +87,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { format } from 'date-fns'
+import { utcToZonedTime } from 'date-fns-tz'
 import { id } from 'date-fns/locale'
 import ContentResultReactive from '@/components/ContentResultReactive'
 import ContentResultNonReactive from '@/components/ContentResultNonReactive'
@@ -89,10 +118,23 @@ export default {
     ...mapGetters('check', [
       'registrationCode',
       'name',
+      'registrationPdf',
       'invitations',
       'lastInvitation',
       'status'
-    ])
+    ]),
+
+    attendDate () {
+      return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
+    },
+
+    attendTime () {
+      return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'HH:mm', { locale: id })
+    },
+
+    attendLocation () {
+      return this.lastInvitation.attend_location
+    }
   },
 
   mounted () {

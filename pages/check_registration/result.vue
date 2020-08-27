@@ -156,14 +156,14 @@ export default {
       }
 
       if (isSameDay(scheduleStart, scheduleEnd)) {
-        const scheduleStartString = format(utcToZonedTime(scheduleStart, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
-        const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, 'Asia/Jakarta'), 'HH:mm', { locale: id })
+        const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+        const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'HH:mm', { locale: id })
 
         return `${scheduleStartString}-${scheduleEndAtString} WIB`
       }
 
-      const scheduleStartString = format(utcToZonedTime(scheduleStart, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
-      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+      const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
 
       return `${scheduleStartString} WIB <br />
       s/d <br />

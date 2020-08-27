@@ -69,11 +69,11 @@ export default {
 
   computed: {
     attendDate () {
-      return format(utcToZonedTime(this.invitation.attended_at, 'Asia/Jakarta'), 'eeee, dd MMMM yyyy', { locale: id })
+      return format(utcToZonedTime(this.invitation.attended_at, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
     },
 
     attendTime () {
-      return format(utcToZonedTime(this.invitation.attended_at, 'Asia/Jakarta'), 'HH:mm', { locale: id })
+      return format(utcToZonedTime(this.invitation.attended_at, process.env.localTimezone), 'HH:mm', { locale: id })
     },
 
     attendLocation () {

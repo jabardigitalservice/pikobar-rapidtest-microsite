@@ -6,7 +6,8 @@ export default {
     appEnv: process.env.APP_ENV || 'local',
     apiUrl: process.env.API_BASEURL,
     googleRecaptchaKey: process.env.GOOGLE_RECAPTCHA_KEY,
-    enableRegistration: process.env.APP_REGISTRATION_ENABLED === 'true'
+    enableRegistration: process.env.APP_REGISTRATION_ENABLED === 'true',
+    localTimezone: 'Asia/Jakarta'
   },
 
   /*

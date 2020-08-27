@@ -89,9 +89,10 @@
     </div>
 
     <div class="mt-6 text-center">
-      <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
-        Hubungi Pusat Bantuan PIKOBAR
+      <a :href="registrationPdf" target="_blank" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
+        Unduh Bukti Pendaftaran
       </a>
+      <button-link-call-center />
       <nuxt-link to="/check_registration" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-green-dark text-center mt-5">
         <svg
           class="h-5 w-auto inline-block mr-2"
@@ -109,12 +110,13 @@ import { mapGetters } from 'vuex'
 import { format, isSameDay } from 'date-fns'
 import { id } from 'date-fns/locale'
 import { utcToZonedTime } from 'date-fns-tz'
+import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
 
 export default {
   middleware: 'check_result',
 
   components: {
-    //
+    ButtonLinkCallCenter
   },
 
   data () {
@@ -128,6 +130,7 @@ export default {
       'registrationCode',
       'name',
       'qrcode',
+      'registrationPdf',
       'invitations',
       'lastInvitation',
       'status'

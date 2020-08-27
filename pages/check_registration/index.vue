@@ -23,9 +23,7 @@
         <button type="submit" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green-dark text-center">
           Lanjutkan
         </button>
-        <a href="https://api.whatsapp.com/send?phone=628112093306" target="_blank" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg bg-brand-yellow-darkest text-white text-center mt-2">
-          Hubungi Pusat Bantuan PIKOBAR
-        </a>
+        <button-link-call-center />
       </div>
     </form>
   </div>
@@ -34,10 +32,12 @@
 <script>
 import Swal from 'sweetalert2'
 import VueRecaptcha from 'vue-recaptcha'
+import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
 
 export default {
   components: {
-    VueRecaptcha
+    VueRecaptcha,
+    ButtonLinkCallCenter
   },
 
   data () {
@@ -70,6 +70,7 @@ export default {
           registrationCode: data.registration_code,
           name: data.name,
           qrcode: data.qrcode,
+          registrationPdf: data.registration_pdf,
           invitations: data.invitations,
           lastInvitation,
           status: data.status

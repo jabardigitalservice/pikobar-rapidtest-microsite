@@ -48,9 +48,11 @@
               Pendaftaran Baru
             </nuxt-link>
           </template>
+
           <nuxt-link to="/check_registration" class="block items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg border border-brand-green-dark text-center mt-2" :class="{ 'bg-brand-green-dark text-white': enableRegistration === false, 'text-brand-green-dark': enableRegistration === true }">
             Cek Pendaftaran &amp; Hasil
           </nuxt-link>
+          <button-link-call-center />
         </div>
       </div>
     </div>
@@ -63,10 +65,12 @@ import { isAfter } from 'date-fns'
 import { mapGetters } from 'vuex'
 import Cookies from 'js-cookie'
 import Logo from '~/components/Logo.vue'
+import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
 
 export default {
   components: {
-    Logo
+    Logo,
+    ButtonLinkCallCenter
   },
 
   data () {

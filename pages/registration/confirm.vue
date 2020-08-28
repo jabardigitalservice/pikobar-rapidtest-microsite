@@ -132,7 +132,18 @@
     </div>
 
     <div class="mt-6 text-center">
-      <button type="button" class="block w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-orange text-center" @click="submit">
+      <button type="button" class="block flex w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-orange text-center" @click="submit">
+        <svg v-if="loading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          />
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+        </svg>
         Kirim
       </button>
       <nuxt-link to="/registration/status" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-green-dark text-center mt-5">
@@ -161,7 +172,8 @@ export default {
     return {
       recaptcha_key: process.env.googleRecaptchaKey,
       recaptcha_response: null,
-      registration_code: null
+      registration_code: null,
+      loading: false
     }
   },
 
@@ -234,6 +246,8 @@ export default {
     },
 
     async submit () {
+      this.loading = true
+
       try {
         const sessionId = Cookies.get('session_id')
 
@@ -283,6 +297,7 @@ export default {
       } finally {
         this.recaptcha_response = null
         this.$refs.recaptcha.reset()
+        this.loading = false
       }
     },
 

@@ -60,11 +60,10 @@
 </template>
 
 <script>
-// import _ from 'lodash'
 import { isAfter } from 'date-fns'
 import { mapGetters } from 'vuex'
 import Cookies from 'js-cookie'
-import Logo from '~/components/Logo.vue'
+import Logo from '@/components/Logo.vue'
 import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
 
 export default {
@@ -102,15 +101,10 @@ export default {
       this.$store.dispatch('form/saveSessionId', { sessionId })
 
       this.getEventDetail(sessionId)
-      // const newRouteQuery = _.omit(this.$route.query, 'sessionId')
-      // this.$router.replace({ query: newRouteQuery })
     }
 
     if (pikobarUid) {
       this.$store.commit('form/SET_PIKOBAR_UID', pikobarUid)
-
-      // const newRouteQuery = _.omit(this.$route.query, 'uid')
-      // this.$router.replace({ query: newRouteQuery })
     }
   },
 

@@ -11,7 +11,7 @@
                 <h3 class="leading-6 font-bold text-gray-900">
                   Pendaftaran Baru
                 </h3>
-                <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
+                <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
                   <p>
                     Pendaftaran dapat dilakukan melalui <strong>Aplikasi PIKOBAR</strong> pada menu <strong>Periksa Mandiri</strong>.
                   </p>

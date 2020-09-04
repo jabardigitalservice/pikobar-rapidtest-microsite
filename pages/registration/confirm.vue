@@ -132,7 +132,12 @@
             Penyakit bawaan
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ getCongenitalDisease(congenitalDisease) }}
+            <ul v-if="congenitalDisease.length > 0">
+              <li v-for="disease in congenitalDisease" :key="`event-${disease}`" class="mb-4">
+                <svg class="h-4 w-4 inline fill-current text-brand-green-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" /></svg>
+                {{ getCongenitalDisease(disease) }}
+              </li>
+            </ul>
           </dd>
         </div>
       </dl>
@@ -316,9 +321,9 @@ export default {
           person_status: this.status,
           latitude: this.latitude,
           longitude: this.longitude,
-          congenitalDisease: this.congenitalDisease,
-          suspectProbable: this.suspectProbable,
-          cityVisited: this.cityVisited
+          congenital_disease: this.congenitalDisease,
+          suspect_probable: this.suspectProbable,
+          city_visited: this.cityVisited
         })
 
         this.$store.commit('form/SET_RESULT_REGISTRATION_RESULT', {

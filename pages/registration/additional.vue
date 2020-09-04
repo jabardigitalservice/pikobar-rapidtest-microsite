@@ -19,9 +19,9 @@
       />
 
       <pkbr-select-group
-        v-model="suspectProbable"
+        v-model="haveInteracted"
         class="mt-6"
-        :items="suspectProbableOptions"
+        :items="haveInteractedOptions"
         name="Suspect/probable/konfirmasi"
         label="Apakah pernah berinteraksi dengan kasus suspek/probable/konfirmasi"
         rules="required"
@@ -65,7 +65,7 @@ export default {
     ...mapGetters('form', [
       'symptomsOptions',
       'eventsOptions',
-      'suspectProbableOptions',
+      'haveInteractedOptions',
       'congenitalDiseaseOptions'
     ]),
 
@@ -105,12 +105,12 @@ export default {
       }
     },
 
-    suspectProbable: {
+    haveInteracted: {
       get () {
-        return this.$store.state.form.suspectProbable
+        return this.$store.state.form.haveInteracted
       },
       set (value) {
-        this.$store.commit('form/SET_SUSPECT_PROBABLE', value)
+        this.$store.commit('form/SET_HAVE_INTERACTED', value)
       }
     },
 

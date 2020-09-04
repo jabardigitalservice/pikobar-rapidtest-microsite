@@ -34,7 +34,7 @@ export const state = () => ({
   districts: [],
   villages: [],
   congenitalDisease: [],
-  suspectProbable: null,
+  haveInteracted: null,
   cityVisited: null,
   occupationTypeOptions: [
     { value: 99, text: 'Belum bekerja' },
@@ -97,7 +97,7 @@ export const state = () => ({
     { value: 99, text: 'Tidak pernah mengikuti ke event/kegiatan di atas.' }
   ],
 
-  suspectProbableOptions: [
+  haveInteractedOptions: [
     { value: 1, text: 'Ya' },
     { value: 2, text: 'Tidak' },
     { value: 3, text: 'Tidak Tahu' }
@@ -187,10 +187,10 @@ export const getters = {
   status: state => state.status,
   occupationTypeOptions: state => state.occupationTypeOptions,
   jabarOptions: state => state.jabarOptions,
-  suspectProbableOptions: state => state.suspectProbableOptions,
+  haveInteractedOptions: state => state.haveInteractedOptions,
   congenitalDiseaseOptions: state => state.congenitalDiseaseOptions,
   congenitalDisease: state => state.congenitalDisease,
-  suspectProbable: state => state.suspectProbable,
+  haveInteracted: state => state.haveInteracted,
   cityVisited: state => state.cityVisited
 }
 
@@ -341,8 +341,8 @@ export const mutations = {
     state.downloadUrl = downloadUrl
   },
 
-  SET_SUSPECT_PROBABLE (state, payload) {
-    state.suspectProbable = payload
+  SET_HAVE_INTERACTED (state, payload) {
+    state.haveInteracted = payload
   },
 
   SET_CITY_VISITED (state, payload) {

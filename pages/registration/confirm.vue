@@ -116,7 +116,7 @@
             Pernah berinteraksi dengan dengan kasus suspect/probable/konfirmasi
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ getSuspectProbable(suspectProbable) }}
+            {{ getHaveInteracted(haveInteracted) }}
           </dd>
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -238,9 +238,9 @@ export default {
       'statusOptions',
       'status',
       'congenitalDisease',
-      'suspectProbable',
+      'haveInteracted',
       'cityVisited',
-      'suspectProbableOptions',
+      'haveInteractedOptions',
       'congenitalDiseaseOptions'
     ])
   },
@@ -279,8 +279,8 @@ export default {
       return event.text
     },
 
-    getSuspectProbable (value) {
-      const event = this.suspectProbableOptions.find(x => x.value === value)
+    getHaveInteracted (value) {
+      const event = this.haveInteractedOptions.find(x => x.value === value)
 
       return event.text
     },
@@ -322,7 +322,7 @@ export default {
           latitude: this.latitude,
           longitude: this.longitude,
           congenital_disease: this.congenitalDisease,
-          suspect_probable: this.suspectProbable,
+          have_interacted: this.haveInteracted,
           city_visited: this.cityVisited
         })
 

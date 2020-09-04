@@ -111,6 +111,35 @@
             {{ getStatusName(status) }}
           </dd>
         </div>
+        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Pernah berinteraksi dengan dengan kasus suspect/probable/konfirmasi
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ getHaveInteracted(haveInteracted) }}
+          </dd>
+        </div>
+        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Kota-kota yang dikunjungi dalam 14 hari terakhir
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ cityVisited }}
+          </dd>
+        </div>
+        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Penyakit bawaan
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            <ul v-if="congenitalDisease.length > 0">
+              <li v-for="disease in congenitalDisease" :key="`event-${disease}`" class="mb-4">
+                <svg class="h-4 w-4 inline fill-current text-brand-green-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" /></svg>
+                {{ getCongenitalDisease(disease) }}
+              </li>
+            </ul>
+          </dd>
+        </div>
       </dl>
     </div>
 
@@ -207,7 +236,12 @@ export default {
       'symptomsOptions',
       'occupationTypeOptions',
       'statusOptions',
-      'status'
+      'status',
+      'congenitalDisease',
+      'haveInteracted',
+      'cityVisited',
+      'haveInteractedOptions',
+      'congenitalDiseaseOptions'
     ])
   },
 
@@ -245,6 +279,18 @@ export default {
       return event.text
     },
 
+    getHaveInteracted (value) {
+      const event = this.haveInteractedOptions.find(x => x.value === value)
+
+      return event.text
+    },
+
+    getCongenitalDisease (value) {
+      const event = this.congenitalDiseaseOptions.find(x => x.value === value)
+
+      return event.text
+    },
+
     async submit () {
       this.loading = true
 
@@ -274,7 +320,10 @@ export default {
           symptoms_notes: this.symptomsNotes,
           person_status: this.status,
           latitude: this.latitude,
-          longitude: this.longitude
+          longitude: this.longitude,
+          congenital_disease: this.congenitalDisease,
+          have_interacted: this.haveInteracted,
+          city_visited: this.cityVisited
         })
 
         this.$store.commit('form/SET_RESULT_REGISTRATION_RESULT', {

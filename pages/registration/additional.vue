@@ -17,6 +17,31 @@
         type="textarea"
         rules="required"
       />
+
+      <pkbr-select-group
+        v-model="haveInteracted"
+        class="mt-6"
+        :items="haveInteractedOptions"
+        name="Suspect/probable/konfirmasi"
+        label="Apakah pernah berinteraksi dengan kasus suspek/probable/konfirmasi"
+        rules="required"
+      />
+
+      <pkbr-input
+        v-model="cityVisited"
+        class="mt-4"
+        name="Kota kunjungan"
+        label="Sebutkan kota-kota yang pernah bapak/ibu kunjungi dalam 14 hari terakhir"
+        rules="required"
+      />
+
+      <pkbr-check-group
+        v-model="congenitalDisease"
+        label="Apakah Anda memiliki penyakit bawaan?"
+        :items="congenitalDiseaseOptions"
+        name="Penyakit bawaan"
+        rules="required"
+      />
     </ValidationObserver>
 
     <form-actions class="mt-12" back-link="/registration/occupation" @next="nextStep" />
@@ -39,7 +64,9 @@ export default {
   computed: {
     ...mapGetters('form', [
       'symptomsOptions',
-      'eventsOptions'
+      'eventsOptions',
+      'haveInteractedOptions',
+      'congenitalDiseaseOptions'
     ]),
 
     symptoms: {
@@ -76,7 +103,35 @@ export default {
       set (value) {
         this.$store.commit('form/SET_SYMPTOMS_NOTES', value)
       }
+    },
+
+    haveInteracted: {
+      get () {
+        return this.$store.state.form.haveInteracted
+      },
+      set (value) {
+        this.$store.commit('form/SET_HAVE_INTERACTED', value)
+      }
+    },
+
+    cityVisited: {
+      get () {
+        return this.$store.state.form.cityVisited
+      },
+      set (value) {
+        this.$store.commit('form/SET_CITY_VISITED', value)
+      }
+    },
+
+    congenitalDisease: {
+      get () {
+        return this.$store.state.form.congenitalDisease
+      },
+      set (value) {
+        this.$store.commit('form/SET_CONGENITAL_DISEASE', value)
+      }
     }
+
   },
 
   mounted () {

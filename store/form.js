@@ -33,6 +33,9 @@ export const state = () => ({
   cities: [],
   districts: [],
   villages: [],
+  congenitalDisease: [],
+  haveInteracted: null,
+  cityVisited: null,
   occupationTypeOptions: [
     { value: 99, text: 'Belum bekerja' },
     { value: 14, text: 'Pegawai Pemprov Jawa Barat' },
@@ -92,6 +95,21 @@ export const state = () => ({
     { value: 3, text: 'Seminar Gereja Bethel Indonesia / GBI di Lembang, Kabupaten Bandung Barat (3-5 Maret)' },
     { value: 4, text: 'Musyawarah Daerah Himpunan Pengusaha Muda Indonesia / HIPMI Jabar di Kabupaten Karawang (9 Maret)' },
     { value: 99, text: 'Tidak pernah mengikuti ke event/kegiatan di atas.' }
+  ],
+
+  haveInteractedOptions: [
+    { value: 1, text: 'Ya' },
+    { value: 2, text: 'Tidak' },
+    { value: 3, text: 'Tidak Tahu' }
+  ],
+
+  congenitalDiseaseOptions: [
+    { value: 1, text: 'Darah Tinggi' },
+    { value: 2, text: 'Diabetes' },
+    { value: 3, text: 'Kronis' },
+    { value: 4, text: 'Gangguan Jantung' },
+    { value: 5, text: 'Gagal Ginjal' },
+    { value: 6, text: 'Tidak Ada' }
   ],
 
   jabarOptions: [
@@ -168,7 +186,12 @@ export const getters = {
   statusOptions: state => state.statusOptions,
   status: state => state.status,
   occupationTypeOptions: state => state.occupationTypeOptions,
-  jabarOptions: state => state.jabarOptions
+  jabarOptions: state => state.jabarOptions,
+  haveInteractedOptions: state => state.haveInteractedOptions,
+  congenitalDiseaseOptions: state => state.congenitalDiseaseOptions,
+  congenitalDisease: state => state.congenitalDisease,
+  haveInteracted: state => state.haveInteracted,
+  cityVisited: state => state.cityVisited
 }
 
 // mutations
@@ -316,6 +339,18 @@ export const mutations = {
   SET_RESULT_REGISTRATION_RESULT (state, { registrationCode, downloadUrl }) {
     state.registrationCode = registrationCode
     state.downloadUrl = downloadUrl
+  },
+
+  SET_HAVE_INTERACTED (state, payload) {
+    state.haveInteracted = payload
+  },
+
+  SET_CITY_VISITED (state, payload) {
+    state.cityVisited = payload
+  },
+
+  SET_CONGENITAL_DISEASE (state, payload) {
+    state.congenitalDisease = payload
   }
 }
 

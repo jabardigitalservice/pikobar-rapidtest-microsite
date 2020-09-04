@@ -111,6 +111,30 @@
             {{ getStatusName(status) }}
           </dd>
         </div>
+        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Pernah berinteraksi dengan dengan kasus suspect/probable/konfirmasi
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ getSuspectProbable(suspectProbable) }}
+          </dd>
+        </div>
+        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Kota-kota yang dikunjungi dalam 14 hari terakhir
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ cityVisited }}
+          </dd>
+        </div>
+        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Penyakit bawaan
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ getCongenitalDisease(congenitalDisease) }}
+          </dd>
+        </div>
       </dl>
     </div>
 
@@ -207,7 +231,12 @@ export default {
       'symptomsOptions',
       'occupationTypeOptions',
       'statusOptions',
-      'status'
+      'status',
+      'congenitalDisease',
+      'suspectProbable',
+      'cityVisited',
+      'suspectProbableOptions',
+      'congenitalDiseaseOptions'
     ])
   },
 
@@ -245,6 +274,18 @@ export default {
       return event.text
     },
 
+    getSuspectProbable (value) {
+      const event = this.suspectProbableOptions.find(x => x.value === value)
+
+      return event.text
+    },
+
+    getCongenitalDisease (value) {
+      const event = this.congenitalDiseaseOptions.find(x => x.value === value)
+
+      return event.text
+    },
+
     async submit () {
       this.loading = true
 
@@ -274,7 +315,10 @@ export default {
           symptoms_notes: this.symptomsNotes,
           person_status: this.status,
           latitude: this.latitude,
-          longitude: this.longitude
+          longitude: this.longitude,
+          congenitalDisease: this.congenitalDisease,
+          suspectProbable: this.suspectProbable,
+          cityVisited: this.cityVisited
         })
 
         this.$store.commit('form/SET_RESULT_REGISTRATION_RESULT', {

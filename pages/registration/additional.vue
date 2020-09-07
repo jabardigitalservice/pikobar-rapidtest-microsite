@@ -40,7 +40,7 @@
         class="mt-4"
         name="Kota kunjungan"
         label="Sebutkan kota-kota yang pernah bapak/ibu kunjungi dalam 14 hari terakhir"
-        placeholder="Tuliskan Kota yang telah Anda kunjungi"
+        placeholder="Kosongkan jika tidak ada kunjungan"
       />
     </ValidationObserver>
 

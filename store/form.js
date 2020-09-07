@@ -109,7 +109,7 @@ export const state = () => ({
     { value: 3, text: 'Kronis' },
     { value: 4, text: 'Gangguan Jantung' },
     { value: 5, text: 'Gagal Ginjal' },
-    { value: 6, text: 'Tidak Ada' }
+    { value: 99, text: 'Tidak Ada' }
   ],
 
   jabarOptions: [

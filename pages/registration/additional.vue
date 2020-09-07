@@ -27,20 +27,20 @@
         rules="required"
       />
 
-      <pkbr-input
-        v-model="cityVisited"
-        class="mt-4"
-        name="Kota kunjungan"
-        label="Sebutkan kota-kota yang pernah bapak/ibu kunjungi dalam 14 hari terakhir"
-        rules="required"
-      />
-
       <pkbr-check-group
         v-model="congenitalDisease"
         label="Apakah Anda memiliki penyakit bawaan?"
         :items="congenitalDiseaseOptions"
         name="Penyakit bawaan"
         rules="required"
+      />
+
+      <pkbr-input
+        v-model="cityVisited"
+        class="mt-4"
+        name="Kota kunjungan"
+        label="Sebutkan kota-kota yang pernah bapak/ibu kunjungi dalam 14 hari terakhir"
+        placeholder="Tuliskan Kota yang telah Anda kunjungi"
       />
     </ValidationObserver>
 

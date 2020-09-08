@@ -1,6 +1,7 @@
 import { extend } from 'vee-validate'
 import { required, email } from 'vee-validate/dist/rules'
 import { messages } from 'vee-validate/dist/locale/id.json'
+import axios from 'axios'
 
 extend('required', {
   ...required,
@@ -33,4 +34,19 @@ extend('nik', {
     return allowedPrefix.includes(prefix) && value.match(/^[1-9]{1}[0-9]{11}(?!0{4})[0-9]{4}$/g)
   },
   message: 'Format NIK tidak benar'
+})
+
+extend('nik_registered', {
+  validate: async (value) => {
+    const response = await axios.post('/api/register/check-nik', {
+      nik: value
+    })
+    console.log(response.status)
+    if (response.status === 200) {
+      return true
+    } else {
+      return false
+    }
+  },
+  message: 'NIK telah terdaftar'
 })

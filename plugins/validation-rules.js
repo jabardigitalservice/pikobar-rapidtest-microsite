@@ -35,18 +35,3 @@ extend('nik', {
   },
   message: 'Format NIK tidak benar'
 })
-
-extend('nik_registered', {
-  validate: async (value) => {
-    const response = await axios.post('/api/register/check-nik', {
-      nik: value
-    })
-    console.log(response.status)
-    if (response.status === 200) {
-      return true
-    } else {
-      return false
-    }
-  },
-  message: 'NIK telah terdaftar'
-})

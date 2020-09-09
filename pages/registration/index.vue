@@ -15,7 +15,7 @@
         Masukkan Nomor Induk Kependudukan (NIK) calon peserta test COVID-19.
       </p>
 
-      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik|nik_registered" type="tel" />
+      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik|unique" type="tel" />
 
       <form-actions class="mt-12" back-link="/terms-conditions" @next="nextStep" />
     </ValidationObserver>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { ValidationObserver } from 'vee-validate'
+import { ValidationObserver, extend } from 'vee-validate'
 
 export default {
   components: { ValidationObserver },
@@ -50,6 +50,10 @@ export default {
     window.onbeforeunload = function () {
       return true
     }
+    extend('unique', {
+      validate: this.validNik,
+      message: 'NIK telah terdaftar'
+    })
   },
 
   methods: {
@@ -58,6 +62,18 @@ export default {
 
       if (valid) {
         this.$router.replace('/registration/personal')
+      }
+    },
+    async validNik () {
+      try {
+        await this.$axios.$post('/api/register/check-nik', {
+          nik: this.$store.state.form.nik
+        })
+        return true
+      } catch (error) {
+        if (error.response.status === 422) {
+          return false
+        }
       }
     }
   }

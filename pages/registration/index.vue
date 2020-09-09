@@ -15,7 +15,7 @@
         Masukkan Nomor Induk Kependudukan (NIK) calon peserta test COVID-19.
       </p>
 
-      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik|unique" type="tel" />
+      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik|nikRegistered" type="tel" />
 
       <form-actions class="mt-12" back-link="/terms-conditions" @next="nextStep" />
     </ValidationObserver>
@@ -50,7 +50,7 @@ export default {
     window.onbeforeunload = function () {
       return true
     }
-    extend('unique', {
+    extend('nikRegistered', {
       validate: this.validNik,
       message: 'NIK telah terdaftar'
     })

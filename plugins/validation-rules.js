@@ -1,7 +1,6 @@
 import { extend } from 'vee-validate'
 import { required, email } from 'vee-validate/dist/rules'
 import { messages } from 'vee-validate/dist/locale/id.json'
-import axios from 'axios'
 
 extend('required', {
   ...required,

@@ -6,7 +6,7 @@
           Perhatian
         </h3>
         <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
-          <p>NIK hanya bisa dimasukan sekali. NIK yang sudah dimasukan, tidak dapat digunakan untuk peserta lain.</p>
+          <p>NIK hanya bisa dimasukan sekali. NIK yang sudah dimasukan, tidak dapat dimasukan lagi.</p>
         </div>
       </div>
     </div>

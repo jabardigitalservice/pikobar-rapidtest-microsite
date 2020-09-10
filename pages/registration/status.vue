@@ -3,9 +3,10 @@
     <ValidationObserver ref="form">
       <pkbr-select-group
         v-model="status"
-        label="Apakah Anda orang dengan salah satu status kesehatan berikut?"
+        label="Apakah Anda orang dengan salah satu status berikut?"
         :items="statusOptions"
         name="Status"
+        rules="required"
       >
         <template slot="info">
           <div class="mt-8 text-sm text-gray-700">

@@ -36,7 +36,7 @@
                 Waktu
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ attendTime }} WIB
+                {{ attendTime }}
               </dd>
             </div>
             <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -125,11 +125,19 @@ export default {
     ]),
 
     attendDate () {
+      if (this.lastInvitation.attended_at === null) {
+        return '-'
+      }
+
       return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
     },
 
     attendTime () {
-      return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'HH:mm', { locale: id })
+      if (this.lastInvitation.attended_at === null) {
+        return '-'
+      }
+
+      return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'HH:mm', { locale: id }) + ' WIB'
     },
 
     attendLocation () {

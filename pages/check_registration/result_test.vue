@@ -126,7 +126,7 @@ export default {
 
     attendDate () {
       if (this.lastInvitation.attended_at === null) {
-        return '-'
+        return format(utcToZonedTime(this.lastInvitation.event.start_at, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
       }
 
       return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
@@ -134,7 +134,7 @@ export default {
 
     attendTime () {
       if (this.lastInvitation.attended_at === null) {
-        return '-'
+        return format(utcToZonedTime(this.lastInvitation.event.start_at, process.env.localTimezone), 'HH:mm', { locale: id }) + ' WIB'
       }
 
       return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'HH:mm', { locale: id }) + ' WIB'

@@ -98,9 +98,9 @@ export const state = () => ({
   ],
 
   haveInteractedOptions: [
-    { value: 1, text: 'Ya' },
-    { value: 2, text: 'Tidak' },
-    { value: 3, text: 'Tidak Tahu' }
+    { value: 'YES', text: 'Ya' },
+    { value: 'NO', text: 'Tidak' },
+    { value: 'UNKNOWN', text: 'Tidak Tahu' }
   ],
 
   congenitalDiseaseOptions: [

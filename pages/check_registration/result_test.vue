@@ -28,7 +28,9 @@
                 Tanggal
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ attendDate }}
+                <!-- eslint-disable vue/no-v-html -->
+                <span v-html="getSchedule(lastInvitation)" />
+                <!--eslint-enable-->
               </dd>
             </div>
             <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -84,7 +86,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { format } from 'date-fns'
+import { format, isSameDay } from 'date-fns'
 import { utcToZonedTime } from 'date-fns-tz'
 import { id } from 'date-fns/locale'
 import ContentResultReactive from '@/components/ContentResultReactive'
@@ -150,7 +152,30 @@ export default {
   },
 
   methods: {
-    format
+    format,
+    getSchedule (lastInvitation) {
+      let scheduleStart = new Date(lastInvitation.event.start_at)
+      let scheduleEnd = new Date(lastInvitation.event.end_at)
+
+      if (lastInvitation.rdt_event_schedule_id !== null) {
+        scheduleStart = new Date(lastInvitation.schedule.start_at)
+        scheduleEnd = new Date(lastInvitation.schedule.end_at)
+      }
+
+      if (isSameDay(scheduleStart, scheduleEnd)) {
+        const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+        const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'HH:mm', { locale: id })
+
+        return `${scheduleStartString}-${scheduleEndAtString} WIB`
+      }
+
+      const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'dd MMMM yyyy', { locale: id })
+      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'dd MMMM yyyy', { locale: id })
+
+      return `${scheduleStartString} <br />
+      s/d <br />
+      ${scheduleEndAtString}`
+    }
   }
 }
 </script>

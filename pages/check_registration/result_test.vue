@@ -28,7 +28,9 @@
                 Tanggal
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ attendDate }}
+                <!-- eslint-disable vue/no-v-html -->
+                <span v-html="getSchedule(lastInvitation)" />
+                <!--eslint-enable-->
               </dd>
             </div>
             <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -94,6 +96,7 @@ import ContentResultPositive from '@/components/ContentResultPositive'
 import ContentResultNegative from '@/components/ContentResultNegative'
 import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
 import ButtonLinkRegistrationPdf from '@/components/ButtonLinkRegistrationPdf'
+import { getSchedule } from '@/utilities/dateRange'
 
 export default {
   middleware: 'check_result',
@@ -150,7 +153,8 @@ export default {
   },
 
   methods: {
-    format
+    format,
+    getSchedule
   }
 }
 </script>

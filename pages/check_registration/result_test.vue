@@ -29,7 +29,8 @@
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                 <!-- eslint-disable vue/no-v-html -->
-                <span v-html="getSchedule(lastInvitation)" />
+                <span v-if="lastInvitation.attended_at">{{ attendDate }}</span>
+                <span v-else v-html="getSchedule(lastInvitation, 'result')" />
                 <!--eslint-enable-->
               </dd>
             </div>
@@ -137,7 +138,9 @@ export default {
 
     attendTime () {
       if (this.lastInvitation.attended_at === null) {
-        return format(utcToZonedTime(this.lastInvitation.event.start_at, process.env.localTimezone), 'HH:mm', { locale: id }) + ' WIB'
+        const startTime = format(utcToZonedTime(this.lastInvitation.event.start_at, process.env.localTimezone), 'HH:mm', { locale: id })
+        const endTime = format(utcToZonedTime(this.lastInvitation.event.end_at, process.env.localTimezone), 'HH:mm', { locale: id })
+        return `${startTime} - ${endTime} WIB`
       }
 
       return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'HH:mm', { locale: id }) + ' WIB'

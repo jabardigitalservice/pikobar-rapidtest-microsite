@@ -2,7 +2,7 @@ import { format, isSameDay } from 'date-fns'
 import { id } from 'date-fns/locale'
 import { utcToZonedTime } from 'date-fns-tz'
 
-export function getSchedule (lastInvitation) {
+export function getSchedule (lastInvitation, type) {
   let scheduleStart = new Date(lastInvitation.event.start_at)
   let scheduleEnd = new Date(lastInvitation.event.end_at)
 
@@ -12,10 +12,14 @@ export function getSchedule (lastInvitation) {
   }
 
   if (isSameDay(scheduleStart, scheduleEnd)) {
-    const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
-    const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'HH:mm', { locale: id })
+    if (type === 'result') {
+      return format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })
+    } else {
+      const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy HH:mm', { locale: id })
+      const scheduleEndAtString = format(utcToZonedTime(scheduleEnd, process.env.localTimezone), 'HH:mm', { locale: id })
 
-    return `${scheduleStartString}-${scheduleEndAtString} WIB`
+      return `${scheduleStartString}-${scheduleEndAtString} WIB`
+    }
   }
 
   const scheduleStartString = format(utcToZonedTime(scheduleStart, process.env.localTimezone), 'eeee, dd MMMM yyyy', { locale: id })

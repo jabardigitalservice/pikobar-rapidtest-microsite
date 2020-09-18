@@ -10,6 +10,7 @@ export const state = () => ({
   name: null,
   latitude: null,
   longitude: null,
+  birth_place: null,
   birth_date: null,
   birth_day: null,
   birth_month: null,
@@ -156,6 +157,7 @@ export const getters = {
   village_code: state => state.village_code,
   gender: state => state.gender,
   address: state => state.address,
+  birth_place: state => state.birth_place,
   birth_day: state => state.birth_day,
   birth_month: state => state.birth_month,
   birth_year: state => state.birth_year,
@@ -208,6 +210,7 @@ export const mutations = {
     state.village_code = null
     state.gender = null
     state.address = null
+    state.birth_place = null
     state.birth_day = null
     state.birth_month = null
     state.birth_year = null
@@ -245,6 +248,10 @@ export const mutations = {
 
   SET_GENDER (state, payload) {
     state.gender = payload
+  },
+
+  SET_BIRTH_PLACE (state, payload) {
+    state.birth_place = payload
   },
 
   SET_BIRTH_DAY (state, payload) {

@@ -28,6 +28,14 @@
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
           <dt class="text-sm leading-5 font-medium text-gray-500">
+            Tempat Lahir
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ birth_place }}
+          </dd>
+        </div>
+        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
             Tanggal Lahir
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
@@ -215,6 +223,7 @@ export default {
       'city_code',
       'district_code',
       'village_code',
+      'birth_place',
       'birth_date',
       'birth_day',
       'birth_month',
@@ -310,6 +319,7 @@ export default {
           email: this.email,
           phone_number: this.phone_number,
           gender: this.gender,
+          birth_place: this.birth_place,
           birth_date: this.birth_date,
           occupation_type: this.occupationType,
           occupation_name: `${this.employeeType !== null ? this.employeeType + ' - ' : ''}${this.occupationName}`,

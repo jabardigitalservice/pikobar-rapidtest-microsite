@@ -28,7 +28,10 @@
                 Tanggal
               </dt>
               <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ attendDate }}
+                <!-- eslint-disable vue/no-v-html -->
+                <span v-if="lastInvitation.attended_at">{{ attendDate }}</span>
+                <span v-else v-html="getSchedule(lastInvitation, 'result')" />
+                <!--eslint-enable-->
               </dd>
             </div>
             <div v-if="lastInvitation.event" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
@@ -94,6 +97,7 @@ import ContentResultPositive from '@/components/ContentResultPositive'
 import ContentResultNegative from '@/components/ContentResultNegative'
 import ButtonLinkCallCenter from '@/components/ButtonLinkCallCenter'
 import ButtonLinkRegistrationPdf from '@/components/ButtonLinkRegistrationPdf'
+import { getSchedule } from '@/utilities/dateRange'
 
 export default {
   middleware: 'check_result',
@@ -134,7 +138,9 @@ export default {
 
     attendTime () {
       if (this.lastInvitation.attended_at === null) {
-        return format(utcToZonedTime(this.lastInvitation.event.start_at, process.env.localTimezone), 'HH:mm', { locale: id }) + ' WIB'
+        const startTime = format(utcToZonedTime(this.lastInvitation.event.start_at, process.env.localTimezone), 'HH:mm', { locale: id })
+        const endTime = format(utcToZonedTime(this.lastInvitation.event.end_at, process.env.localTimezone), 'HH:mm', { locale: id })
+        return `${startTime} - ${endTime} WIB`
       }
 
       return format(utcToZonedTime(this.lastInvitation.attended_at, process.env.localTimezone), 'HH:mm', { locale: id }) + ' WIB'
@@ -150,7 +156,8 @@ export default {
   },
 
   methods: {
-    format
+    format,
+    getSchedule
   }
 }
 </script>

@@ -26,6 +26,14 @@
         rules="required"
       />
 
+      <pkbr-input
+        v-model="birth_place"
+        class="mt-4"
+        name="Tempat Lahir"
+        label="Tempat Lahir"
+        rules="required"
+      />
+
       <pkbr-select
         v-model="birth_day"
         class="mt-4"
@@ -205,6 +213,15 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_GENDER', value)
+      }
+    },
+
+    birth_place: {
+      get () {
+        return this.$store.state.form.birth_place
+      },
+      set (value) {
+        this.$store.commit('form/SET_BIRTH_PLACE', value)
       }
     },
 

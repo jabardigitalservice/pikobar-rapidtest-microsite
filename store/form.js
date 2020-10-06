@@ -37,6 +37,7 @@ export const state = () => ({
   congenitalDisease: [],
   haveInteracted: null,
   cityVisited: null,
+  isCityVisited: null,
   occupationTypeOptions: [
     { value: 99, text: 'Belum bekerja' },
     { value: 14, text: 'Pegawai Pemprov Jawa Barat' },
@@ -111,6 +112,11 @@ export const state = () => ({
     { value: 4, text: 'Gangguan Jantung' },
     { value: 5, text: 'Gagal Ginjal' },
     { value: 99, text: 'Tidak Ada' }
+  ],
+
+  cityVisitedOptions: [
+    { value: 'YES', text: 'Ya' },
+    { value: 'NO', text: 'Tidak' }
   ],
 
   jabarOptions: [
@@ -193,7 +199,9 @@ export const getters = {
   congenitalDiseaseOptions: state => state.congenitalDiseaseOptions,
   congenitalDisease: state => state.congenitalDisease,
   haveInteracted: state => state.haveInteracted,
-  cityVisited: state => state.cityVisited
+  cityVisited: state => state.cityVisited,
+  isCityVisited: state => state.isCityVisited,
+  cityVisitedOptions: state => state.cityVisitedOptions
 }
 
 // mutations
@@ -354,6 +362,10 @@ export const mutations = {
 
   SET_CITY_VISITED (state, payload) {
     state.cityVisited = payload
+  },
+
+  SET_IS_CITY_VISITED (state, payload) {
+    state.isCityVisited = payload
   },
 
   SET_CONGENITAL_DISEASE (state, payload) {

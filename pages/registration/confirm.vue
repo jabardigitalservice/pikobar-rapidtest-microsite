@@ -129,6 +129,14 @@
         </div>
         <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
           <dt class="text-sm leading-5 font-medium text-gray-500">
+            Pernah berkunjung ke luar kota
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ getIsCityVisited(isCityVisited) }}
+          </dd>
+        </div>
+        <div v-if="isCityVisited === 'YES'" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
             Kota-kota yang dikunjungi dalam 14 hari terakhir
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
@@ -249,6 +257,8 @@ export default {
       'congenitalDisease',
       'haveInteracted',
       'cityVisited',
+      'isCityVisited',
+      'cityVisitedOptions',
       'haveInteractedOptions',
       'congenitalDiseaseOptions'
     ])
@@ -298,6 +308,12 @@ export default {
       const event = this.congenitalDiseaseOptions.find(x => x.value === value)
 
       return event.text
+    },
+
+    getIsCityVisited (value) {
+      const data = this.cityVisitedOptions.find(x => x.value === value)
+
+      return data.text
     },
 
     async submit () {

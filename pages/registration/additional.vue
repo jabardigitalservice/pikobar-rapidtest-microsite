@@ -35,12 +35,23 @@
         rules="required"
       />
 
+      <pkbr-select-group
+        v-model="isCityVisited"
+        class="mt-6"
+        :items="cityVisitedOptions"
+        name="Kota kunjungan"
+        label="Apakah Anda pernah berkunjung ke luar kota dalam 14 hari terakhir?"
+        rules="required"
+      />
+
       <pkbr-input
+        v-if="isCityVisited === 'YES'"
         v-model="cityVisited"
         class="mt-4"
         name="Kota kunjungan"
         label="Sebutkan kota-kota yang pernah bapak/ibu kunjungi dalam 14 hari terakhir"
-        placeholder="Kosongkan jika tidak ada kunjungan"
+        placeholder="Masukan kota-kota yang pernah Anda kunjungi"
+        rules="required"
       />
     </ValidationObserver>
 
@@ -66,7 +77,8 @@ export default {
       'symptomsOptions',
       'eventsOptions',
       'haveInteractedOptions',
-      'congenitalDiseaseOptions'
+      'congenitalDiseaseOptions',
+      'cityVisitedOptions'
     ]),
 
     symptoms: {
@@ -111,6 +123,15 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_HAVE_INTERACTED', value)
+      }
+    },
+
+    isCityVisited: {
+      get () {
+        return this.$store.state.form.isCityVisited
+      },
+      set (value) {
+        this.$store.commit('form/SET_IS_CITY_VISITED', value)
       }
     },
 

@@ -7,6 +7,14 @@
         :items="statusOptions"
         name="Status"
         rules="required"
+      />
+      <pkbr-select-group
+        v-model="haveInteracted"
+        class="mt-6"
+        :items="haveInteractedOptions"
+        name="Suspect/probable/konfirmasi"
+        label="Apakah pernah berinteraksi dengan kasus suspek/probable/konfirmasi"
+        rules="required"
       >
         <template slot="info">
           <div class="mt-8 text-sm text-gray-700">
@@ -78,7 +86,8 @@ export default {
   computed: {
 
     ...mapGetters('form', [
-      'statusOptions'
+      'statusOptions',
+      'haveInteractedOptions'
     ]),
 
     status: {
@@ -87,6 +96,15 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_STATUS', value)
+      }
+    },
+
+    haveInteracted: {
+      get () {
+        return this.$store.state.form.haveInteracted
+      },
+      set (value) {
+        this.$store.commit('form/SET_HAVE_INTERACTED', value)
       }
     }
   },

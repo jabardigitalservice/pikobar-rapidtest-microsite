@@ -12,18 +12,9 @@
       <pkbr-input
         v-model="notes"
         class="mt-6"
-        name="Catatan Gejala/Riwayat Kontak"
-        label="Catatan Gejala/Riwayat Kontak"
+        name="Gejala lain yang dirasakan"
+        label="Gejala lain yang dirasakan"
         type="textarea"
-        rules="required"
-      />
-
-      <pkbr-select-group
-        v-model="haveInteracted"
-        class="mt-6"
-        :items="haveInteractedOptions"
-        name="Suspect/probable/konfirmasi"
-        label="Apakah pernah berinteraksi dengan kasus suspek/probable/konfirmasi"
         rules="required"
       />
 
@@ -76,7 +67,6 @@ export default {
     ...mapGetters('form', [
       'symptomsOptions',
       'eventsOptions',
-      'haveInteractedOptions',
       'congenitalDiseaseOptions',
       'cityVisitedOptions'
     ]),
@@ -114,15 +104,6 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_SYMPTOMS_NOTES', value)
-      }
-    },
-
-    haveInteracted: {
-      get () {
-        return this.$store.state.form.haveInteracted
-      },
-      set (value) {
-        this.$store.commit('form/SET_HAVE_INTERACTED', value)
       }
     },
 

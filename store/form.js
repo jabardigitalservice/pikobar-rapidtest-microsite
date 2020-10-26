@@ -139,6 +139,7 @@ export const state = () => ({
     'BIRO HUBUNGAN MASYARAKAT DAN PROTOKOL',
     'BIRO UMUM',
     'BADAN PENGELOLAAN KEUANGAN DAN ASET DAERAH',
+    'Tim Akselerasi Pembangunan (TAP)',
     'Jabar Digital Service',
     'Jabar Saber Hoax',
     'Jabar Bergerak',

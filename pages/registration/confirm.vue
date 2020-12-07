@@ -375,7 +375,7 @@ export default {
           this.$store.commit('check/SET_DATA', {
             registrationCode: data.registration_code,
             name: data.name,
-            qrcode: data.qrcode,
+            qrcode: data.qr_code,
             registrationPdf: data.download_url,
             invitations: data.invitations,
             lastInvitation,

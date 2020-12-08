@@ -358,8 +358,33 @@ export default {
         })
 
         await Swal.fire('', 'Pendaftaran berhasil. Silahkan unduh bukti pendaftaran pada halaman berikutnya.', 'success')
+        // conditional route, checking by sessionId
+        if (sessionId) {
+          let lastInvitation = null
+          lastInvitation = {
+            rdt_event_schedule_id: null,
+            attended_at: null,
+            event: {
+              event_name: data.event_name,
+              event_location: data.event_location,
+              end_at: data.event_end_at,
+              start_at: data.event_start_at
+            }
+          }
 
-        this.$router.replace('/registration/done')
+          this.$store.commit('check/SET_DATA', {
+            registrationCode: data.registration_code,
+            name: data.name,
+            qrcode: data.qr_code,
+            registrationPdf: data.download_url,
+            invitations: data.invitations,
+            lastInvitation,
+            status: data.status
+          })
+          this.$router.replace('/check_registration/result')
+        } else {
+          this.$router.replace('/registration/done')
+        }
       } catch (error) {
         if (error.response && error.response.status === 422) {
           const firstErrorKey = Object.keys(error.response.data.errors)[0]

@@ -87,8 +87,7 @@ export const state = () => ({
     { value: 'SUSPECT', text: 'Suspek' },
     { value: 'PROBABLE', text: 'Probable' },
     { value: 'CONFIRMED', text: 'Konfirmasi' },
-    { value: 'NOT_ALL', text: 'Bukan termasuk semua di atas' },
-    { value: 'UNKNOWN', text: 'Tidak tahu' }
+    { value: 'UNKNOWN', text: 'Tanpa Kriteria' }
   ],
 
   eventsOptions: [

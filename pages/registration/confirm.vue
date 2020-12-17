@@ -359,7 +359,7 @@ export default {
 
         await Swal.fire('', 'Pendaftaran berhasil. Silahkan unduh bukti pendaftaran pada halaman berikutnya.', 'success')
         // conditional route, checking by sessionId
-        if (sessionId) {
+        if (data.status === 'APPROVED') {
           let lastInvitation = null
           lastInvitation = {
             rdt_event_schedule_id: null,

@@ -43,7 +43,7 @@
 
       <template v-if="lastInvitation !== null">
         <p class="mt-4 text-center">
-          <strong>Waktu:</strong><br>
+          <strong>Tanggal dan Waktu:</strong><br>
           <!-- eslint-disable vue/no-v-html -->
           <span v-html="getSchedule(lastInvitation)" />
           <!--eslint-enable-->

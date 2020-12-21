@@ -3,7 +3,6 @@ import { id } from 'date-fns/locale'
 import { utcToZonedTime } from 'date-fns-tz'
 
 export function getSchedule (lastInvitation, type) {
-  console.log(typeof lastInvitation.schedule)
   let scheduleStart = new Date(lastInvitation.event.start_at)
   let scheduleEnd = new Date(lastInvitation.event.end_at)
 

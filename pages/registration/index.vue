@@ -15,7 +15,7 @@
         Masukkan Nomor Induk Kependudukan (NIK) calon peserta test COVID-19.
       </p>
 
-      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik|nik_registered" type="tel" />
+      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik" type="tel" />
 
       <form-actions class="mt-12" back-link="/terms-conditions" @next="nextStep" />
     </ValidationObserver>

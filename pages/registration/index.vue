@@ -1,15 +1,5 @@
 <template>
   <div class="container mx-auto p-6">
-    <div class="bg-orange-50 sm:rounded-lg border border-orange-300 mt-4">
-      <div class="px-4 py-5 sm:p-6">
-        <h3 class="leading-6 font-bold text-gray-900">
-          Perhatian
-        </h3>
-        <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
-          <p>NIK hanya bisa dimasukan sekali. NIK yang sudah dimasukan, tidak dapat dimasukan lagi.</p>
-        </div>
-      </div>
-    </div>
     <ValidationObserver ref="form">
       <p class="mt-4 text-sm">
         Masukkan Nomor Induk Kependudukan (NIK) calon peserta test COVID-19.

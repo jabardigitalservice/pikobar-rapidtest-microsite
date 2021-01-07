@@ -362,7 +362,7 @@ export default {
         if (data.status === 'APPROVED') {
           let lastInvitation = null
           lastInvitation = {
-            rdt_event_schedule_id: data.registration_code,
+            rdt_event_schedule_id: null,
             attended_at: null,
             event: {
               event_name: data.event_name,

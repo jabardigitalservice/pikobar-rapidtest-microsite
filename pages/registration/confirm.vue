@@ -369,6 +369,11 @@ export default {
               event_location: data.event_location,
               end_at: data.event_end_at,
               start_at: data.event_start_at
+            },
+            schedule: {
+              end_at: data.event_schedule_end_at,
+              start_at: data.event_schedule_start_at,
+              id: data.registration_code
             }
           }
 

@@ -46,7 +46,7 @@
                   <img src="/registration-icon2.png" alt="Cek-status" width="112px" height="96">
                 </div>
                 <div class="flex-1 text-grey-darker text-left bg-grey-light px-4 py-2 m-2">
-                  <p class="text-lg font-bold text-brand-green">
+                  <p class="text-base font-bold text-brand-green">
                     Pendaftaran Baru
                   </p>
                 </div>
@@ -60,7 +60,7 @@
                 <img src="/check-status-icon2.png" alt="Cek-status" width="112px" height="96">
               </div>
               <div class="flex-1 text-grey-darker text-left bg-grey-light px-4 py-2 m-2">
-                <p class="text-lg font-bold text-brand-green">
+                <p class="text-base font-bold text-brand-green">
                   Cek Status &amp; Hasil Test
                 </p>
               </div>
@@ -71,8 +71,8 @@
               <div class="flex-1 text-grey-darker text-center px-4 py-2 m-2">
                 <img src="/call-center-icon2.png" alt="Cek-status" width="112px" height="96">
               </div>
-              <div class="flex-1 text-grey-darker text-left bg-grey-light px-4 py-2 m-2">
-                <p class="text-lg font-bold text-brand-green">
+              <div class="flex-1 text-grey-darker text-left bg-grey-light px-2 py-2 m-2">
+                <p class="text-base font-bold text-brand-green">
                   Hubungi Pusat Bantuan PIKOBAR
                 </p>
               </div>

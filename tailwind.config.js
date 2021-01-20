@@ -32,7 +32,8 @@ module.exports = {
         'brand-yellow-dark': '#FFD126',
         'brand-yellow-darker': '#FFD126',
         'brand-yellow-darkest': '#FEC32B',
-        'brand-orange': '#FF5722'
+        'brand-orange': '#FF5722',
+        'brand-grey': '#333333'
       }
     }
   },

@@ -27,6 +27,14 @@
               Anda berada di halaman Pikobar Tes Masif COVID-19 Jawa Barat. Anda dapat mengikuti kegiatan <strong>{{ event.event_name }}.</strong> Silahkan pilih menu <strong>Pendaftaran Baru</strong> di bawah, untuk melengkapi data-data Anda.
             </p>
           </div>
+          <div v-else>
+            <h1 class="text-xl font-bold text-brand-grey">
+              Selamat Datang,
+            </h1>
+            <p class="text-base mt-4 text-brand-grey">
+              Anda berada di halaman Pikobar Tes Masif COVID-19 Jawa Barat. Anda dapat mendaftarkan diri sebagai calon peserta tes. Silahkan pilih menu <strong>Pendaftaran Baru</strong> di bawah, untuk melengkapi data-data Anda.
+            </p>
+          </div>
         </template>
 
         <div class="mt-8">

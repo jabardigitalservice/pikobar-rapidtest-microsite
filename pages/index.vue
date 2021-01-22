@@ -43,7 +43,7 @@
             <nuxt-link to="/terms-conditions">
               <div class="flex items-center rounded-lg border-2 border-brand-green my-4">
                 <div class="flex-1 text-grey-darker text-center px-4 py-2 m-2">
-                  <img src="/registration-icon2.png" alt="Cek-status" width="112px" height="96">
+                  <img src="/registration-icon1.svg" alt="Cek-status" width="112px" height="600">
                 </div>
                 <div class="flex-1 text-grey-darker text-left bg-grey-light px-4 py-2 m-2">
                   <p class="text-base font-bold text-brand-green">
@@ -57,7 +57,7 @@
           <nuxt-link to="/check_registration">
             <div class="flex items-center rounded-lg border-2 border-brand-green my-4">
               <div class="flex-1 text-grey-darker text-center px-4 py-2 m-2">
-                <img src="/check-status-icon2.png" alt="Cek-status" width="112px" height="96">
+                <img src="/check-status-icon1.svg" alt="Cek-status" width="112px" height="96px">
               </div>
               <div class="flex-1 text-grey-darker text-left bg-grey-light px-4 py-2 m-2">
                 <p class="text-base font-bold text-brand-green">
@@ -69,7 +69,7 @@
           <a href="https://s.id/HotlinePikobar" target="_blank">
             <div class="flex items-center rounded-lg border-2 border-brand-green my-4">
               <div class="flex-1 text-grey-darker text-center px-4 py-2 m-2">
-                <img src="/call-center-icon2.png" alt="Cek-status" width="112px" height="96">
+                <img src="/hotline-icon.svg" alt="Cek-status" width="112px" height="96px">
               </div>
               <div class="flex-1 text-grey-darker text-left bg-grey-light px-2 py-2 m-2">
                 <p class="text-base font-bold text-brand-green">

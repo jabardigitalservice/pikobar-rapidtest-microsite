@@ -43,46 +43,15 @@
           </h1>
         </div>
 
-        <div>
-          <template v-if="enableRegistration && !(event && event.is_ended)">
-            <nuxt-link to="/terms-conditions">
-              <div class="flex items-center rounded-lg border-2 border-brand-green my-4">
-                <div class="flex-shrink-0 text-grey-darker text-center px-4 py-2 m-2">
-                  <img src="/registration-icon1.svg" alt="Cek-status" width="112" height="72">
-                </div>
-                <div class="flex-grow text-grey-darker text-left bg-grey-light px-2 py-2 m-2">
-                  <p class="text-base font-bold text-brand-green">
-                    Pendaftaran Baru
-                  </p>
-                </div>
-              </div>
+        <div v-for="data in actionButton" :key="data.text">
+          <template>
+            <a v-if="data.id === 'hotline'" :href="data.url" target="_blank">
+              <button-action :image="data.image" :text="data.text" />
+            </a>
+            <nuxt-link v-else :to="data.url">
+              <button-action :image="data.image" :text="data.text" />
             </nuxt-link>
           </template>
-
-          <nuxt-link to="/check_registration">
-            <div class="flex items-center rounded-lg border-2 border-brand-green my-4">
-              <div class="flex-shrink-0 text-grey-darker text-center px-4 py-2 m-2">
-                <img src="/check-status-icon1.svg" alt="Cek-status" width="112" height="72">
-              </div>
-              <div class="flex-grow text-grey-darker text-left bg-grey-light px-2 py-2 m-2">
-                <p class="text-base font-bold text-brand-green">
-                  Cek Status &amp; Hasil Test
-                </p>
-              </div>
-            </div>
-          </nuxt-link>
-          <a href="https://s.id/HotlinePikobar" target="_blank">
-            <div class="flex items-center rounded-lg border-2 border-brand-green my-4">
-              <div class="flex-shrink-0 text-grey-darker text-center px-4 py-2 m-2">
-                <img src="/hotline-icon.svg" alt="Cek-status" width="112px" height="96px">
-              </div>
-              <div class="flex-grow text-grey-darker text-left bg-grey-light px-2 py-2 m-2">
-                <p class="text-base font-bold text-brand-green">
-                  Hubungi Pusat Bantuan PIKOBAR
-                </p>
-              </div>
-            </div>
-          </a>
         </div>
       </div>
     </div>
@@ -93,11 +62,20 @@
 import { isAfter } from 'date-fns'
 import { mapGetters } from 'vuex'
 import Cookies from 'js-cookie'
+import ButtonAction from '@/components/ButtonAction'
 
 export default {
+  components: {
+    ButtonAction
+  },
   data () {
     return {
-      event: null
+      event: null,
+      actionButton: [
+        { id: 'registration', text: 'Pendaftaran Baru', image: '/registration-icon1.svg', url: '/terms-conditions' },
+        { id: 'cekStatus', text: 'Cek Status & Hasil Test', image: '/check-status-icon1.svg', url: '/check_registration' },
+        { id: 'hotline', text: 'Hubungi Pusat Bantuan PIKOBAR', image: '/hotline-icon.svg', url: 'https://s.id/HotlinePikobar' }
+      ]
     }
   },
 
@@ -128,6 +106,12 @@ export default {
 
     if (pikobarUid) {
       this.$store.commit('form/SET_PIKOBAR_UID', pikobarUid)
+    }
+
+    if (this.enableRegistration && !(this.event && this.event.is_ended)) {
+      return this.actionButton
+    } else {
+      return this.actionButton.shift()
     }
   },
 

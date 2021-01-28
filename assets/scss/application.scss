@@ -2,42 +2,42 @@ html,
 body { height: 100%; }
 
 body {
-  background-color: #f7f7f7;
+  background-color: #e5e5e5;
 }
 
 .main-layout > .content {
-  max-width: 480px;
+  // max-width: 480px;
   width: 100%;
-  background-color: #fff;
+  background-color: #fafafa;
   //padding-bottom: 65px;
   margin: 0 auto;
 }
 
 .mobile-screen {
-  height: calc(100vh - 48px);
+  height: 100%;
 
-  @media (min-width: 640px) {
+  @media (min-width: 325px) {
     height: auto;
   }
 
   &.content-long {
     height: 100vh;
 
-    @media (min-width: 640px) {
+    @media (min-width: 325px) {
       height: auto;
     }
   }
 
   .mobile-content {
-    @media (min-width: 640px) {
-      height: 640px;
+    @media (min-width: 325px) {
+      height: 100vh;
     }
   }
 
   .mobile-actions {
     margin-top: 15px;
 
-    @media (min-width: 640px) {
+    @media (min-width: 325px) {
       position: relative;
       padding: 0;
     }
@@ -71,4 +71,8 @@ body {
       @apply text-gray-500;
     }
   }
+}
+
+.text-content {
+  @apply text-base mt-4 text-brand-grey;
 }

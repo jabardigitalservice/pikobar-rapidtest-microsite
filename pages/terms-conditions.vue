@@ -3,7 +3,7 @@
     <div class="mobile-content">
       <div class="container mx-auto p-8">
         <div class="mt-12 text-lg">
-          <img src="/kutip.svg" width="25px" height="25px">
+          <img src="/kutip.svg" alt="Tanda kutip" width="25" height="25">
           <div class="pl-8 pr-6">
             <p class="text-lg">
               Pendaftaran Peserta Tes Masif COVID-19 bersifat terbatas dan diprioritaskan <strong>bagi orang yang paling rentan terjangkit wabah virus COVID-19.</strong>

@@ -6,7 +6,7 @@ body {
 }
 
 .main-layout > .content {
-  max-width: 480px;
+  // max-width: 480px;
   width: 100%;
   background-color: #fafafa;
   //padding-bottom: 65px;
@@ -16,20 +16,20 @@ body {
 .mobile-screen {
   height: 100%;
 
-  @media (min-width: 640px) {
+  @media (min-width: 325px) {
     height: auto;
   }
 
   &.content-long {
     height: 100vh;
 
-    @media (min-width: 640px) {
+    @media (min-width: 325px) {
       height: auto;
     }
   }
 
   .mobile-content {
-    @media (min-width: 640px) {
+    @media (min-width: 325px) {
       height: 100vh;
     }
   }
@@ -37,7 +37,7 @@ body {
   .mobile-actions {
     margin-top: 15px;
 
-    @media (min-width: 640px) {
+    @media (min-width: 325px) {
       position: relative;
       padding: 0;
     }
@@ -71,4 +71,8 @@ body {
       @apply text-gray-500;
     }
   }
+}
+
+.text-content {
+  @apply text-base mt-4 text-brand-grey;
 }

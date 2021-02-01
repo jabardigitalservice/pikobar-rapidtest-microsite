@@ -73,7 +73,7 @@ body {
 }
 
 .form-style {
-  @apply block pr-10 appearance-none border border-brand-grey-light rounded-lg w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow focus:bg-white focus:border-brand-green transition duration-500 ease-in-out;
+  @apply block pr-10 appearance-none border border-brand-grey-light rounded-lg w-full py-3 px-2 text-brand-grey leading-tight focus:outline-none focus:shadow focus:bg-white focus:border-brand-green transition duration-500 ease-in-out;
 }
 
 .form-style-error {

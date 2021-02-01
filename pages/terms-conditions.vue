@@ -1,6 +1,6 @@
 <template>
-  <div class="mobile-screen">
-    <div class="mobile-content">
+  <div>
+    <div>
       <div class="container mx-auto p-8">
         <div class="mt-12 text-lg">
           <img src="/kutip.svg" alt="Tanda kutip" width="25" height="25">

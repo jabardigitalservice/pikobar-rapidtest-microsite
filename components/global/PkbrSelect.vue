@@ -7,9 +7,9 @@
     <div class="mt-1 relative rounded-md">
       <select
         v-model="tempValue"
-        class="form-select block pr-10 shadow-sm appearance-none border-2 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow focus:bg-white focus:border-brand-green-dark transition duration-500 ease-in-out"
+        class="form-select form-style"
         :class="{
-          'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300': errors.length > 0,
+          'form-style-error': errors.length > 0,
           'placeholdered': tempValue === null
         }"
       >

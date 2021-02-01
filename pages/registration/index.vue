@@ -1,11 +1,17 @@
 <template>
   <div class="container mx-auto p-6">
     <ValidationObserver ref="form">
-      <p class="mt-4 text-sm">
-        Masukkan Nomor Induk Kependudukan (NIK) calon peserta test COVID-19.
+      <p class="mb-4 text-lg">
+        Silahkan isi <strong>Nomor Induk Kependudukan (NIK)</strong> Anda.
       </p>
 
-      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik" type="tel" />
+      <pkbr-input
+        v-model="nik"
+        class="mb-3"
+        name="NIK"
+        rules="required|nik"
+        type="tel"
+      />
 
       <form-actions class="mt-12" back-link="/terms-conditions" @next="nextStep" />
     </ValidationObserver>

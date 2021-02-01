@@ -16,8 +16,8 @@
         v-model.lazy="tempValue"
         :name="name"
         :rows="rows"
-        class="block pr-10 shadow-sm appearance-none border-2 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow focus:bg-white focus:border-brand-green-dark transition duration-500 ease-in-out"
-        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300': errors.length > 0 }"
+        class="form-style"
+        :class="{ 'form-style-error': errors.length > 0 }"
         :placeholder="placeholder"
       />
       <input
@@ -26,8 +26,8 @@
         v-model.lazy="tempValue"
         :name="name"
         :type="type"
-        class="block pr-10 shadow-sm appearance-none border-2 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow focus:bg-white focus:border-brand-green-dark transition duration-500 ease-in-out"
-        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300': errors.length > 0 }"
+        class="form-style"
+        :class="{ 'form-style-error': errors.length > 0 }"
         :placeholder="placeholder"
         @keypress="isNumberTel"
       >

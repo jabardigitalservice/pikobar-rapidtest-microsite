@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-6">
     <ValidationObserver ref="form">
-      <p class="mb-4 text-lg">
+      <p class="mb-4 text-lg text-brand-grey">
         Silahkan isi <strong>Nomor Induk Kependudukan (NIK)</strong> Anda.
       </p>
 
@@ -13,13 +13,15 @@
         type="tel"
       />
 
-      <form-actions class="mt-12" back-link="/terms-conditions" @next="nextStep" />
+      <form-actions class="mt-12 hidden lg:flex" back-link="/terms-conditions" @next="nextStep" />
     </ValidationObserver>
+    <!-- <Footer class="lg:hidden buttom-0" /> -->
   </div>
 </template>
 
 <script>
 import { ValidationObserver, extend } from 'vee-validate'
+// import Footer from '@/layouts/footer.vue'
 
 export default {
   components: { ValidationObserver },

@@ -35,6 +35,7 @@ module.exports = {
         'brand-orange': '#FF5722',
         'brand-grey': '#333333',
         'brand-grey-light': '#E0E0E0',
+        'brand-grey-dark': '#828282',
         'brand-red': '#D6716B'
 
       }

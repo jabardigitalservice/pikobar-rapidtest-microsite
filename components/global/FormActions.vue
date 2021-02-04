@@ -4,7 +4,7 @@
       <img src="/back-icon.svg" class="pr-2" alt="Tombol kembali">
       Kembali
     </button>
-    <button type="button" class="flex w-1/4 items-center justify-center px-5 py-2 text-base leading-6 font-medium rounded-lg text-white bg-brand-green text-center ml-2" @click="nextStep">
+    <button type="button" class="flex w-1/4 items-center justify-center px-5 py-2 lg:text-base text-sm leading-6 font-medium rounded-lg text-white bg-brand-green text-center ml-2" @click="nextStep">
       Lanjutkan
     </button>
   </div>

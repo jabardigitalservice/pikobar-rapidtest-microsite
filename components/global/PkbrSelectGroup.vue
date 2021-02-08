@@ -20,7 +20,7 @@
           v-model="tempValue"
           :name="name"
           type="radio"
-          class="form-radio h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out"
+          class="form-radio h-4 w-4 text-brand-green-dark bg-white border-2 border-gray-400 transition duration-150 ease-in-out"
           :value="item[itemValue]"
         >
         <label class="ml-3" :for="`${name}-${index}`">

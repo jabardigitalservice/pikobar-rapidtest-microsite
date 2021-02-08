@@ -1,34 +1,29 @@
 <template>
   <div class="container mx-auto p-6">
-    <ValidationObserver ref="form">
-      <p class="mb-4 text-lg text-brand-grey">
-        Silahkan isi <strong>Nomor Induk Kependudukan (NIK)</strong> Anda.
-      </p>
-
-      <pkbr-input
-        v-model="nik"
-        class="mb-3"
-        name="NIK"
-        rules="required|nik"
-        type="tel"
-      />
-
-      <form-actions class="mt-12 hidden lg:flex" back-link="/terms-conditions" @next="nextStep" />
-    </ValidationObserver>
-    <!-- <Footer class="lg:hidden buttom-0" /> -->
+    <form-nik v-if="step === 1" @nextStep="nextKuy" />
+    <form-name v-if="step === 2" @nextStep="nextKuy" />
+    <form-gender v-if="step === 3" @nextStep="nextKuy" />
+    <form-birth-place v-if="step === 4" @nextStep="nextKuy" />
+    <form-birth-date v-if="step === 5" @nextStep="nextKuy" />
+    <form-phone v-if="step === 6" @nextStep="nextKuy" />
+    <form-email v-if="step === 7" @nextStep="nextKuy" />
+    <form-address v-if="step === 8" @nextStep="nextKuy" />
+    <form-occupation v-if="step === 9" @nextStep="nextKuy" />
+    <form-symptoms v-if="step === 10" @nextStep="nextKuy" />
+    <form-conginetal-disease v-if="step === 11" @nextStep="nextKuy" />
+    <form-city-visited v-if="step === 12" @nextStep="nextKuy" />
+    <form-city-visited-name v-if="step === 13" @nextStep="nextKuy" />
+    <form-status v-if="step === 14" @nextStep="nextKuy" />
+    <form-have-interacted v-if="step === 15" @nextStep="nextKuy" />
   </div>
 </template>
 
 <script>
-import { ValidationObserver, extend } from 'vee-validate'
-// import Footer from '@/layouts/footer.vue'
 
 export default {
-  components: { ValidationObserver },
-
   data () {
     return {
-      //
+      step: 1
     }
   },
 
@@ -40,6 +35,11 @@ export default {
       set (value) {
         this.$store.commit('form/SET_NIK', value)
       }
+    },
+    isCityVisited: {
+      get () {
+        return this.$store.state.form.isCityVisited
+      }
     }
   },
 
@@ -48,18 +48,22 @@ export default {
     window.onbeforeunload = function () {
       return true
     }
-    extend('nik_registered', {
-      validate: this.nikRegistered,
-      message: 'NIK telah terdaftar'
-    })
+    // extend('nik_registered', {
+    //   validate: this.nikRegistered,
+    //   message: 'NIK telah terdaftar'
+    // })
   },
 
   methods: {
+    nextKuy () {
+      this.step++
+    },
     async nextStep () {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        this.$router.replace('/registration/personal')
+        // this.$router.replace('/registration/personal')
+        this.step++
       }
     },
     async nikRegistered () {

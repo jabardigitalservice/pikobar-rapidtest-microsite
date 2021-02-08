@@ -1,6 +1,6 @@
 <template>
   <validation-provider v-slot="{ errors }" :name="name" :rules="rules" tag="div" class="block">
-    <label :for="name" class="block text-gray-700 leading-5 text-sm font-medium">
+    <label :for="name" class="block text-sm font-medium leading-5 text-gray-700">
       {{ label }}
       <span v-if="isRequired" class="text-brand-red">*</span>
     </label>

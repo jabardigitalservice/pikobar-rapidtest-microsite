@@ -19,7 +19,7 @@
             v-model="tempValue"
             :value="item[itemValue]"
             type="checkbox"
-            class="form-checkbox h-4 w-4 text-brand-green-dark transition duration-150 ease-in-out"
+            class="form-checkbox h-4 w-4 text-brand-green-dark bg-white border-2 border-gray-400 transition duration-150 ease-in-out"
             @change="isException(item[itemValue] === clearValue)"
           >
         </div>

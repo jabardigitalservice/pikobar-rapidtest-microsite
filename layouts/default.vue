@@ -12,7 +12,7 @@
         <div :style="{ width: width }" class="shadow-none flex flex-col text-center text-white justify-center bg-brand-green" />
       </div>
     </div>
-    <div class="content overflow-auto lg:w-5/12 m-auto h-5/6 lg:h-6/6 flex flex-wrap content-center">
+    <div class="content lg:w-5/12 m-auto h-5/6 lg:h-6/6 flex flex-wrap content-center">
       <nuxt />
     </div>
   </div>

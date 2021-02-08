@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-6">
     <ValidationObserver ref="form">
-      <p class="mb-4 text-lg text-brand-grey">
+      <p class="text-lg text-brand-grey">
         Apakah Anda termasuk salah satu <strong>status</strong> berikut?
       </p>
       <modal-detail-status />

@@ -1,14 +1,14 @@
 <template>
-  <div class="container mx-auto p-6">
-    <h2 class="text-xl text-gray-900 text-center">
+  <div class="container mx-auto p-6 h-full">
+    <h2 class="text-2xl font-bold text-brand-grey text-center">
       Cek Pendaftaran &amp; Hasil
     </h2>
 
     <form @submit.prevent="onSubmit">
-      <div class="mt-4">
+      <div class="mt-10">
         <label class="block text-sm font-medium leading-5 text-gray-700">Nomor Pendaftaran</label>
         <div class="mt-1 relative rounded-md shadow-sm">
-          <input :value="registration_code" type="text" class="form-input block w-full" @input="updateRegistrationCode($event.target.value)">
+          <input :value="registration_code" type="text" class="form-style form-input block w-full" @input="updateRegistrationCode($event.target.value)">
         </div>
       </div>
 

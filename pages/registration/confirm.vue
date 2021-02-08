@@ -194,7 +194,7 @@
         </svg>
         Kirim
       </button>
-      <nuxt-link to="/registration/status" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-grey-dark text-center mt-5">
+      <nuxt-link to="/registration" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-grey-dark text-center mt-5">
         <img src="/back-icon.svg" class="pr-2" alt="Tombol kembali">
         Kembali
       </nuxt-link>

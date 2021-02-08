@@ -12,7 +12,7 @@
         <div :style="{ width: progress }" class="shadow-none flex flex-col text-center text-white justify-center bg-brand-green" />
       </div>
     </div>
-    <div class="content lg:w-5/12 m-auto h-5/6 lg:h-6/6 flex flex-wrap content-center">
+    <div class="content lg:w-5/12 w-full m-auto h-5/6 lg:h-5/6 flex flex-wrap content-center">
       <nuxt />
     </div>
   </div>
@@ -26,12 +26,6 @@ export default {
         return this.$store.state.form.progress
       }
     }
-  },
-  mounted () {
-    // Enable navigation prompt
-    // window.onbeforeunload = function () {
-    //   return true
-    // }
   }
 }
 </script>

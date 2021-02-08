@@ -28,7 +28,7 @@
 export default {
   data () {
     return {
-      step: 9
+      step: 0
     }
   },
 
@@ -54,7 +54,12 @@ export default {
 
   methods: {
     nextStep () {
-      this.step++
+      if (this.step < 14) {
+        this.step++
+      } else {
+        this.step++
+        this.$router.replace('/registration/confirm')
+      }
     },
     backStep () {
       this.step--

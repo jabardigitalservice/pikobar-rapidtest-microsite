@@ -5,7 +5,12 @@
         Tulis <strong>nama lengkap</strong> Anda.
       </p>
 
-      <pkbr-input v-model="name" class="mb-3" name="Nama Lengkap" rules="required" />
+      <pkbr-input
+        v-model="name"
+        class="mb-3"
+        name="Nama Lengkap"
+        rules="required"
+      />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />
     </ValidationObserver>

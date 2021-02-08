@@ -9,7 +9,7 @@
         </nuxt-link>
       </div>
       <div class="overflow-hidden h-1 text-xs flex rounded bg-brand-green-light">
-        <div :style="{ width: width }" class="shadow-none flex flex-col text-center text-white justify-center bg-brand-green" />
+        <div :style="{ width: progress }" class="shadow-none flex flex-col text-center text-white justify-center bg-brand-green" />
       </div>
     </div>
     <div class="content lg:w-5/12 m-auto h-5/6 lg:h-6/6 flex flex-wrap content-center">
@@ -20,13 +20,14 @@
 
 <script>
 export default {
-  data () {
-    return {
-      width: '50%'
+  computed: {
+    progress: {
+      get () {
+        return this.$store.state.form.progress
+      }
     }
   },
   mounted () {
-    console.log(this.$router.history.current.name)
     // Enable navigation prompt
     // window.onbeforeunload = function () {
     //   return true

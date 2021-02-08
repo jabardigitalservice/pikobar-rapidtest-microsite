@@ -7,7 +7,7 @@
 
       <pkbr-input v-model="name" class="mb-3" name="Nama Lengkap" rules="required" />
 
-      <form-actions class="mt-12 flex" back-link="/terms-conditions" @next="nextStep" />
+      <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />
     </ValidationObserver>
   </div>
 </template>
@@ -41,9 +41,11 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        // this.$router.replace('/registration/personal')
         this.$emit('nextStep')
       }
+    },
+    backStep () {
+      this.$emit('backStep')
     }
   }
 }

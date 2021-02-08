@@ -24,12 +24,6 @@ import { ValidationObserver, extend } from 'vee-validate'
 export default {
   components: { ValidationObserver },
 
-  data () {
-    return {
-      //
-    }
-  },
-
   computed: {
     nik: {
       get () {
@@ -57,7 +51,6 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        // this.$router.replace('/registration/personal')
         this.$emit('nextStep')
       }
     },

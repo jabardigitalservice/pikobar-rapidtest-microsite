@@ -52,7 +52,7 @@
       />
     </ValidationObserver>
 
-    <form-actions class="mt-12" back-link="/registration/personal" @next="nextStep" />
+    <form-actions class="mt-12" @prev="backStep" @next="nextStep" />
   </div>
 </template>
 
@@ -127,9 +127,11 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        // this.$router.replace('/registration/additional')
         this.$emit('nextStep')
       }
+    },
+    backStep () {
+      this.$emit('backStep')
     }
   }
 }

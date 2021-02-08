@@ -1,7 +1,12 @@
 <template>
-  <div class="container mx-auto p-6">
+  <div class="container mx-auto p-6 mt-40">
+    <div class="mb-6">
+      <p class="text-base text-brand-grey-dark">
+        {{ progress }} Selesai
+      </p>
+    </div>
     <ValidationObserver ref="form">
-      <p class="mt-80 text-lg text-brand-grey">
+      <p class="text-lg text-brand-grey">
         <strong>Gejala</strong> apa yang Anda rasakan?
       </p>
       <p class="mb-6 text-xs text-gray-700">
@@ -24,7 +29,7 @@
         rules="required"
       />
 
-      <form-actions class="mt-12 flex" back-link="/terms-conditions" @next="nextStep" />
+      <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />
     </ValidationObserver>
   </div>
 </template>
@@ -57,6 +62,12 @@ export default {
       set (value) {
         this.$store.commit('form/SET_SYMPTOMS_NOTES', value)
       }
+    },
+
+    progress: {
+      get () {
+        return this.$store.state.form.progress
+      }
     }
   },
 
@@ -72,9 +83,11 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        // this.$router.replace('/registration/personal')
         this.$emit('nextStep')
       }
+    },
+    backStep () {
+      this.$emit('backStep')
     }
   }
 }

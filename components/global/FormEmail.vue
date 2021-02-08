@@ -12,9 +12,7 @@
         rules="email"
       />
 
-      {{ email }}
-
-      <form-actions class="mt-12 flex" back-link="/terms-conditions" @next="nextStep" />
+      <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />
     </ValidationObserver>
   </div>
 </template>
@@ -24,12 +22,6 @@ import { ValidationObserver } from 'vee-validate'
 
 export default {
   components: { ValidationObserver },
-
-  data () {
-    return {
-      //
-    }
-  },
 
   computed: {
     email: {
@@ -54,9 +46,11 @@ export default {
       const valid = await this.$refs.form.validate()
 
       if (valid) {
-        // this.$router.replace('/registration/personal')
         this.$emit('nextStep')
       }
+    },
+    backStep () {
+      this.$emit('backStep')
     }
   }
 }

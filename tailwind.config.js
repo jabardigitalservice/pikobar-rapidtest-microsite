@@ -15,7 +15,7 @@ module.exports = {
     extend: {
       colors: {
         'brand-green-lighter': '#8FC749',
-        'brand-green-light': '#76B74B',
+        'brand-green-light': 'rgba(90, 170, 78, 0.3);',
         'brand-green': '#5AAA4E',
         'brand-green-dark': '#399F4F',
         'brand-green-darker': '#049550',
@@ -26,14 +26,18 @@ module.exports = {
         'brand-blue-dark': '#009BDA',
         'brand-blue-darker': '#0090D3',
         'brand-blue-darkest': '#0087CB',
-        'brand-yellow-lighter': '#FFF212',
-        'brand-yellow-light': '#FFF212',
+        'brand-yellow-lighter': '#FFF9E1',
+        'brand-yellow-light': '#FF9500',
         'brand-yellow': '#FFE11E',
         'brand-yellow-dark': '#FFD126',
         'brand-yellow-darker': '#FFD126',
         'brand-yellow-darkest': '#FEC32B',
         'brand-orange': '#FF5722',
-        'brand-grey': '#333333'
+        'brand-grey': '#333333',
+        'brand-grey-light': '#E0E0E0',
+        'brand-grey-dark': '#828282',
+        'brand-red': '#D6716B'
+
       }
     }
   },

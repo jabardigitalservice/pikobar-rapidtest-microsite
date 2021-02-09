@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 
 // state
 export const state = () => ({
+  progress: '0%',
   sessionId: null,
   pikobarUid: null,
   registrationCode: null,
@@ -150,6 +151,7 @@ export const state = () => ({
 
 // getters
 export const getters = {
+  progress: state => state.progress,
   sessionId: state => state.sessionId,
   pikobarUid: state => state.pikobarUid,
   registrationCode: state => state.registrationCode,
@@ -370,6 +372,10 @@ export const mutations = {
 
   SET_CONGENITAL_DISEASE (state, payload) {
     state.congenitalDisease = payload
+  },
+
+  SET_PERCENT_PROGRESS (state, payload) {
+    state.progress = payload
   }
 }
 

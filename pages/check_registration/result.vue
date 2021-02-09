@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto p-6">
+  <div class="container mx-auto p-6 h-full">
     <template v-if="status === 'NEW'" />
     <template v-if="status === 'APPROVED' && lastInvitation !== null" />
 

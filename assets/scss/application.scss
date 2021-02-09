@@ -76,7 +76,7 @@ body {
 }
 
 .form-style:focus {
-  @apply focus:outline-none focus:shadow focus:bg-white focus:border-brand-green;
+  @apply outline-none shadow bg-white border-brand-green;
 }
 
 .form-style-error {
@@ -84,7 +84,7 @@ body {
 }
 
 .form-style-error:focus {
-  @apply focus:border-brand-red;
+  @apply border-brand-red;
 }
 
 .text-content {

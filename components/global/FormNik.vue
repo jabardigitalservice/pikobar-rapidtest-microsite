@@ -10,6 +10,7 @@
         class="mb-3"
         name="NIK"
         rules="required|nik"
+        placeholder="Contoh: 3928192038819304"
         type="tel"
       />
 

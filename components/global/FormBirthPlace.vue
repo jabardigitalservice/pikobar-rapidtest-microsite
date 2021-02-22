@@ -9,6 +9,7 @@
         v-model="birth_place"
         class="mt-4"
         name="Tempat Lahir"
+        placeholder="Contoh: Bandung"
         rules="required"
       />
 

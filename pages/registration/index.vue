@@ -19,7 +19,6 @@
     <form-city-visited v-if="step === 11" @nextStep="nextStep" @backStep="backStep" />
     <form-city-visited-name v-if="step === 12" @nextStep="nextStep" @backStep="backStep" />
     <form-status v-if="step === 13" @nextStep="nextStep" @backStep="backStep" />
-    <form-have-interacted v-if="step === 14" @nextStep="nextStep" @backStep="backStep" />
   </div>
 </template>
 
@@ -34,7 +33,7 @@ export default {
 
   computed: {
     percent () {
-      return parseInt((this.step / 15) * 100)
+      return parseInt((this.step / 14) * 100)
     }
   },
 
@@ -54,7 +53,7 @@ export default {
 
   methods: {
     nextStep () {
-      if (this.step < 14) {
+      if (this.step < 13) {
         this.step++
       } else {
         this.step++

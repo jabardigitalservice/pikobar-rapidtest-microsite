@@ -66,7 +66,7 @@
           Email
         </p>
         <p class="text-lg text-brand-grey">
-          {{ email }}
+          {{ email || '-' }}
         </p>
       </div>
 
@@ -130,7 +130,7 @@
           Catatan Lain
         </p>
         <p class="text-lg text-brand-grey">
-          {{ symptomsNotes }}
+          {{ symptomsNotes || '-' }}
         </p>
       </div>
 
@@ -253,11 +253,9 @@ export default {
       'statusOptions',
       'status',
       'congenitalDisease',
-      'haveInteracted',
       'cityVisited',
       'isCityVisited',
       'cityVisitedOptions',
-      'haveInteractedOptions',
       'congenitalDiseaseOptions'
     ]),
 
@@ -298,12 +296,6 @@ export default {
 
     getEventName (value) {
       const event = this.eventsOptions.find(x => x.value === value)
-
-      return event.text
-    },
-
-    getHaveInteracted (value) {
-      const event = this.haveInteractedOptions.find(x => x.value === value)
 
       return event.text
     },
@@ -352,7 +344,6 @@ export default {
           latitude: this.latitude,
           longitude: this.longitude,
           congenital_disease: this.congenitalDisease,
-          have_interacted: this.haveInteracted,
           city_visited: this.cityVisited
         })
 

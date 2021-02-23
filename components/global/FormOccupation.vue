@@ -30,6 +30,7 @@
         class="mt-4"
         name="Nama Tempat Bekerja"
         label="Nama Tempat Bekerja"
+        placeholder="Contoh: PT. Abadi Jaya"
         rules="required"
       />
 
@@ -48,6 +49,7 @@
         class="mt-4"
         name="Nama Profesi/Pekerjaan/Sub Bagian"
         label="Nama Profesi/Pekerjaan/Sub Bagian"
+        placeholder="Contoh: Staff Engineer"
         rules="required"
       />
     </ValidationObserver>

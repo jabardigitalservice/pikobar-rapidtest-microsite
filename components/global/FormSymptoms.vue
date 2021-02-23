@@ -26,7 +26,6 @@
         name="Gejala lain yang dirasakan"
         label="Gejala lain yang dirasakan"
         type="textarea"
-        rules="required"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

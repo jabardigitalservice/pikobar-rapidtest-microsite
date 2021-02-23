@@ -9,6 +9,7 @@
         v-model="name"
         class="mb-3"
         name="Nama Lengkap"
+        placeholder="Contoh: Abdul Wahab"
         rules="required"
       />
 

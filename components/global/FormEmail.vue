@@ -9,6 +9,8 @@
         v-model="email"
         class="mt-4"
         name="Alamat Email"
+        placeholder="Contoh: nama@email.com"
+        note="Tidak Wajib"
         rules="email"
       />
 

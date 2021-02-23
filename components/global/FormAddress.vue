@@ -48,6 +48,7 @@
         class="mt-4"
         name="Alamat"
         label="Tulis Alamat Lengkap"
+        placeholder="Tulis alamat tempat Anda tinggal"
         rules="required"
       />
 

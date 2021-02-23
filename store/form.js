@@ -36,7 +36,6 @@ export const state = () => ({
   districts: [],
   villages: [],
   congenitalDisease: [],
-  haveInteracted: null,
   cityVisited: null,
   isCityVisited: null,
   occupationTypeOptions: [
@@ -99,16 +98,9 @@ export const state = () => ({
     { value: 99, text: 'Tidak pernah mengikuti ke event/kegiatan di atas.' }
   ],
 
-  haveInteractedOptions: [
-    { value: 'YES', text: 'Ya' },
-    { value: 'NO', text: 'Tidak' },
-    { value: 'UNKNOWN', text: 'Tidak Tahu' }
-  ],
-
   congenitalDiseaseOptions: [
     { value: 1, text: 'Darah Tinggi' },
-    { value: 2, text: 'Diabetes' },
-    { value: 3, text: 'Kronis' },
+    { value: 2, text: 'Diabetes Kronis' },
     { value: 4, text: 'Gangguan Jantung' },
     { value: 5, text: 'Gagal Ginjal' },
     { value: 99, text: 'Tidak Ada' }
@@ -197,10 +189,8 @@ export const getters = {
   status: state => state.status,
   occupationTypeOptions: state => state.occupationTypeOptions,
   jabarOptions: state => state.jabarOptions,
-  haveInteractedOptions: state => state.haveInteractedOptions,
   congenitalDiseaseOptions: state => state.congenitalDiseaseOptions,
   congenitalDisease: state => state.congenitalDisease,
-  haveInteracted: state => state.haveInteracted,
   cityVisited: state => state.cityVisited,
   isCityVisited: state => state.isCityVisited,
   cityVisitedOptions: state => state.cityVisitedOptions
@@ -356,10 +346,6 @@ export const mutations = {
   SET_RESULT_REGISTRATION_RESULT (state, { registrationCode, downloadUrl }) {
     state.registrationCode = registrationCode
     state.downloadUrl = downloadUrl
-  },
-
-  SET_HAVE_INTERACTED (state, payload) {
-    state.haveInteracted = payload
   },
 
   SET_CITY_VISITED (state, payload) {

@@ -1,172 +1,175 @@
 <template>
-  <div class="container mx-auto p-6">
-    <h2 class="text-xl text-gray-900 text-center">
-      Periksa Isian Data
-    </h2>
-
-    <p class="mt-4 text-sm">
-      Klik tombol <strong>Kirim</strong> untuk menyelesaikan proses pendaftaran Anda.
+  <div class="container mx-auto p-6 h-full">
+    <p class="text-base text-brand-grey-dark">
+      {{ progress }} Selesai
     </p>
+    <div class="text-xl text-brand-grey font-bold mt-4">
+      <p>Periksa Isian Data</p>
+    </div>
+    <div class="py-5 grid gap-4 grid-cols-2">
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          NIK
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ nik }}
+        </p>
+      </div>
 
-    <div class="py-5">
-      <dl>
-        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Nama Lengkap
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ name }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            NIK
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ nik }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Tempat Lahir
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ birth_place }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Tanggal Lahir
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ format(new Date(birth_year, birth_month, birth_day), 'dd-MM-yyyy') }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Alamat Domisili
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ address }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Nomor Telepon (Whatsapp)
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ phone_number }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Email
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ email }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Jenis Pekerjaan
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ getOccupationName(occupationType) }}
-          </dd>
-        </div>
-        <div v-if="occupationType === 13" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Nama Pekerjaan
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ occupationName }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Nama Tempat Bekerja
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ workplaceName }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Gejala Dialami
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            <ul v-if="symptoms.length > 0">
-              <li v-for="symptomValue in symptoms" :key="`event-${symptomValue}`" class="mb-4">
-                <svg class="h-4 w-4 inline fill-current text-brand-green-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" /></svg>
-                {{ getSymptomName(symptomValue) }}
-              </li>
-            </ul>
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Catatan Lain
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ symptomsNotes }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Status
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ getStatusName(status) }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Pernah berinteraksi dengan dengan kasus suspect/probable/konfirmasi
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ getHaveInteracted(haveInteracted) }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Pernah berkunjung ke luar kota
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ getIsCityVisited(isCityVisited) }}
-          </dd>
-        </div>
-        <div v-if="isCityVisited === 'YES'" class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Kota-kota yang dikunjungi dalam 14 hari terakhir
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ cityVisited }}
-          </dd>
-        </div>
-        <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-          <dt class="text-sm leading-5 font-medium text-gray-500">
-            Penyakit bawaan
-          </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-            <ul v-if="congenitalDisease.length > 0">
-              <li v-for="disease in congenitalDisease" :key="`event-${disease}`" class="mb-4">
-                <svg class="h-4 w-4 inline fill-current text-brand-green-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" /></svg>
-                {{ getCongenitalDisease(disease) }}
-              </li>
-            </ul>
-          </dd>
-        </div>
-      </dl>
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Nama Lengkap
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ name }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Tempat Lahir
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ birth_place }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Tanggal Lahir
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ format(new Date(birth_year, birth_month, birth_day), 'dd-MM-yyyy') }}
+        </p>
+      </div>
+
+      <div class="col-span-2">
+        <p class="text-xs text-brand-grey-dark">
+          Tempat tinggal
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ address }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Nomor Telepon (Whatsapp)
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ phone_number }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Email
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ email || '-' }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Jenis Pekerjaan
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ occupationType ? getOccupationName(occupationType) : '-' }}
+        </p>
+      </div>
+
+      <div v-if="occupationType === 13">
+        <p class="text-xs text-brand-grey-dark">
+          Nama Pekerjaan
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ occupationName }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Nama Tempat Bekerja
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ workplaceName }}
+        </p>
+      </div>
+
+      <div class="col-span-2">
+        <p class="text-xs text-brand-grey-dark">
+          Gejala Dialami
+        </p>
+        <p class="text-lg text-brand-grey">
+          <span v-if="symptoms.length > 0">
+            <span v-for="symptomValue in symptoms" :key="`event-${symptomValue}`" class="mb-4">
+              <svg class="h-4 w-4 inline fill-current text-brand-green-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" /></svg>
+              {{ symptomValue ? getSymptomName(symptomValue) : '-' }}.
+            </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="col-span-2">
+        <p class="text-xs text-brand-grey-dark">
+          Penyakit bawaan
+        </p>
+        <p class="text-lg text-brand-grey">
+          <span v-if="congenitalDisease.length > 0">
+            <span v-for="disease in congenitalDisease" :key="`event-${disease}`" class="mb-4">
+              <svg class="h-4 w-4 inline fill-current text-brand-green-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M20 10a10 10 0 1 1-20 0 10 10 0 0 1 20 0zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8 2H5V8h5V5l5 5-5 5v-3z" /></svg>
+              {{ disease ? getCongenitalDisease(disease) : '-' }}.
+            </span>
+          </span>
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Catatan Lain
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ symptomsNotes || '-' }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Status
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ status ? getStatusName(status) : '-' }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Berkunjung ke luar kota
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ isCityVisited ? getIsCityVisited(isCityVisited) : '-' }}
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs text-brand-grey-dark">
+          Tujuan Kunjungan
+        </p>
+        <p class="text-lg text-brand-grey">
+          {{ cityVisited }}
+        </p>
+      </div>
     </div>
 
-    <div class="bg-red-50 sm:rounded-lg">
+    <div class="bg-brand-yellow-lighter border border-brand-yellow-light sm:rounded-lg">
       <div class="px-4 py-5 sm:p-6">
         <h3 class="leading-6 font-bold text-gray-900">
-          Perhatian
+          Perhatian!
         </h3>
         <div class="mt-2 max-w-xl text-sm leading-5 text-gray-500">
           <p>
-            Data yang tidak lengkap akan membuat proses verifikasi menjadi terkendala. Pastikan data yang Anda isikan benar dan lengkap.
+            Data yang tidak lengkap akan membuat proses verifikasi menjadi terkendala. Pastikan Anda mengisi data dengan benar dan lengkap. Klik "kirim" untuk menyelesaikan proses pendaftaran.
           </p>
         </div>
       </div>
@@ -177,7 +180,7 @@
     </div>
 
     <div class="mt-6 text-center">
-      <button type="button" class="block flex w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-orange text-center" @click="submit">
+      <button type="button" class="block flex w-full items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-lg text-white bg-brand-green text-center" @click="submit">
         <svg v-if="loading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle
             class="opacity-25"
@@ -191,18 +194,13 @@
         </svg>
         Kirim
       </button>
-      <nuxt-link to="/registration/status" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-green-dark text-center mt-5">
-        <svg
-          class="h-5 w-auto inline-block mr-2"
-          fill="currentColor"
-          viewBox="0 0 256 512"
-        ><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" /></svg>
+      <nuxt-link to="/registration" class="inline-flex items-center justify-center px-2 mb-3 text-base leading-6 font-medium text-brand-grey-dark text-center mt-5">
+        <img src="/back-icon.svg" class="pr-2" alt="Tombol kembali">
         Kembali
       </nuxt-link>
     </div>
   </div>
 </template>
-
 <script>
 import { mapGetters } from 'vuex'
 import VueRecaptcha from 'vue-recaptcha'
@@ -255,13 +253,17 @@ export default {
       'statusOptions',
       'status',
       'congenitalDisease',
-      'haveInteracted',
       'cityVisited',
       'isCityVisited',
       'cityVisitedOptions',
-      'haveInteractedOptions',
       'congenitalDiseaseOptions'
-    ])
+    ]),
+
+    progress: {
+      get () {
+        return this.$store.state.form.progress
+      }
+    }
   },
 
   mounted () {
@@ -294,12 +296,6 @@ export default {
 
     getEventName (value) {
       const event = this.eventsOptions.find(x => x.value === value)
-
-      return event.text
-    },
-
-    getHaveInteracted (value) {
-      const event = this.haveInteractedOptions.find(x => x.value === value)
 
       return event.text
     },
@@ -348,7 +344,6 @@ export default {
           latitude: this.latitude,
           longitude: this.longitude,
           congenital_disease: this.congenitalDisease,
-          have_interacted: this.haveInteracted,
           city_visited: this.cityVisited
         })
 

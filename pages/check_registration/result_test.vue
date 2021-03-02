@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto p-6">
+  <div class="container mx-auto p-6 h-full">
     <h2 class="text-gray-900 text-center">
       Informasi Hasil Tes
     </h2>

@@ -1,14 +1,17 @@
 <template>
   <validation-provider v-slot="{ errors }" :name="name" :rules="rules" tag="div" class="block">
-    <label :for="name" class="block text-gray-700 leading-5 text-sm font-medium">
+    <label :for="name" class="block text-sm font-medium leading-5 text-gray-700">
       {{ label }}
-      <span v-if="isRequired" class="text-red-500">*</span>
+      <span v-if="isRequired" class="text-brand-red">*</span>
     </label>
     <div class="mt-1 relative rounded-md">
-      <div v-if="errors.length > 0" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-        <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+      <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+        <svg v-if="errors.length > 0" class="h-5 w-5 text-brand-red" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
         </svg>
+        <p v-if="note" class="text-sm text-brand-grey-dark hover:text-brand-green italic">
+          {{ note }}
+        </p>
       </div>
       <textarea
         v-if="type === 'textarea'"
@@ -16,8 +19,8 @@
         v-model.lazy="tempValue"
         :name="name"
         :rows="rows"
-        class="block pr-10 shadow-sm appearance-none border-2 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow focus:bg-white focus:border-brand-green-dark transition duration-500 ease-in-out"
-        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300': errors.length > 0 }"
+        class="form-style"
+        :class="{ 'form-style-error': errors.length > 0 }"
         :placeholder="placeholder"
       />
       <input
@@ -26,15 +29,15 @@
         v-model.lazy="tempValue"
         :name="name"
         :type="type"
-        class="block pr-10 shadow-sm appearance-none border-2 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow focus:bg-white focus:border-brand-green-dark transition duration-500 ease-in-out"
-        :class="{ 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-300': errors.length > 0 }"
+        class="form-style"
+        :class="{ 'form-style-error': errors.length > 0 }"
         :placeholder="placeholder"
         @keypress="isNumberTel"
       >
     </div>
-    <strong class="text-red-500 text-xs italic">
+    <p class="text-brand-red text-sm">
       {{ errors[0] }}
-    </strong>
+    </p>
   </validation-provider>
 </template>
 
@@ -73,6 +76,10 @@ export default {
     rows: {
       type: Number,
       default: 3
+    },
+    note: {
+      type: String,
+      default: null
     }
   },
   data () {

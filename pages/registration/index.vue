@@ -1,37 +1,46 @@
 <template>
   <div class="container mx-auto p-6">
-    <ValidationObserver ref="form">
-      <p class="mt-4 text-sm">
-        Masukkan Nomor Induk Kependudukan (NIK) calon peserta test COVID-19.
+    <div class="ml-6">
+      <p class="text-base text-brand-grey-dark">
+        {{ percent }}% Selesai
       </p>
-
-      <pkbr-input v-model="nik" class="mb-3" name="NIK" rules="required|nik" type="tel" />
-
-      <form-actions class="mt-12" back-link="/terms-conditions" @next="nextStep" />
-    </ValidationObserver>
+    </div>
+    <form-nik v-if="step === 0" @nextStep="nextStep" />
+    <form-name v-if="step === 1" @nextStep="nextStep" @backStep="backStep" />
+    <form-gender v-if="step === 2" @nextStep="nextStep" @backStep="backStep" />
+    <form-birth-place v-if="step === 3" @nextStep="nextStep" @backStep="backStep" />
+    <form-birth-date v-if="step === 4" @nextStep="nextStep" @backStep="backStep" />
+    <form-phone v-if="step === 5" @nextStep="nextStep" @backStep="backStep" />
+    <form-email v-if="step === 6" @nextStep="nextStep" @backStep="backStep" />
+    <form-address v-if="step === 7" @nextStep="nextStep" @backStep="backStep" />
+    <form-occupation v-if="step === 8" @nextStep="nextStep" @backStep="backStep" />
+    <form-symptoms v-if="step === 9" @nextStep="nextStep" @backStep="backStep" />
+    <form-conginetal-disease v-if="step === 10" @nextStep="nextStep" @backStep="backStep" />
+    <form-city-visited v-if="step === 11" @nextStep="nextStep" @backStep="backStep" />
+    <form-city-visited-name v-if="step === 12" @nextStep="nextStep" @backStep="backStep" />
+    <form-status v-if="step === 13" @nextStep="nextStep" @backStep="backStep" />
   </div>
 </template>
 
 <script>
-import { ValidationObserver, extend } from 'vee-validate'
 
 export default {
-  components: { ValidationObserver },
-
   data () {
     return {
-      //
+      step: 0
     }
   },
 
   computed: {
-    nik: {
-      get () {
-        return this.$store.state.form.nik
-      },
-      set (value) {
-        this.$store.commit('form/SET_NIK', value)
-      }
+    percent () {
+      return parseInt((this.step / 14) * 100)
+    }
+  },
+
+  watch: {
+    percent (val) {
+      val = val + '%'
+      this.$store.commit('form/SET_PERCENT_PROGRESS', val)
     }
   },
 
@@ -40,31 +49,19 @@ export default {
     window.onbeforeunload = function () {
       return true
     }
-    extend('nik_registered', {
-      validate: this.nikRegistered,
-      message: 'NIK telah terdaftar'
-    })
   },
 
   methods: {
-    async nextStep () {
-      const valid = await this.$refs.form.validate()
-
-      if (valid) {
-        this.$router.replace('/registration/personal')
+    nextStep () {
+      if (this.step < 13) {
+        this.step++
+      } else {
+        this.step++
+        this.$router.replace('/registration/confirm')
       }
     },
-    async nikRegistered () {
-      try {
-        await this.$axios.$post('/api/register/check-nik', {
-          nik: this.$store.state.form.nik
-        })
-        return true
-      } catch (error) {
-        if (error.response.status === 422) {
-          return false
-        }
-      }
+    backStep () {
+      this.step--
     }
   }
 }

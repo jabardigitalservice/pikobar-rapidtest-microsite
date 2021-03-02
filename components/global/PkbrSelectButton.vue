@@ -5,6 +5,11 @@
       <span v-if="isRequired" class="text-brand-red">*</span>
     </label>
     <div class="mt-1 relative rounded-md">
+      <span v-for="(item, index) in list" :key="index">
+        <button type="button" :value="item[itemValue]" class="inline-block w-1/4 items-center justify-center px-5 py-2 lg:text-base text-sm leading-6 font-medium rounded-lg text-white border border-brand-green active:border-brand-green bg-transparent text-brand-green hover:text-white hover:bg-brand-green text-center ml-2" @click="nextStep">
+          {{ item[itemText] }}
+        </button>
+      </span>
       <select
         v-model="tempValue"
         class="form-select form-style"

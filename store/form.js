@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 
 // state
 export const state = () => ({
+  progress: '0%',
   sessionId: null,
   pikobarUid: null,
   registrationCode: null,
@@ -35,7 +36,6 @@ export const state = () => ({
   districts: [],
   villages: [],
   congenitalDisease: [],
-  haveInteracted: null,
   cityVisited: null,
   isCityVisited: null,
   occupationTypeOptions: [
@@ -98,16 +98,9 @@ export const state = () => ({
     { value: 99, text: 'Tidak pernah mengikuti ke event/kegiatan di atas.' }
   ],
 
-  haveInteractedOptions: [
-    { value: 'YES', text: 'Ya' },
-    { value: 'NO', text: 'Tidak' },
-    { value: 'UNKNOWN', text: 'Tidak Tahu' }
-  ],
-
   congenitalDiseaseOptions: [
     { value: 1, text: 'Darah Tinggi' },
-    { value: 2, text: 'Diabetes' },
-    { value: 3, text: 'Kronis' },
+    { value: 2, text: 'Diabetes Kronis' },
     { value: 4, text: 'Gangguan Jantung' },
     { value: 5, text: 'Gagal Ginjal' },
     { value: 99, text: 'Tidak Ada' }
@@ -150,6 +143,7 @@ export const state = () => ({
 
 // getters
 export const getters = {
+  progress: state => state.progress,
   sessionId: state => state.sessionId,
   pikobarUid: state => state.pikobarUid,
   registrationCode: state => state.registrationCode,
@@ -195,10 +189,8 @@ export const getters = {
   status: state => state.status,
   occupationTypeOptions: state => state.occupationTypeOptions,
   jabarOptions: state => state.jabarOptions,
-  haveInteractedOptions: state => state.haveInteractedOptions,
   congenitalDiseaseOptions: state => state.congenitalDiseaseOptions,
   congenitalDisease: state => state.congenitalDisease,
-  haveInteracted: state => state.haveInteracted,
   cityVisited: state => state.cityVisited,
   isCityVisited: state => state.isCityVisited,
   cityVisitedOptions: state => state.cityVisitedOptions
@@ -356,10 +348,6 @@ export const mutations = {
     state.downloadUrl = downloadUrl
   },
 
-  SET_HAVE_INTERACTED (state, payload) {
-    state.haveInteracted = payload
-  },
-
   SET_CITY_VISITED (state, payload) {
     state.cityVisited = payload
   },
@@ -370,6 +358,10 @@ export const mutations = {
 
   SET_CONGENITAL_DISEASE (state, payload) {
     state.congenitalDisease = payload
+  },
+
+  SET_PERCENT_PROGRESS (state, payload) {
+    state.progress = payload
   }
 }
 

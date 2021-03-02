@@ -2,42 +2,40 @@ html,
 body { height: 100%; }
 
 body {
-  background-color: #f7f7f7;
+  background-color: #fafafa;
 }
 
-.main-layout > .content {
-  max-width: 480px;
+.main-layout {
   width: 100%;
-  background-color: #fff;
-  //padding-bottom: 65px;
+  background-color: #fafafa;
   margin: 0 auto;
 }
 
 .mobile-screen {
-  height: calc(100vh - 48px);
+  height: 100%;
 
-  @media (min-width: 640px) {
+  @media (min-width: 325px) {
     height: auto;
   }
 
   &.content-long {
     height: 100vh;
 
-    @media (min-width: 640px) {
+    @media (min-width: 325px) {
       height: auto;
     }
   }
 
   .mobile-content {
-    @media (min-width: 640px) {
-      height: 640px;
+    @media (min-width: 325px) {
+      height: 100vh;
     }
   }
 
   .mobile-actions {
     margin-top: 15px;
 
-    @media (min-width: 640px) {
+    @media (min-width: 325px) {
       position: relative;
       padding: 0;
     }
@@ -71,4 +69,24 @@ body {
       @apply text-gray-500;
     }
   }
+}
+
+.form-style {
+  @apply block pr-10 appearance-none border border-brand-grey-light rounded-lg w-full py-3 px-2 text-brand-grey leading-tight transition duration-500 ease-in-out;
+}
+
+.form-style:focus {
+  @apply outline-none shadow bg-white border-brand-green;
+}
+
+.form-style-error {
+  @apply border-brand-red;
+}
+
+.form-style-error:focus {
+  @apply border-brand-red;
+}
+
+.text-content {
+  @apply text-base mt-4 text-brand-grey;
 }

@@ -12,6 +12,7 @@
         name="Jenis Pekerjaan"
         label="Jenis Pekerjaan"
         rules="required"
+        @next="nextStep"
       />
 
       <pkbr-select
@@ -22,6 +23,7 @@
         name="Unit Kerja"
         label="Unit Kerja"
         rules="required"
+        @next="nextStep"
       />
 
       <pkbr-input
@@ -32,6 +34,7 @@
         label="Nama Tempat Bekerja"
         placeholder="Contoh: PT. Abadi Jaya"
         rules="required"
+        @next="nextStep"
       />
 
       <pkbr-select
@@ -42,6 +45,7 @@
         name="Tipe Kepegawaian"
         label="Tipe Kepegawaian"
         rules="required"
+        @next="nextStep"
       />
 
       <pkbr-input
@@ -51,6 +55,7 @@
         label="Nama Profesi/Pekerjaan/Sub Bagian"
         placeholder="Contoh: Staff Engineer"
         rules="required"
+        @next="nextStep"
       />
     </ValidationObserver>
 

@@ -12,6 +12,7 @@
         rules="required|nik"
         placeholder="Contoh: 3928192038819304"
         type="tel"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" back-link="/terms-conditions" @next="nextStep" />

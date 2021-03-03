@@ -18,6 +18,7 @@
         :items="symptomsOptions"
         name="Gejala"
         rules="required"
+        @next="nextStep"
       />
 
       <pkbr-input
@@ -26,6 +27,7 @@
         name="Gejala lain yang dirasakan"
         label="Gejala lain yang dirasakan"
         type="textarea"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

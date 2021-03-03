@@ -12,6 +12,7 @@
         placeholder="Contoh: nama@email.com"
         note="Tidak Wajib"
         rules="email"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

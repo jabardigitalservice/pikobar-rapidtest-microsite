@@ -12,6 +12,7 @@
         name="Tanggal Lahir"
         placeholder="Tanggal"
         rules="required"
+        @next="nextStep"
       />
 
       <pkbr-select
@@ -20,6 +21,7 @@
         name="Bulan"
         placeholder="Bulan"
         rules="required"
+        @next="nextStep"
       />
 
       <pkbr-select
@@ -28,6 +30,7 @@
         name="Tahun"
         placeholder="Tahun"
         rules="required"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

@@ -21,6 +21,7 @@
             type="checkbox"
             class="form-checkbox h-4 w-4 text-brand-green-dark bg-white border-2 border-gray-400 transition duration-150 ease-in-out"
             @change="isException(item[itemValue] === clearValue)"
+            @keyup.enter="nextStep"
           >
         </div>
         <div class="pl-6 text-sm leading-5">
@@ -116,6 +117,9 @@ export default {
           : tempValue
       }
       this.tempValue = tempValue
+    },
+    nextStep () {
+      this.$emit('next')
     }
   }
 }

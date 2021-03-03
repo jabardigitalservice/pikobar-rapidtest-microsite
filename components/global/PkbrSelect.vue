@@ -12,6 +12,7 @@
           'form-style-error': errors.length > 0,
           'placeholdered': tempValue === null
         }"
+        @keypress.enter="nextStep"
       >
         <option :value="null" disabled class="text-gray-200">
           {{ placeholder }}
@@ -105,6 +106,9 @@ export default {
       if (!isObject(this.list[0])) {
         this.list = this.list.map((value, i) => ({ text: value, value }))
       }
+    },
+    nextStep () {
+      this.$emit('next')
     }
   }
 }

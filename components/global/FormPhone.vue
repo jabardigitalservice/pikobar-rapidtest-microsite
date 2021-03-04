@@ -15,6 +15,7 @@
         rules="required|phone_number"
         placeholder="Contoh: 081921678789"
         type="tel"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

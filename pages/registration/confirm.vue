@@ -7,7 +7,7 @@
       <p>Periksa Isian Data</p>
     </div>
     <div class="py-5 grid gap-4 grid-cols-2">
-      <div>
+      <div class="lg:col-span-1 col-span-2">
         <p class="text-xs text-brand-grey-dark">
           NIK
         </p>

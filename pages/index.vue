@@ -114,11 +114,9 @@ export default {
 
         this.event.is_ended = isAfter(today, eventEndDate)
 
-        if (this.enableRegistration && (this.event && !this.event.is_ended)) {
-          return this.actionButton
-        } else if (this.enableRegistration && (this.event && this.event.is_ended)) {
-          return this.actionButton.shift()
-        }
+        if (!this.enableRegistration) { return }
+        if (!this.event) { return }
+        if (!this.event.is_ended) { return this.actionButton } else { return this.actionButton.shift() }
       } catch (e) {
         //
       }

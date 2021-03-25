@@ -13,6 +13,7 @@
         :items="congenitalDiseaseOptions"
         name="Penyakit bawaan"
         rules="required"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

@@ -11,6 +11,7 @@
         name="Kota kunjungan"
         placeholder="Contoh: Jakarta"
         rules="required"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

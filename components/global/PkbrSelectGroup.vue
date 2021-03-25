@@ -22,6 +22,7 @@
           type="radio"
           class="form-radio h-4 w-4 text-brand-green-dark bg-white border-2 border-gray-400 transition duration-150 ease-in-out"
           :value="item[itemValue]"
+          @keypress.enter="nextStep"
         >
         <label class="ml-3" :for="`${name}-${index}`">
           <span class="block text-sm leading-5 text-gray-700">{{ item[itemText] }}</span>
@@ -102,6 +103,9 @@ export default {
       if (!isObject(this.list[0])) {
         this.list = this.list.map(value => ({ text: value, value }))
       }
+    },
+    nextStep () {
+      this.$emit('next')
     }
   }
 }

@@ -18,6 +18,7 @@
         item-text="name"
         item-value="code"
         @change="changeCity"
+        @next="nextStep"
       />
 
       <pkbr-select
@@ -30,6 +31,7 @@
         item-text="name"
         item-value="code"
         @change="changeDistrict"
+        @next="nextStep"
       />
 
       <pkbr-select
@@ -41,6 +43,7 @@
         rules="required"
         item-text="name"
         item-value="code"
+        @next="nextStep"
       />
 
       <pkbr-input
@@ -50,6 +53,7 @@
         label="Tulis Alamat Lengkap"
         placeholder="Tulis alamat tempat Anda tinggal"
         rules="required"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

@@ -22,6 +22,7 @@
         class="form-style"
         :class="{ 'form-style-error': errors.length > 0 }"
         :placeholder="placeholder"
+        @keyup.enter="nextStep"
       />
       <input
         v-else
@@ -33,6 +34,7 @@
         :class="{ 'form-style-error': errors.length > 0 }"
         :placeholder="placeholder"
         @keypress="isNumberTel"
+        @keyup.enter="nextStep"
       >
     </div>
     <p class="text-brand-red text-sm">
@@ -109,6 +111,9 @@ export default {
         }
       }
       return true
+    },
+    nextStep () {
+      this.$emit('next')
     }
   }
 }

@@ -30,7 +30,7 @@ extend('nik', {
 
     const prefix = value.substring(0, 2)
 
-    return allowedPrefix.includes(prefix) && value.match(/^[1-9]{1}[0-9]{11}(?!0{4})[0-9]{4}$/g)
+    return allowedPrefix.includes(prefix) && value.match(/^[1-9]{1}[0-9]{10,11}(?!0{4})[0-9]{4}$/g)
   },
   message: 'Format NIK tidak benar'
 })

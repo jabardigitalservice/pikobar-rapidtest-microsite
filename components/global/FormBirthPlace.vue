@@ -11,6 +11,7 @@
         name="Tempat Lahir"
         placeholder="Contoh: Bandung"
         rules="required"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

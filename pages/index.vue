@@ -95,16 +95,12 @@ export default {
       this.$store.dispatch('form/saveSessionId', { sessionId })
 
       this.getEventDetail(sessionId)
+    } else {
+      return this.actionButton.shift()
     }
 
     if (pikobarUid) {
       this.$store.commit('form/SET_PIKOBAR_UID', pikobarUid)
-    }
-
-    if (this.enableRegistration && !(this.event && this.event.is_ended)) {
-      return this.actionButton
-    } else {
-      return this.actionButton.shift()
     }
   },
 
@@ -117,6 +113,10 @@ export default {
         const eventEndDate = new Date(this.event.end_at)
 
         this.event.is_ended = isAfter(today, eventEndDate)
+
+        if (!this.enableRegistration) { return }
+        if (!this.event) { return }
+        if (!this.event.is_ended) { return this.actionButton } else { return this.actionButton.shift() }
       } catch (e) {
         //
       }

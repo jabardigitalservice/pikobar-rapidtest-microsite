@@ -11,6 +11,7 @@
         name="Nama Lengkap"
         placeholder="Contoh: Abdul Wahab"
         rules="required"
+        @next="nextStep"
       />
 
       <form-actions class="mt-12 flex" @prev="backStep" @next="nextStep" />

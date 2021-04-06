@@ -7,24 +7,24 @@
             Selamat Datang,
           </h1>
 
-          <template v-if="enableRegistration">
-            <div v-if="event !== null" class="lg:w-10/12">
-              <p v-if="event.is_ended" class="text-content">
-                Anda berada di halaman Pikobar Tes Masif COVID-19 Jawa Barat. Mohon maaf Kegiatan <span class="font-bold text-red-700"><strong>{{ event.event_name }}.</strong> Sudah Selesai.</span>
+          <template v-if="enableRegistration" style="background: blue;">
+            <div v-if="event !== null" class="lg:w-12/12">
+              <p v-if="event.is_ended || event.status === 'DRAFT'" class="text-content">
+                Anda berada di halaman Pikobar Pendaftaran Tes COVID-19 Jawa Barat. Mohon maaf Kegiatan <span class="font-bold text-red-700"><strong>{{ event.event_name }}.</strong> Sudah Selesai.</span>
               </p>
               <p v-else class="text-content">
-                Anda berada di halaman Pikobar Tes Masif COVID-19 Jawa Barat. Anda dapat mengikuti kegiatan <strong>{{ event.event_name }}.</strong> Silahkan pilih menu <strong>Pendaftaran Baru</strong> di bawah, untuk melengkapi data-data Anda.
+                Anda berada di halaman Pikobar Pendaftaran Tes COVID-19 Jawa Barat. Anda dapat mengikuti kegiatan <strong>{{ event.event_name }}.</strong> Silahkan pilih menu <strong>Pendaftaran Baru</strong> di bawah, untuk melengkapi data-data Anda.
               </p>
             </div>
-            <div v-else class="lg:w-10/12">
+            <div v-else class="lg:w-12/12">
               <p class="text-content">
-                Anda berada di halaman Pikobar Tes Masif COVID-19 Jawa Barat. Anda dapat mendaftarkan diri sebagai calon peserta tes. Silahkan pilih menu <strong>Pendaftaran Baru</strong> di bawah, untuk melengkapi data-data Anda.
+                Anda berada di halaman Pikobar Pendaftaran Tes COVID-19 Jawa Barat. Anda dapat mendaftarkan diri sebagai calon peserta tes. Silahkan pilih menu <strong>Pendaftaran Baru</strong> di bawah, untuk melengkapi data-data Anda.
               </p>
             </div>
           </template>
           <template v-else>
             <p class="text-content">
-              Anda berada di halaman Pikobar Tes Masif COVID-19 Jawa Barat. Pendaftaran dapat dilakukan melalui <strong>Aplikasi PIKOBAR</strong> pada menu <strong>Periksa Mandiri</strong>.
+              Anda berada di halaman Pikobar Pendaftaran Tes COVID-19 Jawa Barat. Pendaftaran dapat dilakukan melalui <strong>Aplikasi PIKOBAR</strong> pada menu <strong>Periksa Mandiri</strong>.
             </p>
             <p class="mt-4">
               Unduh melalui <a href="https://play.google.com/store/apps/details?id=id.go.jabarprov.pikobar" class="font-bold underline" target="_blank">Google Play</a> atau <a href="https://apps.apple.com/us/app/pikobar-jawa-barat/id1509760172" class="font-bold underline" target="_blank">Apple Store</a>.
@@ -116,7 +116,7 @@ export default {
 
         if (!this.enableRegistration) { return }
         if (!this.event) { return }
-        if (!this.event.is_ended) { return this.actionButton } else { return this.actionButton.shift() }
+        if (!this.event.is_ended && this.event.status === 'PUBLISHED') { return this.actionButton } else { return this.actionButton.shift() }
       } catch (e) {
         //
       }

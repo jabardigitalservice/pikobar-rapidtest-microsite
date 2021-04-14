@@ -30,7 +30,7 @@
               </p>
 
               <p class="mt-4">
-                Hanya yang <strong>sudah diverifikasi dan dinyatakan memenuhi syarat</strong> oleh Dinas Kesehatan Provinsi atau Dinas Kesehatan Kabupaten/Kota yang akan mendapatkan undangan untuk mengikuti Tes Masif COVID-19 Provinsi Jawa Barat.
+                Hanya yang <strong>sudah diverifikasi dan dinyatakan memenuhi syarat</strong> oleh Dinas Kesehatan Provinsi atau Dinas Kesehatan Kabupaten/Kota yang akan mendapatkan undangan untuk mengikuti Pendaftaran Tes COVID-19 Provinsi Jawa Barat.
               </p>
 
               <p class="mt-4">
@@ -75,7 +75,7 @@
                   Wajib menggunakan masker serta mengikuti protokol kesehatan perlindungan diri dan orang lain.
                 </li>
                 <li class="mt-2">
-                  Tes Masif COVID-19 ini tidak dipungut biaya.
+                  Pendaftaran Tes COVID-19 ini tidak dipungut biaya.
                 </li>
                 <li class="mt-2">
                   Jangan membagikan nomor pendaftaran ini kepada orang lain. Pastikan identitas Anda tidak digunakan orang lain.

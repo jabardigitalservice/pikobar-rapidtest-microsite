@@ -6,7 +6,7 @@
       </h3>
       <div class="mt-2 max-w-xl text-sm leading-5 text-gray-800">
         <p class="mt-4">
-          Terima kasih telah menghadiri Tes Masif COVID-19 PIKOBAR Provinsi Jawa Barat.
+          Terima kasih telah menghadiri Pikobar Pendaftaran Tes COVID-19 PIKOBAR Provinsi Jawa Barat.
         </p>
 
         <dl class="mt-4">

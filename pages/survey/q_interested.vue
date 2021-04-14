@@ -5,7 +5,7 @@
         <div class="mobile-content">
           <validation-provider v-slot="{ errors }" name="Jawaban" rules="required">
             <p>
-              Apakah Anda masih tertarik mengikuti Tes Masif COVID-19?
+              Apakah Anda masih tertarik mengikuti Pikobar Pendaftaran Tes COVID-19?
             </p>
 
             <p v-if="errors.length > 0" class="mt-2 text-sm text-red-600">

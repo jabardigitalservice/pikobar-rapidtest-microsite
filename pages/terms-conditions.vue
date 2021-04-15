@@ -6,7 +6,7 @@
           <img src="/kutip.svg" alt="Tanda kutip" width="25" height="25">
           <div class="pl-8 pr-6">
             <p class="text-lg">
-              Pendaftaran Peserta Tes Masif COVID-19 bersifat terbatas dan diprioritaskan <strong>bagi orang yang paling rentan terjangkit wabah virus COVID-19.</strong>
+              Pendaftaran Peserta Pikobar Pendaftaran Tes COVID-19 bersifat terbatas dan diprioritaskan <strong>bagi orang yang paling rentan terjangkit wabah virus COVID-19.</strong>
             </p>
             <p class="mt-4">
               Mendaftarkan diri tidak secara otomatis menjamin akses untuk melakukan pengetesan.

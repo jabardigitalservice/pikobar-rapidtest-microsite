@@ -5,7 +5,7 @@
         <div class="mobile-content">
           <validation-provider v-slot="{ errors }" name="Jawaban" rules="required">
             <p>
-              Apakah Anda menghadiri undangan Tes Masif COVID-19 tersebut?
+              Apakah Anda menghadiri undangan Pikobar Pendaftaran Tes COVID-19 tersebut?
             </p>
 
             <p v-if="errors.length > 0" class="mt-2 text-sm text-red-600">

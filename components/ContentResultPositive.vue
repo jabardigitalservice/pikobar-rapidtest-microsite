@@ -1,7 +1,7 @@
 <template>
   <div class="html-content mt-8 text-sm">
     <p> Wargi Jabar yang baik, </p>
-    <p> Terima kasih telah memenuhi panggilan Tes Masif COVID-19. </p>
+    <p> Terima kasih telah memenuhi panggilan Pikobar Pendaftaran Tes COVID-19. </p>
     <p>
       Hasil tes Swab dan pemeriksaan PCR Anda <b>Positif</b>, artinya ditemukan adanya RNA dari SARS-CoV-2 yang
       merupakan penyebab COVID-19.

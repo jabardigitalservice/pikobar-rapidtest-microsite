@@ -1,8 +1,8 @@
 {
-  "name": "pikobar-rapidtest-microsite",
-  "title": "Tes Masif COVID-19",
+  "name": "microsite-pikobar-pendaftaran-tes-covid-19",
+  "title": "Pikobar Pendaftaran Tes COVID-19",
   "version": "1.0.0",
-  "description": "Pendaftaran Tes Masif COVID-19 PIKOBAR Jawa Barat",
+  "description": "Pikobar Pendaftaran Tes COVID-19 Jawa Barat",
   "author": "Yoga Hanggara",
   "private": true,
   "scripts": {

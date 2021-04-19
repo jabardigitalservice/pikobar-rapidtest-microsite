@@ -5,45 +5,12 @@
     </p>
 
     <ValidationObserver ref="form">
-      <pkbr-select
-        v-model="occupationType"
-        class="mt-6"
-        :items="occupationTypeOptions"
-        name="Jenis Pekerjaan"
-        label="Jenis Pekerjaan"
-        rules="required"
-        @next="nextStep"
-      />
-
-      <pkbr-select
-        v-if="occupationType === 14"
-        v-model="workplaceName"
-        :items="jabarOptions"
-        class="mt-4"
-        name="Unit Kerja"
-        label="Unit Kerja"
-        rules="required"
-        @next="nextStep"
-      />
-
       <pkbr-input
-        v-if="occupationType !== 14"
         v-model="workplaceName"
         class="mt-4"
         name="Nama Tempat Bekerja"
         label="Nama Tempat Bekerja"
-        placeholder="Contoh: PT. Abadi Jaya"
-        rules="required"
-        @next="nextStep"
-      />
-
-      <pkbr-select
-        v-if="occupationType === 14"
-        v-model="employeeType"
-        :items="employeeTypeOptions"
-        class="mt-4"
-        name="Tipe Kepegawaian"
-        label="Tipe Kepegawaian"
+        placeholder="Contoh: Dinas Komunikasi dan Informasi Jawa Barat"
         rules="required"
         @next="nextStep"
       />
@@ -53,7 +20,7 @@
         class="mt-4"
         name="Nama Profesi/Pekerjaan/Sub Bagian"
         label="Nama Profesi/Pekerjaan/Sub Bagian"
-        placeholder="Contoh: Staff Engineer"
+        placeholder="Contoh: PNS/Kepala Dinas/Guru/Ibu Rumah Tangga"
         rules="required"
         @next="nextStep"
       />
@@ -64,36 +31,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { ValidationObserver } from 'vee-validate'
 
 export default {
   components: { ValidationObserver },
 
-  data () {
-    return {
-      employeeTypeOptions: [
-        { value: 'PNS', text: 'PNS' },
-        { value: 'NON-PNS', text: 'Non PNS' }
-      ]
-    }
-  },
-
   computed: {
-    ...mapGetters('form', [
-      'occupationTypeOptions',
-      'jabarOptions'
-    ]),
-
-    occupationType: {
-      get () {
-        return this.$store.state.form.occupationType
-      },
-      set (value) {
-        this.$store.commit('form/SET_OCCUPATION_TYPE', value)
-      }
-    },
-
     occupationName: {
       get () {
         return this.$store.state.form.occupationName
@@ -109,15 +52,6 @@ export default {
       },
       set (value) {
         this.$store.commit('form/SET_WORKPLACE_NAME', value)
-      }
-    },
-
-    employeeType: {
-      get () {
-        return this.$store.state.form.employeeType
-      },
-      set (value) {
-        this.$store.commit('form/SET_EMPLOYEE_TYPE', value)
       }
     }
   },

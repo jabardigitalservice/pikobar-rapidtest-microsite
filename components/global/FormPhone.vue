@@ -5,7 +5,8 @@
         Mohon isi <strong>nomor telepon/WhatsApp</strong> Anda.
       </p>
       <p class="mb-4 text-xs text-gray-700">
-        Pastikan data benar karena undangan dan hasil tes akan dikirim ke nomor telepon Anda.
+        Dengan ini Anda menyetujui akan menerima pesan notifikasi SMS/Whatsapp dari PIKOBAR.
+        Pastikan data Anda benar karena undangan dan hasil tes akan dikirim ke nomor telepon Anda.
       </p>
 
       <pkbr-input

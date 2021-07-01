@@ -19,6 +19,8 @@
     "@nuxt/content": "^1.7.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/sentry": "^5.1.0",
+    "@sentry/tracing": "6.6.0",
+    "@sentry/vue": "6.6.0",
     "@tailwindcss/ui": "^0.5.0",
     "date-fns": "^2.16.0",
     "date-fns-tz": "^1.0.10",

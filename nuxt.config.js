@@ -75,6 +75,9 @@ export default {
     dsn: process.env.SENTRY_DSN,
     config: {
       environment: process.env.APP_ENV || 'local'
+    },
+    beforeSend (event, hint) {
+      return (hint.originalException === 'Timeout') ? null : event
     }
   },
 

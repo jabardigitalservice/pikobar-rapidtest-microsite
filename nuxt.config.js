@@ -75,6 +75,11 @@ export default {
     dsn: process.env.SENTRY_DSN,
     config: {
       environment: process.env.APP_ENV || 'local'
+    },
+    tracesSampleRate: parseFloat(process.env.SENTRY_TRACES_SAMPLE_RATE) || 0.0,
+    tracing: true,
+    beforeSend (event, hint) {
+      return (hint.originalException === 'Timeout') ? null : event
     }
   },
 

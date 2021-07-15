@@ -74,13 +74,13 @@ export default {
   sentry: {
     dsn: process.env.SENTRY_DSN,
     config: {
-      environment: process.env.APP_ENV || 'local'
+      environment: process.env.APP_ENV || 'local',
+      beforeSend (event, hint) {
+        return (hint.originalException === 'Timeout') ? null : event
+      }
     },
     tracesSampleRate: parseFloat(process.env.SENTRY_TRACES_SAMPLE_RATE) || 0.0,
-    tracing: true,
-    beforeSend (event, hint) {
-      return (hint.originalException === 'Timeout') ? null : event
-    }
+    tracing: true
   },
 
   /*
